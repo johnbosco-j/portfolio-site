@@ -35,6 +35,45 @@ export const profile = {
    * The name and role in Malayalam and Arabic, used for the poster line and the vertical
    * side rails. TODO: have a native reader check both spellings before launch.
    */
+  /**
+   * The name across writing systems, for the scrolling strip under the header.
+   * Decorative, but it is still his name — TODO: have native readers check these before
+   * launch, and delete any line you are not sure about rather than leaving it wrong.
+   */
+  nameIn: [
+    { lang: "English", text: "Johnbosco" },
+    { lang: "Malayalam", text: "ജോൺ ബോസ്കോ" },
+    { lang: "Tamil", text: "ஜான் போஸ்கோ" },
+    { lang: "Hindi", text: "जॉनबॉस्को" },
+    { lang: "Nepali", text: "जोनबोस्को" },
+    { lang: "Bengali", text: "জনবস্কো" },
+    { lang: "Telugu", text: "జాన్‌బాస్కో" },
+    { lang: "Kannada", text: "ಜಾನ್‌ಬಾಸ್ಕೊ" },
+    { lang: "Gujarati", text: "જૉનબૉસ્કો" },
+    { lang: "Punjabi", text: "ਜਾਨਬੋਸਕੋ" },
+    { lang: "Odia", text: "ଜନବୋସ୍କୋ" },
+    { lang: "Sinhala", text: "ජොන්බොස්කෝ" },
+    { lang: "Urdu", text: "جان بوسکو" },
+    { lang: "Arabic", text: "جون بوسكو" },
+    { lang: "Hebrew", text: "ג׳ונבוסקו" },
+    { lang: "Greek", text: "Τζονμπόσκο" },
+    { lang: "Russian", text: "Джонбоско" },
+    { lang: "Serbian", text: "Џонбоско" },
+    { lang: "Mongolian", text: "Жонбоско" },
+    { lang: "Georgian", text: "ჯონბოსკო" },
+    { lang: "Armenian", text: "Ջոնբոսկո" },
+    { lang: "Amharic", text: "ጆንቦስኮ" },
+    { lang: "Thai", text: "จอห์นบอสโก" },
+    { lang: "Lao", text: "ຈອນບອສໂກ" },
+    { lang: "Burmese", text: "ဂျွန်ဘော့စကို" },
+    { lang: "Japanese", text: "ジョンボスコ" },
+    { lang: "Korean", text: "존보스코" },
+    { lang: "Chinese", text: "约翰博斯科" },
+    { lang: "Vietnamese", text: "Gioan Bosco" },
+    { lang: "Turkish", text: "Conbosko" },
+    { lang: "Braille", text: "⠚⠕⠓⠝⠃⠕⠎⠉⠕" },
+    { lang: "Runic", text: "ᛃᛟᚻᚾᛒᛟᛋᚲᛟ" },
+  ],
   scripts: {
     ml: { name: "ജോൺ ബോസ്കോ", role: "ഫുൾ-സ്റ്റാക്ക് ഡെവലപ്പർ", work: "പ്രവൃത്തികൾ", wins: "നേട്ടങ്ങൾ" },
     ur: { name: "جان بوسکو", role: "فل اسٹیک ڈویلپر", about: "تعارف" },

@@ -32,7 +32,7 @@ export function About() {
                   alt={about.portrait.alt}
                   fill
                   sizes="(min-width: 1024px) 520px, 100vw"
-                  className="object-cover object-[50%_22%]"
+                  className="object-cover object-[50%_34%]"
                 />
               </ParallaxLayer>
             ) : (

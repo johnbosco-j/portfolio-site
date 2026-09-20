@@ -29,6 +29,7 @@ const config: Config = {
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
         modern: ["var(--font-modern)", "var(--font-sans)", "system-ui", "sans-serif"],
         display: ["var(--font-display)", "var(--font-sans)", "system-ui", "sans-serif"],
+        accent: ["var(--font-accent)", "var(--font-sans)", "system-ui", "sans-serif"],
         ml: ["var(--font-ml)", "var(--font-sans)", "system-ui", "sans-serif"],
         ur: ["var(--font-ur)", "var(--font-sans)", "serif"],
         jp: ["var(--font-jp)", "Hiragino Sans", "Yu Gothic", "system-ui", "sans-serif"],

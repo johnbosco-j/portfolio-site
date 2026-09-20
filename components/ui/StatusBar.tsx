@@ -5,7 +5,8 @@ import { useMotionValueEvent, useScroll } from "framer-motion";
 import { site } from "@/content/profile";
 
 /**
- * Cockpit status bar — a fixed instrument strip along the bottom of the page.
+ * Cockpit status bar — a fixed instrument strip along the bottom of the page (tablet and
+ * up; phones keep their screen for the content).
  * Everything in it is live and real: the section you are reading, how far down the page you
  * are, the current time in Chennai, and the latest public push on GitHub. It is the
  * portfolio's own "readout", the same idea as Clareo's live panels.
@@ -72,7 +73,7 @@ export function StatusBar({ push }: { push: { name: string; url: string; pushedA
   return (
     <aside
       aria-label="Page status"
-      className="fixed inset-x-0 bottom-0 z-40 border-t-2 border-line-strong bg-bg/95 font-mono text-[10px] uppercase tracking-[0.14em] text-muted backdrop-blur md:text-[11px]"
+      className="fixed inset-x-0 bottom-0 z-40 hidden border-t-2 md:block border-line-strong bg-bg/95 font-mono text-[10px] uppercase tracking-[0.14em] text-muted backdrop-blur md:text-[11px]"
     >
       {/* progress hairline sits on the top rule */}
       <span ref={barRef} aria-hidden="true" className="absolute inset-x-0 -top-[2px] h-[2px] origin-left scale-x-0 bg-ember-fill" />

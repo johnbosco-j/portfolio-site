@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, DM_Mono, Geist, Instrument_Sans, Instrument_Serif, Noto_Nastaliq_Urdu, Noto_Sans_JP, Noto_Sans_Malayalam } from "next/font/google";
+import { Archivo, DM_Mono, Geist, Instrument_Sans, Instrument_Serif, Noto_Nastaliq_Urdu, Noto_Sans_JP, Noto_Sans_Malayalam, Syne } from "next/font/google";
 import { NavBar } from "@/components/nav/NavBar";
 import { AmbientBackground } from "@/components/parallax/AmbientBackground";
 import { RevealObserver } from "@/components/ui/RevealObserver";
@@ -16,6 +16,8 @@ const modern = Geist({ subsets: ["latin"], weight: ["300", "400"], variable: "--
 const mono = DM_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono", display: "swap" });
 // Poster display: heavy, slightly extended, italic — the big name and section titles.
 const display = Archivo({ subsets: ["latin"], weight: "variable", style: ["normal", "italic"], axes: ["wdth"], variable: "--font-display", display: "swap" });
+// Accent words inside headings — modern, wide-set display.
+const accent = Syne({ subsets: ["latin"], weight: ["700", "800"], variable: "--font-accent", display: "swap" });
 // Malayalam, Urdu (Nastaliq) and Japanese, for the poster line and the vertical rails.
 const malayalam = Noto_Sans_Malayalam({ subsets: ["malayalam"], weight: ["500", "600"], variable: "--font-ml", display: "swap" });
 const urdu = Noto_Nastaliq_Urdu({ subsets: ["arabic"], weight: ["500", "600"], variable: "--font-ur", display: "swap" });
@@ -56,7 +58,7 @@ const jsonLd = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const push = await getLatestPush();
   return (
-    <html lang="en-IN" suppressHydrationWarning className={`${sans.variable} ${serif.variable} ${mono.variable} ${modern.variable} ${display.variable} ${malayalam.variable} ${urdu.variable} ${japanese.variable}`}>
+    <html lang="en-IN" suppressHydrationWarning className={`${sans.variable} ${serif.variable} ${mono.variable} ${modern.variable} ${display.variable} ${accent.variable} ${malayalam.variable} ${urdu.variable} ${japanese.variable}`}>
       <body>
         <a
           href="#main"

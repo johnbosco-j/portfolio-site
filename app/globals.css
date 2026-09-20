@@ -53,10 +53,13 @@
   }
   body {
     @apply font-sans text-[16px] leading-[1.6] text-ink antialiased md:text-[17px];
-    padding-bottom: 40px; /* room for the fixed status bar */
+    padding-bottom: 0;
     background: rgb(var(--bg));
     overflow-x: clip;
     text-rendering: optimizeLegibility;
+  }
+  @media (min-width: 768px) {
+    body { padding-bottom: 40px; } /* room for the fixed status bar */
   }
   h1, h2, h3 { @apply font-semibold; letter-spacing: -0.02em; text-wrap: balance; }
   p { text-wrap: pretty; }
@@ -75,7 +78,18 @@
   .container-x { @apply mx-auto w-full max-w-content px-4 md:px-6; }
   .section-y { @apply py-20 md:py-24 lg:py-28; }
   .micro { @apply font-mono text-micro uppercase text-faint; }
-  .accent { @apply font-serif font-normal italic; letter-spacing: -0.01em; }
+  /* Accent word inside a heading: modern display face with a flowing red/graphite gradient. */
+  .accent {
+    @apply font-accent font-extrabold not-italic;
+    letter-spacing: -0.03em;
+    background-image: linear-gradient(100deg, #E5383B 0%, #F2555A 22%, rgb(var(--ink-2)) 42%, #E5383B 62%, #9A9AA1 82%, #E5383B 100%);
+    background-size: 220% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: accent-flow 8s linear infinite;
+  }
 
   .tile {
     @apply rounded-bento border-2 border-line-strong bg-panel;
@@ -279,6 +293,13 @@
 
 @keyframes bubble-in { from { opacity: 0; transform: translateY(6px) scale(0.98); } to { opacity: 1; transform: none; } }
 .bubble-in { animation: bubble-in 320ms var(--ease-out) both; }
+
+/* Name-in-many-scripts strip */
+.script-strip {
+  font-family: var(--font-ml), var(--font-ur), var(--font-jp), "Noto Sans", system-ui, sans-serif;
+}
+.scroll-strip { scrollbar-width: none; scroll-snap-type: x proximity; }
+.scroll-strip::-webkit-scrollbar { display: none; }
 
 /* Chess micro-pattern */
 .chess-pattern {

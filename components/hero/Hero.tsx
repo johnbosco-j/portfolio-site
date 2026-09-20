@@ -6,6 +6,7 @@ import { AccentText } from "@/components/ui/AccentHeading";
 import { Button, TextLink } from "@/components/ui/Button";
 import { Ribbon } from "@/components/ui/Ribbon";
 import { FitText } from "./FitText";
+import { NameScripts } from "./NameScripts";
 import { LINKS, profile, site } from "@/content/profile";
 import { useMediaQuery, useMotionScale } from "@/lib/hooks";
 import { gyroNeedsPermission, motionGranted, requestGyro, startTilt, tiltX, tiltY } from "@/lib/tilt";
@@ -60,17 +61,9 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
     <section id="top" ref={ref} aria-labelledby="hero-name" className="relative isolate overflow-hidden pt-[104px] md:pt-[124px]">
       <motion.div style={{ y: sinkY, opacity: sinkOpacity }}>
         <div className="container-x pb-10 pt-8 md:pt-10">
-          {/* script line */}
-          <motion.div {...anim} custom={0} className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 pb-5">
-            <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-              <span className="font-ml text-[15px] font-medium text-ember md:text-[17px]">{profile.scripts.ml.name}</span>
-              <span className="font-ur text-[15px] font-medium leading-[2] text-ink-2 md:text-[17px]" dir="rtl">
-                {profile.scripts.ur.name}
-              </span>
-              <span className="font-jp text-[14px] font-medium text-muted md:text-[15px]">{profile.scripts.jp.name}</span>
-              <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">Chennai · India</span>
-            </p>
-            <p className="hidden font-mono text-[11px] uppercase tracking-[0.14em] text-faint sm:block">Portfolio ’26</p>
+          {/* His name across writing systems, scrollable sideways */}
+          <motion.div {...anim} custom={0} className="pb-6">
+            <NameScripts />
           </motion.div>
 
           {/* The name */}
