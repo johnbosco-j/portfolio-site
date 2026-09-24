@@ -7,12 +7,12 @@ import { site } from "@/content/profile";
 import { Corners } from "@/components/ui/InstrumentPanel";
 
 /**
- * Jovo, Jovora's robot, as a small cameo beside the contact form. three.js and the
+ * Riv, Riven's robot, as a small cameo beside the contact form. three.js and the
  * model load lazily (dynamic import) only when the section nears the viewport, render only
- * while visible, and Jovo waves each time `waves` increases (a message was sent).
+ * while visible, and Riv waves each time `waves` increases (a message was sent).
  */
-export function JovoCameo({ waves }: { waves: number }) {
-  const j = site.jovo;
+export function RivCameo({ waves }: { waves: number }) {
+  const j = site.riv;
   const stage = useRef<HTMLDivElement>(null);
   const mount = useRef<HTMLDivElement>(null);
   const robot = useRef<RobotHandle | null>(null);

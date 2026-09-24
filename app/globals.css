@@ -118,7 +118,7 @@
   }
   .tile:hover::before, .spotlight:hover::before { opacity: 1; }
 
-  /* Instrument panel dot grid (Jovora × Clareo HUD) */
+  /* Instrument panel dot grid (Riven × Clareo HUD) */
   .dot-grid {
     background-image: radial-gradient(rgb(var(--ink) / 0.07) 1px, transparent 1px);
     background-size: 22px 22px;
@@ -264,6 +264,7 @@
 @keyframes marquee { to { transform: translateX(-50%); } }
 .marquee-track { animation: marquee 48s linear infinite; }
 .marquee-track--fast { animation-duration: 26s; }
+.marquee-track--slow { animation-duration: 90s; }
 .marquee-track--rev { animation-direction: reverse; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 

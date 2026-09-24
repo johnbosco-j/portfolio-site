@@ -9,7 +9,7 @@ export const skillGroups: SkillGroup[] = [
     span: 6,
     skills: [
       { name: "Python", usedIn: ["eyeguard", "clareo"] },
-      { name: "TypeScript", usedIn: ["clareo", "jovora-website"] },
+      { name: "TypeScript", usedIn: ["clareo", "rivendevs-website"] },
       { name: "JavaScript", usedIn: ["stockfish-chess"] },
       { name: "SQL", usedIn: ["excelsior-erp", "clareo"] },
       { name: "C" },
@@ -23,11 +23,11 @@ export const skillGroups: SkillGroup[] = [
     span: 6,
     skills: [
       { name: "React", usedIn: ["clareo", "stockfish-chess", "excelsior-erp"] },
-      { name: "Next.js", usedIn: ["jovora-website"] },
-      { name: "Tailwind CSS", usedIn: ["jovora-website"] },
+      { name: "Next.js", usedIn: ["rivendevs-website"] },
+      { name: "Tailwind CSS", usedIn: ["rivendevs-website"] },
       { name: "Supabase", usedIn: ["excelsior-erp"] },
       { name: "Firebase" },
-      { name: "Vercel", usedIn: ["excelsior-erp", "jovora-website"] },
+      { name: "Vercel", usedIn: ["excelsior-erp", "rivendevs-website"] },
       { name: "REST APIs", usedIn: ["eyeguard", "clareo"] },
       { name: "WebAssembly", usedIn: ["stockfish-chess"] },
       { name: "FastAPI", usedIn: ["clareo", "eyeguard"] },

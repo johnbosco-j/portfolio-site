@@ -24,7 +24,7 @@ function ClareoVisual() {
   // A live-looking eye-closure trace (duplicated for a seamless scroll).
   const trace = "M0 40 L20 40 L26 38 L32 40 L60 40 L64 12 L70 12 L74 40 L110 40 L116 36 L122 40 L150 40 L154 10 L160 10 L164 40 L200 40";
   return (
-    <Frame url="clareo.jovora.ai/monitor">
+    <Frame url="clareo.rivendevs.in/monitor">
       <div className="grid h-full grid-cols-[1fr_1.4fr] gap-2 p-3 text-[10px] text-muted">
         <div className="flex flex-col items-center justify-center gap-2 rounded-lg border border-line bg-panel p-2">
           <svg viewBox="0 0 36 36" className="size-20 -rotate-90">
@@ -167,7 +167,7 @@ function ChessVisual() {
   );
 }
 
-function JovoraVisual() {
+function RivenVisual() {
   return (
     <div className="relative flex h-full items-center justify-center overflow-hidden rounded-t-panel border border-b-0 border-line bg-bg">
       <div className="absolute inset-0 bg-[radial-gradient(closest-side,rgb(229_56_59/0.2),transparent)]" />
@@ -178,13 +178,13 @@ function JovoraVisual() {
           style={{ width: `${s}%`, aspectRatio: "1", transform: `rotateX(${60 + i * 8}deg)`, borderTopColor: "rgb(229 56 59)" }}
         />
       ))}
-      <span className="relative font-serif text-[44px] leading-none text-ink">Jovora</span>
+      <span className="relative font-serif text-[44px] leading-none text-ink">Riven</span>
     </div>
   );
 }
 
 export function ProjectVisual({ visual }: { visual: Visual }) {
-  const map = { clareo: ClareoVisual, erp: ErpVisual, eyeguard: EyeGuardVisual, olearn: OLearnVisual, chess: ChessVisual, jovora: JovoraVisual } as const;
+  const map = { clareo: ClareoVisual, erp: ErpVisual, eyeguard: EyeGuardVisual, olearn: OLearnVisual, chess: ChessVisual, rivendevs: RivenVisual } as const;
   const V = map[visual];
   return <V />;
 }

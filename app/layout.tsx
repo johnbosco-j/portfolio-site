@@ -46,12 +46,12 @@ const jsonLd = {
   jobTitle: profile.jobTitle,
   description: site.description,
   address: { "@type": "PostalAddress", addressLocality: profile.city, addressCountry: "IN" },
-  worksFor: { "@type": "Organization", name: "Jovora", url: LINKS.jovora },
+  worksFor: { "@type": "Organization", name: "Riven", url: LINKS.rivendevs },
   // A current student (3rd year) — affiliation, not alumniOf.
   affiliation: { "@type": "CollegeOrUniversity", name: profile.education.institution, address: { "@type": "PostalAddress", addressLocality: "Chennai", addressCountry: "IN" } },
   knowsAbout: profile.knowsAbout,
   knowsLanguage: profile.languages.map((l) => l.name),
-  sameAs: [LINKS.github, LINKS.linkedin, LINKS.jovora].filter(Boolean),
+  sameAs: [LINKS.github, LINKS.linkedin, LINKS.rivendevs].filter(Boolean),
 };
 
 

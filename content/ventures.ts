@@ -3,7 +3,7 @@ import { LINKS } from "./profile";
 export type Measurement = { value: string; label: string; source: string };
 
 export type Venture = {
-  id: "jovora" | "clareo";
+  id: "rivendevs" | "clareo";
   name: string;
   tagline: string;
   body: string;
@@ -18,15 +18,15 @@ export type Venture = {
 
 export const ventures: Venture[] = [
   {
-    id: "jovora",
-    name: "Jovora",
+    id: "rivendevs",
+    name: "Riven",
     tagline: "Clear technology for the real world.",
     body: "A multi-domain technology company I founded in 2026. We take one hard problem at a time and ship it properly, and we build websites and AI systems for people who need them, at a minimal cost.",
     role: "Founder & Owner",
     since: "2026",
     status: "Building",
-    href: LINKS.jovora,
-    cta: "Visit Jovora",
+    href: LINKS.rivendevs,
+    cta: "Visit Riven",
   },
   {
     id: "clareo",
@@ -49,7 +49,7 @@ export const ventures: Venture[] = [
   },
 ];
 
-/** Jovora's planned domains (copy mirrors jovora.ai) — faint, dashed planets in the Ventures orbit. */
+/** Riven's planned domains (copy mirrors rivendevs.in) — faint, dashed planets in the Ventures orbit. */
 export type PlannedDomain = { name: string; short: string; status: "In research" | "Coming"; body: string };
 
 export const plannedDomains: PlannedDomain[] = [
@@ -59,8 +59,8 @@ export const plannedDomains: PlannedDomain[] = [
   { name: "Institutional Platforms", short: "Institutions", status: "Coming", body: "ERP, workflow and data systems for colleges and organisations that have outgrown spreadsheets." },
 ];
 
-/** All six Jovora domains with honest status (mirrors jovora.ai). */
-export const jovoraDomains: { name: string; status: "Shipping" | "In research" | "Coming" }[] = [
+/** All six Riven domains with honest status (mirrors rivendevs.in). */
+export const rivendevsDomains: { name: string; status: "Shipping" | "In research" | "Coming" }[] = [
   { name: "AI & Machine Perception", status: "Shipping" },
   { name: "Health & Human Wellbeing", status: "Shipping" },
   ...plannedDomains.map((d) => ({ name: d.name, status: d.status })),

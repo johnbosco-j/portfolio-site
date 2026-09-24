@@ -3,10 +3,10 @@
 The visual language for the founder's personal portfolio.
 It is deliberately a **blend of two existing systems**:
 
-- **Jovora** (the company): near-black studio, one warm **orange** light, orbit rings, parallax depth, floating glass capsule nav, serif-italic accent words.
+- **Riven** (the company): near-black studio, one warm **orange** light, orbit rings, parallax depth, floating glass capsule nav, serif-italic accent words.
 - **Clareo "Optic"** (the first product): calm instrument panels, **lime signal** for live data, bento grids, the iris / eye brand mark, dark + warm-paper light themes, mono readouts.
 
-Mood: **a builder's cockpit.** Jovora supplies the atmosphere (depth, orbit, warmth); Clareo supplies the instruments (panels, readouts, live signals). The portfolio should feel like the person who designed both.
+Mood: **a builder's cockpit.** Riven supplies the atmosphere (depth, orbit, warmth); Clareo supplies the instruments (panels, readouts, live signals). The portfolio should feel like the person who designed both.
 
 ---
 
@@ -24,7 +24,7 @@ Mood: **a builder's cockpit.** Jovora supplies the atmosphere (depth, orbit, war
 
 ### 2.1 Dark theme (default)
 
-The base is **Clareo's neutral near-black**, slightly cooler than Jovora's, so both accents stay clean on it.
+The base is **Clareo's neutral near-black**, slightly cooler than Riven's, so both accents stay clean on it.
 
 | Token | Hex | Use | Origin |
 |---|---|---|---|
@@ -38,9 +38,9 @@ The base is **Clareo's neutral near-black**, slightly cooler than Jovora's, so b
 | `--ink-2` | `#C9CCC4` | Strong secondary text | Clareo |
 | `--muted` | `#8D9189` | Secondary text | Clareo |
 | `--faint` | `#5F635D` | Captions, meta | Clareo |
-| `--ember` | `#FF6A1A` | **Founder accent**: primary CTA, active nav, accent words, orbit | Jovora orange |
-| `--ember-hot` | `#FF8A3D` | Hover of ember | Jovora |
-| `--ember-glow` | `rgb(255 106 26 / .18)` | Radial glows, focus halo | Jovora |
+| `--ember` | `#FF6A1A` | **Founder accent**: primary CTA, active nav, accent words, orbit | Riven orange |
+| `--ember-hot` | `#FF8A3D` | Hover of ember | Riven |
+| `--ember-glow` | `rgb(255 106 26 / .18)` | Radial glows, focus halo | Riven |
 | `--signal` | `#C8FF3D` | **Live signal**: status dots, metrics, "shipping", code highlights, iris pupil | Clareo lime |
 | `--signal-ink` | `#0D1004` | Text on a lime fill | Clareo |
 | `--signal-soft` | `#1F2A0C` | Lime-tinted chip background | Clareo |
@@ -50,7 +50,7 @@ The base is **Clareo's neutral near-black**, slightly cooler than Jovora's, so b
 
 ### 2.2 Light theme ("paper", optional toggle)
 
-Taken from Clareo's light mode. Jovora has no light theme; in light mode the orbit becomes a thin ink line with ember accents.
+Taken from Clareo's light mode. Riven has no light theme; in light mode the orbit becomes a thin ink line with ember accents.
 
 | Token | Hex |
 |---|---|
@@ -83,8 +83,8 @@ Theme follows `prefers-color-scheme`, overridable by a toggle stored in `localSt
 
 ### 2.4 Gradients & texture
 
-- Radial ember glows fading to transparent (max one per viewport), a 3% film-grain overlay (Jovora), and a faint 22px dot grid inside instrument panels (Jovora × Clareo HUD).
-- The hero accent word uses a flowing ember → amber → ink gradient (Jovora's `accent-flow`).
+- Radial ember glows fading to transparent (max one per viewport), a 3% film-grain overlay (Riven), and a faint 22px dot grid inside instrument panels (Riven × Clareo HUD).
+- The hero accent word uses a flowing ember → amber → ink gradient (Riven's `accent-flow`).
 
 ---
 
@@ -97,7 +97,7 @@ Both systems already share the same trio, so it stays:
 | Display / headings | **Instrument Sans** 600 | −0.035em at ≥ 48px, −0.02em below |
 | Accent words, quotes, venture names | **Instrument Serif** *italic* (regular for wordmarks) | one accent per heading |
 | Body | Instrument Sans 400 | 17/1.6 desktop, 16/1.6 mobile |
-| Lead paragraphs (hero intro, section intros) | **Geist** 300–400 | 19–22px, −0.01em (the "modern" voice used on Jovora's hero) |
+| Lead paragraphs (hero intro, section intros) | **Geist** 300–400 | 19–22px, −0.01em (the "modern" voice used on Riven's hero) |
 | Numbers, labels, code, HUD | **DM Mono** 400/500 | tabular, micro-labels uppercase +0.08em |
 
 **Scale (fluid):** Hero name `clamp(52px, 8.5vw, 124px)` / 0.95 · H2 `clamp(36px, 5vw, 64px)` / 1.02 · H3 24–28px · body 16–17 · small 14 · micro 12 mono.
@@ -122,22 +122,22 @@ Projects, skills and "Now" use a bento grid: 12-col, tiles of 4/6/8 columns and 
 
 ## 5. Depth, parallax & 3D
 
-Layers (from Jovora): **L0 horizon 0.15×** (glow, star field) · **L1 atmosphere 0.35×** (orbit, grid) · **L2 content 1×** · **L3 foreground 1.2–1.4×** (device mocks, floating project shots).
+Layers (from Riven): **L0 horizon 0.15×** (glow, star field) · **L1 atmosphere 0.35×** (orbit, grid) · **L2 content 1×** · **L3 foreground 1.2–1.4×** (device mocks, floating project shots).
 
 ### Signature moments
 
-1. **Hero "Orbit + Iris".** A CSS-3D gyroscope of ember rings (Jovora) around a **Clareo-style iris instrument**: a lime pupil that *looks at the cursor* and blinks every few seconds. The rings bend in 3D with mouse / phone tilt and wobble on a spring when a phone is shaken. The name sits on the nearest depth plane, the intro on the farthest.
-2. **Ventures orbit.** Jovora is the "sun"; Clareo is a live planet (lime dot = shipping). Future domains (robotics, devtools, edtech, enterprise) are faint planned planets with dashed orbits. Hover or tap a planet to open its card.
+1. **Hero "Orbit + Iris".** A CSS-3D gyroscope of ember rings (Riven) around a **Clareo-style iris instrument**: a lime pupil that *looks at the cursor* and blinks every few seconds. The rings bend in 3D with mouse / phone tilt and wobble on a spring when a phone is shaken. The name sits on the nearest depth plane, the intro on the farthest.
+2. **Ventures orbit.** Riven is the "sun"; Clareo is a live planet (lime dot = shipping). Future domains (robotics, devtools, edtech, enterprise) are faint planned planets with dashed orbits. Hover or tap a planet to open its card.
 3. **Project reveal.** Bento tiles rise from L3 (scale .94 → 1, 16px) with 60ms stagger; the screenshot inside each tile parallaxes up to 32px.
-4. **Timeline trace.** The journey section draws a Clareo-style **live trace line** (lime) that scrolls with you, with ember milestone dots (hackathons, founding Jovora, Clareo launch).
-5. **Cameo: Jovo.** Optional. Jovora's robot mascot appears small in the contact section (lazy-loaded three.js), waving when the form is sent.
+4. **Timeline trace.** The journey section draws a Clareo-style **live trace line** (lime) that scrolls with you, with ember milestone dots (hackathons, founding Riven, Clareo launch).
+5. **Cameo: Riv.** Optional. Riven's robot mascot appears small in the contact section (lazy-loaded three.js), waving when the form is sent.
 
 ### Rules
 
 - Animate only `transform` and `opacity` (exception: the accent gradient's `background-position`, which is text-sized).
 - Every moving layer checks `prefers-reduced-motion`: parallax 0, rotations stop, the iris holds still, fades become 150ms opacity.
 - Phones: parallax at 0.75×, orbit driven by gyroscope (iOS asks for permission on a tap), no pinned horizontal scroll longer than 300vh.
-- Three.js only for the optional Jovo cameo, always lazy and paused off-screen.
+- Three.js only for the optional Riv cameo, always lazy and paused off-screen.
 
 ---
 
@@ -145,7 +145,7 @@ Layers (from Jovora): **L0 horizon 0.15×** (glow, star field) · **L1 atmospher
 
 | Token | Value | Use |
 |---|---|---|
-| `--ease-out` | `cubic-bezier(.16,1,.3,1)` | Entrances (Jovora) |
+| `--ease-out` | `cubic-bezier(.16,1,.3,1)` | Entrances (Riven) |
 | `--ease-in-out` | `cubic-bezier(.65,0,.35,1)` | State changes |
 | `--ease-inst` | `cubic-bezier(.2,.8,.2,1)` | Meters, gauges (Clareo) |
 | `--dur-1/2/3` | 150 / 350 / 700ms | Hover / cards / sections |
@@ -156,24 +156,24 @@ Entrances: fade + 16px rise, 60ms stagger, once at 20% in view (CSS `animation-t
 
 ## 7. Components
 
-- **Capsule nav** (Jovora): floating glass pill, 16px from top, `--panel` 72% + blur 18px; left = personal mark (iris "J" monogram), centre = `Work · Ventures · Journey · Stack · Contact`, right = theme toggle + ember "Hire me". Reading-progress hairline in ember. Full-screen numbered serif menu on mobile.
+- **Capsule nav** (Riven): floating glass pill, 16px from top, `--panel` 72% + blur 18px; left = personal mark (iris "J" monogram), centre = `Work · Ventures · Journey · Stack · Contact`, right = theme toggle + ember "Hire me". Reading-progress hairline in ember. Full-screen numbered serif menu on mobile.
 - **Buttons:** primary = ember fill + black text (glow on hover); secondary = hairline + ink; **signal button** (lime fill, `--signal-ink` text) only for "View live" on shipped products.
 - **Chips:** mono 12px uppercase. `Shipped` = lime-soft bg + lime text with dot; `In progress` = ember-tint + ember; `Planned` = hairline + muted; role chips ("Lead developer") = hairline + ink-2.
 - **Bento tile:** see §4, with the cursor spotlight (ember radial following the pointer) and a 4px lift on hover.
 - **Stat:** DM Mono 40–56px number + micro-label + *source line*. Measurement stats in lime, achievement stats in ember.
-- **Instrument panel** (Clareo × Jovora HUD): panel with orange corner brackets, mono top bar (`LABEL · status ●`), dot-grid backdrop. Used for the hero iris, "Now" and the Jovo cameo.
+- **Instrument panel** (Clareo × Riven HUD): panel with orange corner brackets, mono top bar (`LABEL · status ●`), dot-grid backdrop. Used for the hero iris, "Now" and the Riv cameo.
 - **Timeline item:** mono date, serif-italic title, one-line body, ember milestone dot on a lime trace.
 - **Code block / terminal:** `--panel-2`, DM Mono 13px, lime prompt `›`, ember for keywords (max).
-- **Contact form:** Jovora's form (honeypot, rate limit, inline success) in an instrument panel.
+- **Contact form:** Riven's form (honeypot, rate limit, inline success) in an instrument panel.
 
 ---
 
 ## 8. Iconography & imagery
 
 - Lucide, 1.5px stroke, 20/24px. Status uses dots, not icons.
-- Real screenshots only (Excelsior ERP, EyeGuard / Clareo, oLearn, Stockfish client, Jovora site), framed in dark browser / laptop mocks with a 1px border.
+- Real screenshots only (Excelsior ERP, EyeGuard / Clareo, oLearn, Stockfish client, Riven site), framed in dark browser / laptop mocks with a 1px border.
 - Abstract visuals: orbit rings, iris geometry, dot fields, live traces, chess-board micro-pattern for the chess project.
-- No stock photos. The founder photo (optional) is shown in a circle inside an ember orbit ring, like the Jovora founder card.
+- No stock photos. The founder photo (optional) is shown in a circle inside an ember orbit ring, like the Riven founder card.
 
 ---
 

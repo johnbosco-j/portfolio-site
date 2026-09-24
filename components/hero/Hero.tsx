@@ -114,8 +114,8 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
                 <Button href={hasResume ? LINKS.resume : undefined} variant="secondary" download comingSoonLabel={hero.resume.soon}>
                   {hero.resume.label}
                 </Button>
-                <TextLink href={LINKS.jovora} external className="text-[15px]">
-                  {hero.jovora}
+                <TextLink href={LINKS.rivendevs} external className="text-[15px]">
+                  {hero.rivendevs}
                 </TextLink>
               </motion.div>
               {askMotion && (

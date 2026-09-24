@@ -58,7 +58,7 @@ export async function POST(req: Request) {
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
     body: JSON.stringify({
-      from: process.env.CONTACT_FROM_EMAIL || "Johnbosco <noreply@jovora.ai>",
+      from: process.env.CONTACT_FROM_EMAIL || "Johnbosco <noreply@rivendevs.in>",
       to: [to],
       reply_to: email,
       subject: `[Portfolio · ${topic}] ${name}`,
@@ -68,7 +68,7 @@ export async function POST(req: Request) {
 
   if (!res.ok) {
     console.error("[contact] Resend error", res.status, await res.text().catch(() => ""));
-    return done({ error: "I couldn't send that just now. Please email hello@jovora.ai instead." }, 502);
+    return done({ error: "I couldn't send that just now. Please email hello@rivendevs.in instead." }, 502);
   }
   return done({ ok: true });
 }

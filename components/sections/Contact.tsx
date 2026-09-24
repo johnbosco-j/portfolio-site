@@ -7,7 +7,7 @@ import { ExternalMark } from "@/components/ui/Button";
 import { InstrumentPanel } from "@/components/ui/InstrumentPanel";
 import { LINKS, site } from "@/content/profile";
 import { ContactForm } from "./ContactForm";
-import { JovoCameo } from "./JovoCameo";
+import { RivCameo } from "./RivCameo";
 
 export function Contact() {
   const c = site.contact;
@@ -15,7 +15,7 @@ export function Contact() {
   const links = [
     { label: "GitHub", href: LINKS.github, handle: "johnbosco-j" },
     ...(LINKS.linkedin ? [{ label: "LinkedIn", href: LINKS.linkedin, handle: "Profile" }] : []),
-    { label: "Jovora", href: LINKS.jovora, handle: LINKS.jovora.replace(/^https?:\/\//, "") },
+    { label: "Riven", href: LINKS.rivendevs, handle: LINKS.rivendevs.replace(/^https?:\/\//, "") },
   ];
   return (
     <section id="contact" aria-labelledby="contact-title" className="fade-divider section-y relative overflow-hidden">
@@ -30,7 +30,7 @@ export function Contact() {
           </div>
           <div className="flex flex-col gap-6 lg:col-span-5">
             <div data-reveal="tile" style={{ ["--i" as string]: 1 }}>
-              <JovoCameo waves={waves} />
+              <RivCameo waves={waves} />
             </div>
             <div data-reveal="tile" style={{ ["--i" as string]: 2 }} className="tile p-6">
               <p className="micro">{c.emailLabel}</p>

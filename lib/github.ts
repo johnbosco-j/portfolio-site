@@ -25,7 +25,7 @@ export async function getGitHub(): Promise<{ repos: Repo[]; total: number } | nu
   }
 }
 
-/** "jovora-site · 19 Sep" — the most recent public push, for the status bar. */
+/** The most recent public push (repo name + date), for the status bar. */
 export async function getLatestPush(): Promise<{ name: string; url: string; pushedAt: string } | null> {
   const data = await getGitHub();
   const latest = data?.repos[0];

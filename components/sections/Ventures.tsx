@@ -7,15 +7,15 @@ import { Chip, StatusChip } from "@/components/ui/Chip";
 import { InstrumentPanel } from "@/components/ui/InstrumentPanel";
 import { Stat } from "@/components/ui/Stat";
 import { site } from "@/content/profile";
-import { jovoraDomains, plannedDomains, ventures } from "@/content/ventures";
+import { rivendevsDomains, plannedDomains, ventures } from "@/content/ventures";
 
 type Body = { id: string; name: string; status: string; body: string; kind: "sun" | "live" | "planned" };
 
-const jovora = ventures.find((v) => v.id === "jovora")!;
+const rivendevs = ventures.find((v) => v.id === "rivendevs")!;
 const clareo = ventures.find((v) => v.id === "clareo")!;
 
 const bodies: Body[] = [
-  { id: "jovora", name: jovora.name, status: jovora.status, body: jovora.tagline, kind: "sun" },
+  { id: "rivendevs", name: rivendevs.name, status: rivendevs.status, body: rivendevs.tagline, kind: "sun" },
   { id: "clareo", name: clareo.name, status: clareo.status, body: clareo.body, kind: "live" },
   ...plannedDomains.map((d) => ({ id: d.short, name: d.name, status: d.status, body: d.body, kind: "planned" as const })),
 ];
@@ -44,15 +44,15 @@ export function Ventures() {
           {/* Orbit diagram */}
           <div className="lg:col-span-7" data-reveal>
             <div className="orbit-system relative mx-auto aspect-square w-full max-w-[640px]">
-              {/* Sun: Jovora */}
+              {/* Sun: Riven */}
               <div aria-hidden="true" className="absolute left-1/2 top-1/2 size-[46%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(229_56_59/0.28),rgb(229_56_59/0.06)_55%,transparent)]" />
               <button
                 type="button"
-                onClick={() => setSelected("jovora")}
-                aria-pressed={selected === "jovora"}
+                onClick={() => setSelected("rivendevs")}
+                aria-pressed={selected === "rivendevs"}
                 className="absolute left-1/2 top-1/2 z-10 grid size-[22%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-ember/50 bg-bg/80 shadow-[0_0_60px_-10px_rgb(229_56_59/0.6)] backdrop-blur transition-transform duration-2 hover:scale-105"
               >
-                <span className="font-serif text-[clamp(18px,3vw,30px)] leading-none">{jovora.name}</span>
+                <span className="font-serif text-[clamp(18px,3vw,30px)] leading-none">{rivendevs.name}</span>
                 <span aria-hidden="true" className="spin-40 absolute inset-[-6%] rounded-full border border-dashed border-ember/40" />
               </button>
 
@@ -135,21 +135,21 @@ export function Ventures() {
 
         {/* Venture cards */}
         <div className="mt-16 grid gap-4 md:gap-6 lg:grid-cols-12">
-          <article id="venture-jovora" aria-labelledby="jovora-card" data-reveal="tile" className="tile tile-hover flex flex-col overflow-hidden p-7 md:p-9 lg:col-span-5">
+          <article id="venture-rivendevs" aria-labelledby="rivendevs-card" data-reveal="tile" className="tile tile-hover flex flex-col overflow-hidden p-7 md:p-9 lg:col-span-5">
             <div className="flex items-center justify-between gap-3">
-              <span className="micro">Company · since {jovora.since}</span>
-              <StatusChip status={jovora.status} />
+              <span className="micro">Company · since {rivendevs.since}</span>
+              <StatusChip status={rivendevs.status} />
             </div>
-            <h3 id="jovora-card" className="mt-8 font-serif text-[56px] font-normal leading-none tracking-[-0.02em]">
-              {jovora.name}
+            <h3 id="rivendevs-card" className="mt-8 font-serif text-[56px] font-normal leading-none tracking-[-0.02em]">
+              {rivendevs.name}
             </h3>
-            <p className="mt-3 font-serif text-[22px] italic text-ember">{jovora.tagline}</p>
-            <p className="mt-6 text-muted">{jovora.body}</p>
+            <p className="mt-3 font-serif text-[22px] italic text-ember">{rivendevs.tagline}</p>
+            <p className="mt-6 text-muted">{rivendevs.body}</p>
             <div className="mt-6 flex flex-wrap gap-2">
-              <Chip tone="role">{jovora.role}</Chip>
+              <Chip tone="role">{rivendevs.role}</Chip>
             </div>
-            <ul className="mt-8 divide-y divide-line border-t border-line" aria-label="Jovora's domains">
-              {jovoraDomains.map((d) => (
+            <ul className="mt-8 divide-y divide-line border-t border-line" aria-label="Riven's domains">
+              {rivendevsDomains.map((d) => (
                 <li key={d.name} className="flex items-center justify-between gap-3 py-2.5 text-[14px]">
                   <span className="text-ink-2">{d.name}</span>
                   <StatusChip status={d.status} />
@@ -157,8 +157,8 @@ export function Ventures() {
               ))}
             </ul>
             <div className="mt-auto pt-10">
-              <Button href={jovora.href} external variant="secondary">
-                {jovora.cta}
+              <Button href={rivendevs.href} external variant="secondary">
+                {rivendevs.cta}
               </Button>
             </div>
             <span aria-hidden="true" className="spin-120 pointer-events-none absolute -bottom-40 -right-40 size-80 rounded-full border border-dashed border-ember/25" />
@@ -166,7 +166,7 @@ export function Ventures() {
 
           <article id="venture-clareo" aria-labelledby="clareo-card" data-reveal="tile" style={{ ["--i" as string]: 1 }} className="tile tile-hover flex flex-col p-7 md:p-9 lg:col-span-7">
             <div className="flex items-center justify-between gap-3">
-              <span className="micro">Product · by Jovora</span>
+              <span className="micro">Product · by Riven</span>
               <StatusChip status={clareo.status} />
             </div>
             <h3 id="clareo-card" className="mt-8 font-serif text-[56px] font-normal leading-none tracking-[-0.02em]">

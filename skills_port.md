@@ -1,6 +1,6 @@
 ---
 name: johnbosco-portfolio
-description: Build and maintain the personal portfolio of Johnbosco J Elanjikal, founder of Jovora — a blend of Jovora's orbit/parallax design and Clareo's instrument "Optic" design. Use when creating the site, adding a project, venture, milestone or skill, editing the founder's details, or changing the site's design, content or deployment.
+description: Build and maintain the personal portfolio of Johnbosco J Elanjikal, founder of Riven — a blend of Riven's orbit/parallax design and Clareo's instrument "Optic" design. Use when creating the site, adding a project, venture, milestone or skill, editing the founder's details, or changing the site's design, content or deployment.
 ---
 
 # Portfolio — build & maintenance skill
@@ -9,26 +9,26 @@ Read `design_port.md` (visual system) and `prompt_port.md` (full brief) before c
 
 ## Who and what
 
-- **Johnbosco J Elanjikal** — **current third-year** B.E. Computer Science & Engineering student at Loyola-ICAM College of Engineering and Technology (LICET), Chennai (**not a graduate**); full-stack developer; **founder and owner of Jovora**.
-- **Jovora** — his multi-domain technology company (AI & machine perception, health & wellbeing, robotics & embedded, developer tools, education, institutional platforms), which also builds websites and AI systems for clients at minimal cost. Site: `jovora.ai` (planned domain).
-- **Clareo** — Jovora's first product: private, on-device eye-fatigue, eye-strain and posture coaching (`clareo.jovora.ai`).
-- The portfolio's job: in under a minute, show **who he is, what he has shipped, what he is building now, and what comes next** — for recruiters, collaborators, clients, hackathon teams, incubators and early investors. It links out to Jovora and Clareo; it does not duplicate them.
+- **Johnbosco J Elanjikal** — **current third-year** B.E. Computer Science & Engineering student at Loyola-ICAM College of Engineering and Technology (LICET), Chennai (**not a graduate**); full-stack developer; **founder and owner of Riven**.
+- **Riven** — his multi-domain technology company (AI & machine perception, health & wellbeing, robotics & embedded, developer tools, education, institutional platforms), which also builds websites and AI systems for clients at minimal cost. Site: `rivendevs.in` (planned domain).
+- **Clareo** — Riven's first product: private, on-device eye-fatigue, eye-strain and posture coaching (`clareo.rivendevs.in`).
+- The portfolio's job: in under a minute, show **who he is, what he has shipped, what he is building now, and what comes next** — for recruiters, collaborators, clients, hackathon teams, incubators and early investors. It links out to Riven and Clareo; it does not duplicate them.
 
-## Stack (same as Jovora, so code and components can be shared)
+## Stack (same as Riven, so code and components can be shared)
 
 | Concern | Choice |
 |---|---|
 | Framework | **Next.js 16 (App Router) + TypeScript strict**, static generation; one route handler for the contact form |
 | Styling | **Tailwind CSS 3** with the tokens from `design_port.md` mapped in `tailwind.config.ts` (`bg`, `panel`, `line`, `ink`, `muted`, `ember`, `signal` …) as CSS variables so light/dark swap without re-rendering |
 | Motion | CSS scroll-driven animations first; **Framer Motion** (`useScroll`, `useTransform`, `useSpring`) for parallax, orbit and iris |
-| 3D | CSS 3D transforms for the orbit; SVG for the iris; **three.js only for the optional Jovo cameo**, lazy-loaded |
+| 3D | CSS 3D transforms for the orbit; SVG for the iris; **three.js only for the optional Riv cameo**, lazy-loaded |
 | Fonts | `next/font/google`: Instrument Sans, Instrument Serif, DM Mono, Geist |
 | Icons | lucide-react (1.5px) |
 | Content | Typed TS files in `content/` (optionally MDX for case studies) |
 | Forms | Route handler → Resend, honeypot + rate limit |
-| Hosting | Vercel, domain `johnbosco.jovora.ai` (or a personal domain later) |
+| Hosting | Vercel, domain `johnbosco.rivendevs.in` (or a personal domain later) |
 
-Reuse from `../jovora-site` where it fits (copy, don't import across repos): `ParallaxLayer`, `AmbientBackground`, `lib/tilt.ts`, `Orbit3D`, `NavCapsule`, `Button`, `Chip`, contact route. Recolour to the portfolio tokens.
+Reuse from `../rivendevs-site` where it fits (copy, don't import across repos): `ParallaxLayer`, `AmbientBackground`, `lib/tilt.ts`, `Orbit3D`, `NavCapsule`, `Button`, `Chip`, contact route. Recolour to the portfolio tokens.
 
 Do not add a CMS, a UI kit (MUI/Chakra/shadcn themes that fight the tokens), jQuery, GSAP (Framer covers it), analytics that track individuals, or chat widgets.
 
@@ -52,7 +52,7 @@ portfolio-site/
     parallax/ParallaxLayer.tsx  parallax/AmbientBackground.tsx
   content/
     profile.ts       name, headline, bio, location, links, education, languages, interests
-    ventures.ts      Jovora + Clareo (+ planned domains)
+    ventures.ts      Riven + Clareo (+ planned domains)
     projects.ts      all projects with status, role, stack, links, metrics, case-study body
     journey.ts       timeline milestones (dated, typed: education | hackathon | venture | launch | plan)
     skills.ts        grouped skills with "used in" project links
@@ -82,7 +82,7 @@ export type Project = {
   stack: string[];
   metrics?: { value: string; label: string; source?: string; kind: "measurement" | "achievement" }[];
   links?: { live?: string; repo?: string; caseStudy?: boolean };
-  venture?: "jovora" | "clareo";
+  venture?: "rivendevs" | "clareo";
   featured?: boolean;           // bento size
   cover?: { src: string; alt: string };
 };
@@ -107,7 +107,7 @@ export type Project = {
 
 ## Personal data
 
-- Show: name, role, college, city (Chennai), GitHub, LinkedIn (if provided), Jovora links, a contact form, and a **company** email (`hello@jovora.ai`) or a dedicated portfolio inbox.
+- Show: name, role, college, city (Chennai), GitHub, LinkedIn (if provided), Riven links, a contact form, and a **company** email (`hello@rivendevs.in`) or a dedicated portfolio inbox.
 - **Never** publish the phone number or the personal Gmail address. The downloadable resume is a separate **public** PDF without the phone number.
 - No exact home address (only "Chennai, India").
 
@@ -138,7 +138,7 @@ export type Project = {
 5. Lighthouse mobile ≥ 95 everywhere; LCP < 2.0s; CLS < 0.05.
 6. Every "Shipped" item has a working link or a screenshot; every metric has a source.
 7. The phone number and personal email appear nowhere, including the PDF and page source.
-8. Metadata: title, description, OG image, JSON-LD `Person` (name, jobTitle, worksFor Jovora, affiliation LICET — never `alumniOf`, sameAs GitHub/LinkedIn/Jovora), robots, sitemap.
+8. Metadata: title, description, OG image, JSON-LD `Person` (name, jobTitle, worksFor Riven, affiliation LICET — never `alumniOf`, sameAs GitHub/LinkedIn/Riven), robots, sitemap.
 
 ## Commands
 

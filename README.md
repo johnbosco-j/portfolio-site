@@ -1,7 +1,7 @@
 # Johnbosco J Elanjikal — portfolio
 
-Personal site of Johnbosco J Elanjikal: third-year CSE student at LICET, full-stack developer, and founder of Jovora.
-Next.js 16 (App Router) · TypeScript strict · Tailwind CSS 3 · Framer Motion · three.js (only for the lazy Jovo cameo).
+Personal site of Johnbosco J Elanjikal: third-year CSE student at LICET, full-stack developer, and founder of Riven.
+Next.js 16 (App Router) · TypeScript strict · Tailwind CSS 3 · Framer Motion · three.js (only for the lazy Riv cameo).
 
 ## Run it
 
@@ -19,9 +19,9 @@ Copy `.env.example` to `.env.local`.
 
 | Variable | Default / effect |
 |---|---|
-| `NEXT_PUBLIC_SITE_URL` | `https://johnbosco.jovora.ai` — metadata, sitemap, JSON-LD |
-| `NEXT_PUBLIC_JOVORA_URL` | `https://jovora.ai` |
-| `NEXT_PUBLIC_CLAREO_URL` | `https://clareo.jovora.ai` |
+| `NEXT_PUBLIC_SITE_URL` | `https://johnbosco.rivendevs.in` — metadata, sitemap, JSON-LD |
+| `NEXT_PUBLIC_RIVENDEVS_URL` | `https://rivendevs.in` |
+| `NEXT_PUBLIC_CLAREO_URL` | `https://clareo.rivendevs.in` |
 | `NEXT_PUBLIC_LINKEDIN_URL` | LinkedIn links stay hidden until set |
 | `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` | Contact form email delivery; without them messages are only logged |
 | `NEXT_PUBLIC_UPI_ID` | Turns on the ₹50 / ₹150 / ₹500 UPI buttons in **Support** |
@@ -56,12 +56,12 @@ Put the **public** PDF (no phone number, name "Johnbosco J Elanjikal") at `publi
 
 - Portrait + event/achievement photos (see above)
 - Public résumé PDF without the phone number
-- Screenshots: Clareo (dashboard, calibration, analytics), Excelsior ERP, EyeGuard, oLearn, Stockfish client, Jovora site
+- Screenshots: Clareo (dashboard, calibration, analytics), Excelsior ERP, EyeGuard, oLearn, Stockfish client, Riven site
 - LinkedIn URL; repo links for Clareo, Excelsior ERP, EyeGuard, Stockfish (or confirm they stay private)
 - Exact months for the Journey timeline; expected graduation year
 - Excelsior ERP: front-end framework and the names of its three access tiers
 - Support: UPI ID and/or platform links
-- Final domain (default `johnbosco.jovora.ai`) and the contact inbox
+- Final domain (default `johnbosco.rivendevs.in`) and the contact inbox
 
 ## Design
 
@@ -69,4 +69,4 @@ Single graphite-gray + red theme (see the palette update at the end of `design_p
 
 ## Privacy
 
-The phone number and personal Gmail never appear anywhere, including the résumé PDF. Contact goes through the form or `hello@jovora.ai`.
+The phone number and personal Gmail never appear anywhere, including the résumé PDF. Contact goes through the form or `hello@rivendevs.in`.

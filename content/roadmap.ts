@@ -5,10 +5,10 @@ export type RoadmapColumn = { id: string; title: string; accent?: boolean; items
 
 export const roadmap: RoadmapColumn[] = [
   {
-    id: "jovora",
-    title: "Jovora",
+    id: "rivendevs",
+    title: "Riven",
     items: [
-      { text: "Secure the domain (jovora.ai) and company email", status: "In progress" },
+      { text: "Secure the domain (rivendevs.in) and company email", status: "In progress" },
       { text: "Register the company", status: "In progress" },
       { text: "Take on the first client website and AI projects", status: "Planned" },
       { text: "Grow the domains from research to products", status: "Planned" },
@@ -18,7 +18,7 @@ export const roadmap: RoadmapColumn[] = [
     id: "clareo",
     title: "Clareo",
     items: [
-      { text: "Public launch at clareo.jovora.ai", status: "In progress" },
+      { text: "Public launch at clareo.rivendevs.in", status: "In progress" },
       { text: "Reach the first 200 weekly active users", status: "Planned" },
       { text: "Desktop app and Pro plan", status: "In progress" },
       { text: "Teams for companies", status: "Planned" },

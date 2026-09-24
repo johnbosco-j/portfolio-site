@@ -17,7 +17,7 @@ export type CaseStudy = {
 };
 
 /** The coded preview shown in the tile until a real screenshot is added via `cover`. */
-export type Visual = "clareo" | "erp" | "eyeguard" | "olearn" | "chess" | "jovora";
+export type Visual = "clareo" | "erp" | "eyeguard" | "olearn" | "chess" | "rivendevs";
 
 export type Project = {
   slug: string;
@@ -34,7 +34,7 @@ export type Project = {
   metrics?: Metric[];
   achievement?: string;
   links?: { live?: string; repo?: string; caseStudy?: boolean; venture?: boolean };
-  venture?: "jovora" | "clareo";
+  venture?: "rivendevs" | "clareo";
   featured?: boolean;
   /** Bento width on desktop (12-column grid). */
   span: 4 | 5 | 7 | 8 | 12;
@@ -101,7 +101,7 @@ export const projects: Project[] = [
         "0 frames of video uploaded, by design.",
       ],
       next: [
-        "Public launch at clareo.jovora.ai and the first 200 weekly active users.",
+        "Public launch at clareo.rivendevs.in and the first 200 weekly active users.",
         "Desktop app and the Pro plan, then Teams for companies.",
         "A published accuracy study, and a mobile companion.",
       ],
@@ -232,23 +232,24 @@ export const projects: Project[] = [
     visual: "chess",
   },
   {
-    slug: "jovora-website",
-    name: "Jovora website",
+    slug: "rivendevs-website",
+    name: "Riven website",
     kind: "Company site",
     status: "Shipped",
     role: "Designer & developer",
     summary:
-      "The site you’ll find at jovora.ai: a 3D gyroscope hero that follows your mouse or your phone’s tilt, parallax depth, and Jovo, an interactive three.js mascot.",
+      "The site you’ll find at rivendevs.in: a 3D gyroscope hero that follows your mouse or your phone’s tilt, parallax depth, and Riv, an interactive three.js mascot.",
     highlights: [
-      "Designed the Jovora system — orbit rings, ember light, glass capsule nav.",
+      "Designed the Riven system — orbit rings, ember light, glass capsule nav.",
       "Built gyroscope and shake input so phones get the same depth as laptops.",
       "Lazy-loaded the three.js mascot so the landing page stays fast.",
     ],
     stack: ["Next.js 16", "TypeScript", "Tailwind", "Framer Motion", "three.js"],
-    links: { live: LINKS.jovora, repo: "https://github.com/johnbosco-j/jovora-site" },
-    venture: "jovora",
+    // The GitHub repo is still named rivendevs-site: renaming the company doesn't rename the repo.
+    links: { live: LINKS.rivendevs, repo: "https://github.com/johnbosco-j/rivendevs-site" },
+    venture: "rivendevs",
     span: 12,
-    visual: "jovora",
+    visual: "rivendevs",
   },
 ];
 

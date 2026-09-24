@@ -2,18 +2,18 @@
 
 const env = (value: string | undefined) => (value && value.trim().length > 0 ? value.trim() : undefined);
 
-export const SITE_URL = env(process.env.NEXT_PUBLIC_SITE_URL) ?? "https://johnbosco.jovora.ai";
-export const JOVORA_URL = env(process.env.NEXT_PUBLIC_JOVORA_URL) ?? "https://jovora.ai";
-export const CLAREO_URL = env(process.env.NEXT_PUBLIC_CLAREO_URL) ?? "https://clareo.jovora.ai";
+export const SITE_URL = env(process.env.NEXT_PUBLIC_SITE_URL) ?? "https://johnbosco.rivendevs.in";
+export const RIVENDEVS_URL = env(process.env.NEXT_PUBLIC_RIVENDEVS_URL) ?? "https://rivendevs.in";
+export const CLAREO_URL = env(process.env.NEXT_PUBLIC_CLAREO_URL) ?? "https://clareo.rivendevs.in";
 
 export const LINKS = {
-  jovora: JOVORA_URL,
+  rivendevs: RIVENDEVS_URL,
   clareo: CLAREO_URL,
   github: "https://github.com/johnbosco-j",
   /** Hidden everywhere while unset. */
   linkedin: env(process.env.NEXT_PUBLIC_LINKEDIN_URL),
   /** Company inbox. Never the personal Gmail, never a phone number. */
-  email: "hello@jovora.ai",
+  email: "hello@rivendevs.in",
   /** Public résumé (no phone number). Served by app/resume/route.ts from /public/resume. */
   resume: "/resume",
   resumeFile: "resume/Johnbosco-J-Elanjikal-Resume.pdf",
@@ -26,7 +26,7 @@ export const profile = {
   name: "Johnbosco J Elanjikal",
   firstName: "Johnbosco",
   lastName: "J Elanjikal",
-  role: "Founder of Jovora · Full-stack developer",
+  role: "Founder of Riven · Full-stack developer",
   jobTitle: "Founder",
   location: "Chennai, India",
   city: "Chennai",
@@ -41,38 +41,38 @@ export const profile = {
    * launch, and delete any line you are not sure about rather than leaving it wrong.
    */
   nameIn: [
-    { lang: "English", text: "Johnbosco" },
-    { lang: "Malayalam", text: "ജോൺ ബോസ്കോ" },
-    { lang: "Tamil", text: "ஜான் போஸ்கோ" },
-    { lang: "Hindi", text: "जॉनबॉस्को" },
-    { lang: "Nepali", text: "जोनबोस्को" },
-    { lang: "Bengali", text: "জনবস্কো" },
-    { lang: "Telugu", text: "జాన్‌బాస్కో" },
-    { lang: "Kannada", text: "ಜಾನ್‌ಬಾಸ್ಕೊ" },
-    { lang: "Gujarati", text: "જૉનબૉસ્કો" },
-    { lang: "Punjabi", text: "ਜਾਨਬੋਸਕੋ" },
-    { lang: "Odia", text: "ଜନବୋସ୍କୋ" },
-    { lang: "Sinhala", text: "ජොන්බොස්කෝ" },
-    { lang: "Urdu", text: "جان بوسکو" },
-    { lang: "Arabic", text: "جون بوسكو" },
-    { lang: "Hebrew", text: "ג׳ונבוסקו" },
-    { lang: "Greek", text: "Τζονμπόσκο" },
-    { lang: "Russian", text: "Джонбоско" },
-    { lang: "Serbian", text: "Џонбоско" },
-    { lang: "Mongolian", text: "Жонбоско" },
-    { lang: "Georgian", text: "ჯონბოსკო" },
-    { lang: "Armenian", text: "Ջոնբոսկո" },
-    { lang: "Amharic", text: "ጆንቦስኮ" },
-    { lang: "Thai", text: "จอห์นบอสโก" },
-    { lang: "Lao", text: "ຈອນບອສໂກ" },
-    { lang: "Burmese", text: "ဂျွန်ဘော့စကို" },
-    { lang: "Japanese", text: "ジョンボスコ" },
-    { lang: "Korean", text: "존보스코" },
-    { lang: "Chinese", text: "约翰博斯科" },
-    { lang: "Vietnamese", text: "Gioan Bosco" },
-    { lang: "Turkish", text: "Conbosko" },
-    { lang: "Braille", text: "⠚⠕⠓⠝⠃⠕⠎⠉⠕" },
-    { lang: "Runic", text: "ᛃᛟᚻᚾᛒᛟᛋᚲᛟ" },
+    { lang: "English", code: "en", text: "Johnbosco" },
+    { lang: "Malayalam", code: "ml", text: "ജോൺ ബോസ്കോ" },
+    { lang: "Tamil", code: "ta", text: "ஜான் போஸ்கோ" },
+    { lang: "Hindi", code: "hi", text: "जॉनबॉस्को" },
+    { lang: "Nepali", code: "ne", text: "जोनबोस्को" },
+    { lang: "Bengali", code: "bn", text: "জনবস্কো" },
+    { lang: "Telugu", code: "te", text: "జాన్‌బాస్కో" },
+    { lang: "Kannada", code: "kn", text: "ಜಾನ್‌ಬಾಸ್ಕೊ" },
+    { lang: "Gujarati", code: "gu", text: "જૉનબૉસ્કો" },
+    { lang: "Punjabi", code: "pa", text: "ਜਾਨਬੋਸਕੋ" },
+    { lang: "Odia", code: "or", text: "ଜନବୋସ୍କୋ" },
+    { lang: "Sinhala", code: "si", text: "ජොන්බොස්කෝ" },
+    { lang: "Urdu", code: "ur", text: "جان بوسکو" },
+    { lang: "Arabic", code: "ar", text: "جون بوسكو" },
+    { lang: "Hebrew", code: "he", text: "ג׳ונבוסקו" },
+    { lang: "Greek", code: "el", text: "Τζονμπόσκο" },
+    { lang: "Russian", code: "ru", text: "Джонбоско" },
+    { lang: "Serbian", code: "sr", text: "Џонбоско" },
+    { lang: "Mongolian", code: "mn", text: "Жонбоско" },
+    { lang: "Georgian", code: "ka", text: "ჯონბოსკო" },
+    { lang: "Armenian", code: "hy", text: "Ջոնբոսկո" },
+    { lang: "Amharic", code: "am", text: "ጆንቦስኮ" },
+    { lang: "Thai", code: "th", text: "จอห์นบอสโก" },
+    { lang: "Lao", code: "lo", text: "ຈອນບອສໂກ" },
+    { lang: "Burmese", code: "my", text: "ဂျွန်ဘော့စကို" },
+    { lang: "Japanese", code: "ja", text: "ジョンボスコ" },
+    { lang: "Korean", code: "ko", text: "존보스코" },
+    { lang: "Chinese", code: "zh", text: "约翰博斯科" },
+    { lang: "Vietnamese", code: "vi", text: "Gioan Bosco" },
+    { lang: "Turkish", code: "tr", text: "Conbosko" },
+    { lang: "Braille", code: "en", text: "⠚⠕⠓⠝⠃⠕⠎⠉⠕" },
+    { lang: "Runic", code: "non", text: "ᛃᛟᚻᚾᛒᛟᛋᚲᛟ" },
   ],
   scripts: {
     ml: { name: "ജോൺ ബോസ്കോ", role: "ഫുൾ-സ്റ്റാക്ക് ഡെവലപ്പർ", work: "പ്രവൃത്തികൾ", wins: "നേട്ടങ്ങൾ" },
@@ -123,9 +123,9 @@ export const profile = {
 } as const;
 
 export const site = {
-  title: "Johnbosco J Elanjikal — Founder of Jovora · Full-stack developer",
+  title: "Johnbosco J Elanjikal — Founder of Riven · Full-stack developer",
   description:
-    "Third-year Computer Science student in Chennai and founder of Jovora. I build full-stack platforms, real-time APIs and on-device computer vision, from hackathon prototypes to products like Clareo.",
+    "Third-year Computer Science student in Chennai and founder of Riven. I build full-stack platforms, real-time APIs and on-device computer vision, from hackathon prototypes to products like Clareo.",
 
   nav: [
     { label: "Work", href: "#work" },
@@ -141,10 +141,10 @@ export const site = {
     status: { label: "Open to internships & client projects", open: true },
     headline: { before: "I build", accent: "clear", after: "software — and a company to ship it." } satisfies Heading,
     intro:
-      "I’m a third-year Computer Science student in Chennai and the founder of Jovora. I build full-stack platforms, real-time APIs and on-device computer vision, and I take them from a hackathon weekend to a product people use.",
+      "I’m a third-year Computer Science student in Chennai and the founder of Riven. I build full-stack platforms, real-time APIs and on-device computer vision, and I take them from a hackathon weekend to a product people use.",
     primary: { label: "See my work", href: "#work" },
     resume: { label: "Download résumé", soon: "Résumé — coming soon" },
-    jovora: "Visit Jovora",
+    rivendevs: "Visit Riven",
     motionPrompt: "Tap · move it with your phone",
     scrollCue: "Scroll for work",
     /** The two tilted ribbon bands under the poster. */
@@ -155,7 +155,7 @@ export const site = {
     scroll: "Scroll",
   },
 
-  ticker: ["Clareo", "Excelsior ERP", "EyeGuard", "oLearn", "Stockfish Chess", "Jovora website"],
+  ticker: ["Clareo", "Excelsior ERP", "EyeGuard", "oLearn", "Stockfish Chess", "Riven website"],
 
   now: {
     label: "Now",
@@ -226,9 +226,9 @@ export const site = {
     secondary: "See the résumé",
   },
 
-  jovo: {
-    name: "Jovo",
-    role: "Jovora’s robot",
+  riv: {
+    name: "Riv",
+    role: "The Riven robot",
     idle: "Say hi and I’ll wave.",
     sent: "Message received — waving it through!",
     status: { idle: "Standing by", waving: "Waving", loading: "Waking up", offline: "Offline" },
@@ -240,7 +240,7 @@ export const site = {
       { label: "Work", href: "/#work" },
       { label: "Ventures", href: "/#ventures" },
       { label: "Résumé", href: "resume" },
-      { label: "Jovora", href: "jovora" },
+      { label: "Riven", href: "rivendevs" },
       { label: "Clareo", href: "clareo" },
       { label: "Support", href: "/#support" },
       { label: "GitHub", href: "github" },
