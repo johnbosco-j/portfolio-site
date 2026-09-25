@@ -26,7 +26,7 @@ export const profile = {
   name: "Johnbosco J Elanjikal",
   firstName: "Johnbosco",
   lastName: "J Elanjikal",
-  role: "Founder of Riven · Full-stack developer",
+  role: "Founder of RivenDevs · Full-stack developer",
   jobTitle: "Founder",
   location: "Chennai, India",
   city: "Chennai",
@@ -123,9 +123,9 @@ export const profile = {
 } as const;
 
 export const site = {
-  title: "Johnbosco J Elanjikal — Founder of Riven · Full-stack developer",
+  title: "Johnbosco J Elanjikal — Founder of RivenDevs · Full-stack developer",
   description:
-    "Third-year Computer Science student in Chennai and founder of Riven. I build full-stack platforms, real-time APIs and on-device computer vision, from hackathon prototypes to products like Clareo.",
+    "Third-year Computer Science student in Chennai and founder of RivenDevs. I build full-stack platforms, real-time APIs and on-device computer vision, from hackathon prototypes to products like Clareo.",
 
   nav: [
     { label: "Work", href: "#work" },
@@ -141,10 +141,10 @@ export const site = {
     status: { label: "Open to internships & client projects", open: true },
     headline: { before: "I build", accent: "clear", after: "software — and a company to ship it." } satisfies Heading,
     intro:
-      "I’m a third-year Computer Science student in Chennai and the founder of Riven. I build full-stack platforms, real-time APIs and on-device computer vision, and I take them from a hackathon weekend to a product people use.",
+      "I’m a third-year Computer Science student in Chennai and the founder of RivenDevs. I build full-stack platforms, real-time APIs and on-device computer vision, and I take them from a hackathon weekend to a product people use.",
     primary: { label: "See my work", href: "#work" },
     resume: { label: "Download résumé", soon: "Résumé — coming soon" },
-    rivendevs: "Visit Riven",
+    rivendevs: "Visit RivenDevs",
     motionPrompt: "Tap · move it with your phone",
     scrollCue: "Scroll for work",
     /** The two tilted ribbon bands under the poster. */
@@ -155,7 +155,7 @@ export const site = {
     scroll: "Scroll",
   },
 
-  ticker: ["Clareo", "Excelsior ERP", "EyeGuard", "oLearn", "Stockfish Chess", "Riven website"],
+  ticker: ["Clareo", "Excelsior ERP", "EyeGuard", "oLearn", "Stockfish Chess", "RivenDevs website"],
 
   now: {
     label: "Now",
@@ -228,7 +228,7 @@ export const site = {
 
   riv: {
     name: "Riv",
-    role: "The Riven robot",
+    role: "The RivenDevs robot",
     idle: "Say hi and I’ll wave.",
     sent: "Message received — waving it through!",
     status: { idle: "Standing by", waving: "Waving", loading: "Waking up", offline: "Offline" },
@@ -240,7 +240,7 @@ export const site = {
       { label: "Work", href: "/#work" },
       { label: "Ventures", href: "/#ventures" },
       { label: "Résumé", href: "resume" },
-      { label: "Riven", href: "rivendevs" },
+      { label: "RivenDevs", href: "rivendevs" },
       { label: "Clareo", href: "clareo" },
       { label: "Support", href: "/#support" },
       { label: "GitHub", href: "github" },

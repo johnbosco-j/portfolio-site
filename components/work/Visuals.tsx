@@ -178,7 +178,7 @@ function RivenVisual() {
           style={{ width: `${s}%`, aspectRatio: "1", transform: `rotateX(${60 + i * 8}deg)`, borderTopColor: "rgb(229 56 59)" }}
         />
       ))}
-      <span className="relative font-serif text-[44px] leading-none text-ink">Riven</span>
+      <span className="relative font-serif text-[44px] leading-none text-ink">RivenDevs</span>
     </div>
   );
 }

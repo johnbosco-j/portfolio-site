@@ -10,7 +10,7 @@ export type Milestone = {
   title: string;
   accent?: string;
   body: string;
-  /** Ember milestone dot (hackathons, founding Riven, Clareo). */
+  /** Ember milestone dot (hackathons, founding RivenDevs, Clareo). */
   milestone?: boolean;
   href?: string;
 };
@@ -63,7 +63,7 @@ export const journey: Milestone[] = [
     date: "2026",
     phase: "Venture",
     type: "venture",
-    title: "Founded Riven",
+    title: "Founded RivenDevs",
     body: "A multi-domain technology company — and a place to ship things properly.",
     milestone: true,
     href: "#ventures",

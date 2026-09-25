@@ -1,20 +1,20 @@
 # Prompt — Build the portfolio of Johnbosco J Elanjikal
 
-> Paste everything below the line into your AI builder (Claude Code, Cursor, v0, Lovable, Bolt). Keep `design_port.md` and `skills_port.md` in the project root; key values are repeated here so this prompt also works on its own. The Riven site (`../rivendevs-site`) is the reference implementation for shared components.
+> Paste everything below the line into your AI builder (Claude Code, Cursor, v0, Lovable, Bolt). Keep `design_port.md` and `skills_port.md` in the project root; key values are repeated here so this prompt also works on its own. The RivenDevs site (`../rivendevs-site`) is the reference implementation for shared components.
 
 ---
 
 ## Role
 
-You are a senior product designer and front-end engineer. Build the personal portfolio of **Johnbosco J Elanjikal**: third-year Computer Science student, full-stack developer, and founder of **Riven**. Deliver production-quality code: responsive, accessible, fast, easy to update every month. It must feel like it was made by the same hands as the Riven site and the Clareo app, because it was.
+You are a senior product designer and front-end engineer. Build the personal portfolio of **Johnbosco J Elanjikal**: third-year Computer Science student, full-stack developer, and founder of **RivenDevs**. Deliver production-quality code: responsive, accessible, fast, easy to update every month. It must feel like it was made by the same hands as the RivenDevs site and the Clareo app, because it was.
 
 ## Who he is
 
 - **Johnbosco J Elanjikal**, Chennai, India.
 - **Current third-year student**, B.E. Computer Science & Engineering, Loyola-ICAM College of Engineering and Technology (LICET), Chennai. **Not yet graduated**: every mention of the degree must read as in progress. CGPA **8.09** so far (through the 4th semester). Expected graduation: `TODO: confirm year` (do not guess).
 - School: St. Joseph Matriculation Higher Secondary School, Ambattur. Class 12: **89%**.
-- **Founder & owner of Riven**, a multi-domain technology company: AI & machine perception, health & human wellbeing, robotics & embedded systems, developer tools, education technology, institutional & enterprise platforms. Riven also builds full-stack websites and AI systems for clients at a minimal, honest cost.
-- **Clareo** is Riven's first product: private, on-device eye-fatigue, eye-strain and posture coaching for people who work at screens all day. It began as his hackathon project **EyeGuard**.
+- **Founder & owner of RivenDevs**, a multi-domain technology company: AI & machine perception, health & human wellbeing, robotics & embedded systems, developer tools, education technology, institutional & enterprise platforms. RivenDevs also builds full-stack websites and AI systems for clients at a minimal, honest cost.
+- **Clareo** is RivenDevs's first product: private, on-device eye-fatigue, eye-strain and posture coaching for people who work at screens all day. It began as his hackathon project **EyeGuard**.
 - Full-stack developer across web platforms, real-time APIs, computer vision and systems programming.
 - Languages: English (fluent), Tamil (native), Malayalam (basic).
 - Interests: developer tools, competitive hackathons, chess, systems programming.
@@ -22,11 +22,11 @@ You are a senior product designer and front-end engineer. Build the personal por
 
 ## Audience and goal
 
-Recruiters and internship leads, hackathon teammates, potential clients for Riven's services, college and incubator mentors, and early investors. In under a minute they should know:
+Recruiters and internship leads, hackathon teammates, potential clients for RivenDevs's services, college and incubator mentors, and early investors. In under a minute they should know:
 
 1. who he is,
 2. what he has **shipped**,
-3. what he is **building now** (Riven, Clareo),
+3. what he is **building now** (RivenDevs, Clareo),
 4. what comes **next**,
 5. how to reach him.
 
@@ -41,7 +41,7 @@ Recruiters and internship leads, hackathon teammates, potential clients for Rive
 
 ## Visual design (summary of design_port.md)
 
-- **Blend:** Riven's atmosphere (near-black, orbit rings, parallax, glass capsule nav, serif-italic accents, film grain) with Clareo's "Optic" instruments (bento panels, iris mark, lime live-signal, mono readouts, warm-paper light theme).
+- **Blend:** RivenDevs's atmosphere (near-black, orbit rings, parallax, glass capsule nav, serif-italic accents, film grain) with Clareo's "Optic" instruments (bento panels, iris mark, lime live-signal, mono readouts, warm-paper light theme).
 - **Colours (dark):** bg `#0A0B0D`, bg-2 `#0E1013`, panel `#121418`, panel-2 `#181B20`, line `#22262D`, ink `#EEF0EA`, muted `#8D9189`. **Ember** `#FF6A1A` is the founder accent (CTAs, accent words, orbit). **Signal lime** `#C8FF3D` is for live status, measurements and code. Follow the two-accent rule: never both fills in one component; max one of each fill per viewport.
 - **Light "paper":** bg `#F3F2EC`, panel `#FBFAF6`, ink `#121212`; ember text `#C2410C`, lime text `#4F7300`.
 - **Type:** Instrument Sans headings, Instrument Serif italic accents and venture names, Geist for lead paragraphs, DM Mono for numbers and labels. Hero name `clamp(52px, 8.5vw, 124px)`.
@@ -69,22 +69,22 @@ Personal mark (a "J" inside a lime iris ring) + "Johnbosco" · `Work · Ventures
 - Name (h1): **Johnbosco** / *J Elanjikal*
 - Headline: **I build *clear* software — and a company to ship it.**
   (Alternatives: "Student by day. Founder by night. *Builder* always." · "From hackathon prototype to *product*.")
-- Intro (Geist): "I'm a third-year Computer Science student in Chennai and the founder of Riven. I build full-stack platforms, real-time APIs and on-device computer vision, and I take them from a hackathon weekend to a product people use."
-- Buttons: **See my work** (ember) · **Download résumé** (secondary; the public PDF without a phone number) · text link **Visit Riven ↗**.
+- Intro (Geist): "I'm a third-year Computer Science student in Chennai and the founder of RivenDevs. I build full-stack platforms, real-time APIs and on-device computer vision, and I take them from a hackathon weekend to a product people use."
+- Buttons: **See my work** (ember) · **Download résumé** (secondary; the public PDF without a phone number) · text link **Visit RivenDevs ↗**.
 - Visual: the CSS-3D ember gyroscope (as on rivendevs.in) with a **lime iris** at its centre that follows the cursor, or the phone's tilt, and blinks every 4–7s. The name sits on the nearest depth plane.
 
 ### 3. Now (instrument panel, 4 small bento tiles, "Updated <month year>")
 
 - **Building** — Clareo: detection engine v5, desktop app, launch prep. `● Shipping`
-- **Running** — Riven: the company site, client websites and AI work, registration and domain.
+- **Running** — RivenDevs: the company site, client websites and AI work, registration and domain.
 - **Studying** — 3rd year, B.E. CSE at LICET (in progress): current semester, CGPA 8.09 so far.
 - **Playing** — chess, and the next hackathon.
 
 ### 4. Ventures — "What I'm *building*"
 
-An orbit diagram: **Riven** is the sun; **Clareo** is the live planet (lime); planned domains are dashed orbits: Robotics & Embedded (*In research*), Developer Tools (*In research*), Education (*Coming*), Institutional Platforms (*Coming*). Cards:
+An orbit diagram: **RivenDevs** is the sun; **Clareo** is the live planet (lime); planned domains are dashed orbits: Robotics & Embedded (*In research*), Developer Tools (*In research*), Education (*Coming*), Institutional Platforms (*Coming*). Cards:
 
-- **Riven** — *Clear technology for the real world.* "A multi-domain technology company I founded in 2026. We take one hard problem at a time and ship it properly, and we build websites and AI systems for people who need them, at a minimal cost." Role: **Founder & Owner**. Button: **Visit Riven ↗**.
+- **RivenDevs** — *Clear technology for the real world.* "A multi-domain technology company I founded in 2026. We take one hard problem at a time and ship it properly, and we build websites and AI systems for people who need them, at a minimal cost." Role: **Founder & Owner**. Button: **Visit RivenDevs ↗**.
 - **Clareo** — *Screen all day. Keep your eyes.* "Private, on-device fatigue, eye-strain and posture coaching. Video never leaves the computer." Role: **Founder, lead engineer**. Measurements (lime, each with a source line: "Clareo engine test suite / DETECTION_ENGINE.md"):
   - `12/12` real closed-eye photos detected, `0/46` false positives (detection v5)
   - `443`-face real-world benchmark in the test suite
@@ -102,7 +102,7 @@ Each tile: mono kind label, status chip, name (serif italic), one-line summary, 
 3. **EyeGuard** — Real-time fatigue-detection API · Lead developer · Shipped (hackathon) → became Clareo. "A research-grade REST API for real-time fatigue detection from computer-vision signals, deployed live." Achievement chip: **7th — Ctrl Alt Hack 2.0**. Stack: computer vision, REST API (`TODO:` confirm language/framework).
 4. **oLearn** — Unified e-learning ecosystem · Project lead, 4-member team · Shipped. "Led a 14-day agile sprint to deliver an e-learning platform with a 6-stage enrolment state machine." Highlights: SRS documentation and UML diagrams to split the work across the team. Stack: web full-stack, UML/SRS, Agile/Scrum.
 5. **Stockfish Chess** — Browser-based engine client · Developer · Shipped. "Runs the Stockfish engine in WebAssembly workers behind a React UI for low-latency play." Stack: React, WebAssembly, Web Workers. (Ties to the chess interest; tile uses a chess-board micro-pattern.)
-6. **Riven website** — Company site · Designer & developer · Shipped. "The site you'll find at rivendevs.in: a 3D gyroscope hero that follows your mouse or your phone's tilt, parallax depth, and Riv, an interactive three.js mascot." Stack: Next.js 16, TypeScript, Tailwind, Framer Motion, three.js.
+6. **RivenDevs website** — Company site · Designer & developer · Shipped. "The site you'll find at rivendevs.in: a 3D gyroscope hero that follows your mouse or your phone's tilt, parallax depth, and Riv, an interactive three.js mascot." Stack: Next.js 16, TypeScript, Tailwind, Framer Motion, three.js.
 
 Case-study pages (`/work/<slug>`) for Clareo, Excelsior ERP and EyeGuard: problem → constraints → what I built (with a diagram) → results → what I'd do next. Use only facts from this brief and the repos; leave `TODO:` markers where a detail is missing instead of inventing it.
 
@@ -117,7 +117,7 @@ Dated items (fill exact months from `content/journey.ts`; do not invent dates):
 - Built **Excelsior ERP**.
 - **EyeGuard** at Ctrl Alt Hack 2.0 — **7th place**.
 - **Buildathon 3.0** — **5th place**.
-- Founded **Riven** (2026).
+- Founded **RivenDevs** (2026).
 - EyeGuard grows into **Clareo**.
 - *Next:* see Roadmap (dashed, faded).
 
@@ -139,7 +139,7 @@ Achievement stats (ember mono): **7th** — Ctrl Alt Hack 2.0 · **5th** — Bui
 
 Three columns with `Planned` / `In progress` chips:
 
-- **Riven:** secure the domain (rivendevs.in) and company email; register the company; take on the first client website and AI projects; grow the domains from research to products.
+- **RivenDevs:** secure the domain (rivendevs.in) and company email; register the company; take on the first client website and AI projects; grow the domains from research to products.
 - **Clareo:** public launch at clareo.rivendevs.in; reach the first 200 weekly active users; desktop app and Pro plan; Teams for companies; a published accuracy study; a mobile companion.
 - **Me:** internships in full-stack, AI or systems roles; more hackathons; deeper systems programming.
 
@@ -148,25 +148,25 @@ Copy under the heading: "Plans, not promises. When something ships, it moves up 
 ### 10. Contact — "Let's build something *clear*"
 
 - Form: name, email, reason (Internship / Client project / Collaboration / Hackathon team / Just saying hi), message. Honeypot, rate limit, inline success.
-- Also: GitHub ↗, LinkedIn ↗ (when set), Riven ↗, and the company email `hello@rivendevs.in`.
-- Optional cameo: **Riv** (Riven's robot mascot, lazy three.js) waves when the message is sent.
+- Also: GitHub ↗, LinkedIn ↗ (when set), RivenDevs ↗, and the company email `hello@rivendevs.in`.
+- Optional cameo: **Riv** (RivenDevs's robot mascot, lazy three.js) waves when the message is sent.
 - **Never** show the phone number or the personal Gmail address.
 
 ### 11. Footer
 
-Personal mark, "Built by Johnbosco J Elanjikal · Chennai", links (Work, Ventures, Résumé, Riven ↗, Clareo ↗, GitHub ↗), "© 2026". A large outlined gradient name watermark (as on Riven).
+Personal mark, "Built by Johnbosco J Elanjikal · Chennai", links (Work, Ventures, Résumé, RivenDevs ↗, Clareo ↗, GitHub ↗), "© 2026". A large outlined gradient name watermark (as on RivenDevs).
 
 ## SEO & metadata
 
-- Title: "Johnbosco J Elanjikal — Founder of Riven · Full-stack developer"
-- Description: "Third-year Computer Science student in Chennai and founder of Riven. I build full-stack platforms, real-time APIs and on-device computer vision, from hackathon prototypes to products like Clareo."
+- Title: "Johnbosco J Elanjikal — Founder of RivenDevs · Full-stack developer"
+- Description: "Third-year Computer Science student in Chennai and founder of RivenDevs. I build full-stack platforms, real-time APIs and on-device computer vision, from hackathon prototypes to products like Clareo."
 - OG image 1200×630: dark, ember orbit with a lime iris, the name in Instrument Sans + Serif italic.
-- JSON-LD `Person`: name, jobTitle "Founder", worksFor Organization Riven (url), **affiliation** EducationalOrganization LICET (not `alumniOf` — he hasn't graduated), knowsAbout [...], sameAs [GitHub, LinkedIn, Riven].
+- JSON-LD `Person`: name, jobTitle "Founder", worksFor Organization RivenDevs (url), **affiliation** EducationalOrganization LICET (not `alumniOf` — he hasn't graduated), knowsAbout [...], sameAs [GitHub, LinkedIn, RivenDevs].
 - `robots.txt`, `sitemap.xml` (including `/work/*`), favicon from the personal mark.
 
 ## Acceptance criteria
 
-1. Looks like `design_port.md`: Riven atmosphere + Clareo instruments, the two-accent rule respected, light and dark both polished.
+1. Looks like `design_port.md`: RivenDevs atmosphere + Clareo instruments, the two-accent rule respected, light and dark both polished.
 2. Hero: the orbit bends in 3D with the mouse and with phone tilt; a shake makes it wobble; the iris follows the cursor and blinks; reduced motion makes it all still.
 3. Every project has status, role, stack and at least one link or screenshot; metrics have sources; nothing planned is labelled shipped.
 4. 60fps on a mid-range laptop and phone; LCP < 2.0s; CLS < 0.05; Lighthouse mobile ≥ 95 in all four categories.
@@ -174,14 +174,14 @@ Personal mark, "Built by Johnbosco J Elanjikal · Chennai", links (Work, Venture
 6. Keyboard and screen-reader friendly (skip link, landmarks, focus rings, alt text).
 7. Adding a project, milestone or skill only touches `content/`.
 8. No phone number or personal email anywhere, including the PDF.
-9. No invented facts: no fake clients, awards, dates, users or numbers beyond this brief and the Clareo/Riven repos.
+9. No invented facts: no fake clients, awards, dates, users or numbers beyond this brief and the Clareo/RivenDevs repos.
 
 ## Deliverables
 
 The complete project, a README (setup, env vars, deploy, how to update the Now section monthly), and a list of assets he must supply:
 
 - Founder photo (optional) and a public résumé PDF **without the phone number**, using the name "Johnbosco J Elanjikal".
-- Screenshots: Clareo (dashboard, calibration, analytics), Excelsior ERP, EyeGuard, oLearn, Stockfish client, Riven site.
+- Screenshots: Clareo (dashboard, calibration, analytics), Excelsior ERP, EyeGuard, oLearn, Stockfish client, RivenDevs site.
 - LinkedIn URL; repo links for each project (or mark them private).
 - Exact dates for the Journey timeline.
 - Final domain (default `johnbosco.rivendevs.in`) and the contact inbox.

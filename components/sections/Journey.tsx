@@ -9,7 +9,7 @@ import { site } from "@/content/profile";
 
 /**
  * Timeline on a Clareo-style live trace: a lime line draws itself as you scroll,
- * with a glowing head; ember dots mark milestones (hackathons, Riven, Clareo).
+ * with a glowing head; ember dots mark milestones (hackathons, RivenDevs, Clareo).
  */
 export function Journey() {
   const s = site.journey;

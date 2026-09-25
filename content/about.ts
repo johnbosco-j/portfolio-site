@@ -9,7 +9,7 @@ export const about = {
   label: "About",
   heading: { before: "Hi, I’m", accent: "Johnbosco", after: "." },
   paragraphs: [
-    "I’m a third-year Computer Science student at LICET in Chennai, and I run Riven, the company I founded in 2026.",
+    "I’m a third-year Computer Science student at LICET in Chennai, and I run RivenDevs, the company I founded in 2026.",
     "I like problems where software meets the real world — a webcam that notices you’re tired, an institution’s workflows in one system. I build them end to end: database, API, interface, and the part that runs on your device.",
     "Away from the keyboard I play chess, and I’m usually getting ready for the next hackathon.",
   ],
@@ -27,7 +27,7 @@ export const about = {
   facts: [
     { label: "Based in", value: "Chennai, India" },
     { label: "Studying", value: "3rd year · B.E. CSE, LICET" },
-    { label: "Building", value: "Riven · Clareo" },
+    { label: "Building", value: "RivenDevs · Clareo" },
     { label: "Speaks", value: "English · Tamil · Malayalam" },
   ],
 };

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 /**
- * Clareo × Riven HUD: a panel with ember corner brackets, a mono top bar
+ * Clareo × RivenDevs HUD: a panel with ember corner brackets, a mono top bar
  * (`LABEL · status ●`) and a dot-grid backdrop.
  */
 export function InstrumentPanel({

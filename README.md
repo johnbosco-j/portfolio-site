@@ -1,6 +1,6 @@
 # Johnbosco J Elanjikal — portfolio
 
-Personal site of Johnbosco J Elanjikal: third-year CSE student at LICET, full-stack developer, and founder of Riven.
+Personal site of Johnbosco J Elanjikal: third-year CSE student at LICET, full-stack developer, and founder of RivenDevs.
 Next.js 16 (App Router) · TypeScript strict · Tailwind CSS 3 · Framer Motion · three.js (only for the lazy Riv cameo).
 
 ## Run it
@@ -56,7 +56,7 @@ Put the **public** PDF (no phone number, name "Johnbosco J Elanjikal") at `publi
 
 - Portrait + event/achievement photos (see above)
 - Public résumé PDF without the phone number
-- Screenshots: Clareo (dashboard, calibration, analytics), Excelsior ERP, EyeGuard, oLearn, Stockfish client, Riven site
+- Screenshots: Clareo (dashboard, calibration, analytics), Excelsior ERP, EyeGuard, oLearn, Stockfish client, RivenDevs site
 - LinkedIn URL; repo links for Clareo, Excelsior ERP, EyeGuard, Stockfish (or confirm they stay private)
 - Exact months for the Journey timeline; expected graduation year
 - Excelsior ERP: front-end framework and the names of its three access tiers
