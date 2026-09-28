@@ -1,3 +1,4 @@
+import { YEAR } from "./profile";
 // The human part: a short About, photos, and event / achievement moments.
 // Photos are optional — drop files in /public and list them here. Anything whose file
 // is missing is simply not shown (the monogram stands in for the portrait).
@@ -15,13 +16,8 @@ export const about = {
   ],
   /** Portrait for the About card. */
   portrait: { src: "/me/portrait.jpg", alt: "Johnbosco J Elanjikal" } satisfies Photo,
-  /**
-   * The cut-out that stands in front of the name on the poster: background removed and
-   * cropped to head-and-shoulders. Replace with a transparent PNG/WebP at this path.
-   */
-  heroCut: { src: "/me/hero-bust.webp", alt: "Johnbosco J Elanjikal" } satisfies Photo,
   /** Player-card header (like a squad number): his current year of study. */
-  card: { number: "№03", note: "Profile ’26", position: "Full-stack · AI & vision", hometown: "Chennai, IN", status: "Active" },
+  card: { number: "№03", note: `Profile ’${String(YEAR).slice(2)}`, position: "Full-stack · AI & vision", hometown: "Chennai, IN", status: "Active" },
   /** Short "tools I reach for" row on the player card. */
   tools: ["TypeScript", "React", "Next.js", "Python", "FastAPI", "MediaPipe", "Supabase", "Postgres", "WebAssembly", "Electron"],
   facts: [

@@ -19,6 +19,14 @@ export const LINKS = {
   resumeFile: "resume/Johnbosco-J-Elanjikal-Resume.pdf",
 } as const;
 
+/**
+ * The year shown in presentation marks (signature, profile tag, copyright). Derived so the
+ * site never looks abandoned in January. Facts — the year he founded RivenDevs, timeline
+ * dates, the "Now" panel's updated date — stay written down, because those are claims.
+ */
+export const YEAR = new Date().getFullYear();
+const SHORT_YEAR = `’${String(YEAR).slice(2)}`;
+
 export type Heading = { before: string; accent: string; after: string };
 export type NavItem = { label: string; href: `#${string}` };
 
@@ -80,7 +88,7 @@ export const profile = {
     jp: { name: "ジョンボスコ", role: "フルスタック開発者", work: "作品", wins: "実績" },
   },
   /** Handwritten-style sign-off on the poster. */
-  signature: "J. Elanjikal ’26",
+  signature: `J. Elanjikal ${SHORT_YEAR}`,
 
   education: {
     degree: "B.E. Computer Science & Engineering",
@@ -245,7 +253,7 @@ export const site = {
       { label: "Support", href: "/#support" },
       { label: "GitHub", href: "github" },
     ],
-    legal: "© 2026 Johnbosco J Elanjikal",
+    legal: `© ${YEAR} Johnbosco J Elanjikal`,
     watermark: "Johnbosco",
   },
 } as const;
