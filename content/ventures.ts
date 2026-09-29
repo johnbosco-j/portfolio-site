@@ -8,6 +8,8 @@ export type Venture = {
   tagline: string;
   body: string;
   role: string;
+  /** The dev team behind it. Riven is the company; RivenDevs is the team. */
+  team?: string;
   since?: string;
   status: "Live" | "Shipping" | "Building";
   href: string;
@@ -23,6 +25,7 @@ export const ventures: Venture[] = [
     tagline: "Clear technology for the real world.",
     body: "A multi-domain technology company I founded in 2026. We take one hard problem at a time and ship it properly, and we build websites and AI systems for people who need them, at a minimal cost.",
     role: "Founder & Owner",
+    team: "RivenDevs",
     since: "2026",
     status: "Building",
     href: LINKS.rivendevs,

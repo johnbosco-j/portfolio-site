@@ -147,6 +147,11 @@ export function Ventures() {
             <p className="mt-6 text-muted">{rivendevs.body}</p>
             <div className="mt-6 flex flex-wrap gap-2">
               <Chip tone="role">{rivendevs.role}</Chip>
+              {rivendevs.team && (
+                <Chip tone="role" dot={false}>
+                  Team <span className="text-ember">{rivendevs.team}</span>
+                </Chip>
+              )}
             </div>
             <ul className="mt-8 divide-y divide-line border-t border-line" aria-label="Riven's domains">
               {rivendevsDomains.map((d) => (
