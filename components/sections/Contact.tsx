@@ -15,7 +15,7 @@ export function Contact() {
   const links = [
     { label: "GitHub", href: LINKS.github, handle: "johnbosco-j" },
     ...(LINKS.linkedin ? [{ label: "LinkedIn", href: LINKS.linkedin, handle: "Profile" }] : []),
-    { label: "RivenDevs", href: LINKS.rivendevs, handle: LINKS.rivendevs.replace(/^https?:\/\//, "") },
+    { label: "Riven", href: LINKS.rivendevs, handle: LINKS.rivendevs.replace(/^https?:\/\//, "") },
   ];
   return (
     <section id="contact" aria-labelledby="contact-title" className="fade-divider section-y relative overflow-hidden">

@@ -44,7 +44,7 @@ export function Ventures() {
           {/* Orbit diagram */}
           <div className="lg:col-span-7" data-reveal>
             <div className="orbit-system relative mx-auto aspect-square w-full max-w-[640px]">
-              {/* Sun: RivenDevs */}
+              {/* Sun: Riven */}
               <div aria-hidden="true" className="absolute left-1/2 top-1/2 size-[46%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(229_56_59/0.28),rgb(229_56_59/0.06)_55%,transparent)]" />
               <button
                 type="button"
@@ -120,7 +120,7 @@ export function Ventures() {
                       type="button"
                       onClick={() => setSelected(b.id)}
                       aria-pressed={selected === b.id}
-                      className={`min-h-9 rounded-full border px-3 font-mono text-[11px] uppercase tracking-[0.06em] transition-colors duration-1 ${
+                      className={`min-h-11 rounded-full border px-3 font-mono text-[11px] uppercase tracking-[0.06em] transition-colors duration-1 ${
                         selected === b.id ? "border-ember/60 text-ink" : "border-line text-faint hover:text-ink-2"
                       }`}
                     >
@@ -148,7 +148,7 @@ export function Ventures() {
             <div className="mt-6 flex flex-wrap gap-2">
               <Chip tone="role">{rivendevs.role}</Chip>
             </div>
-            <ul className="mt-8 divide-y divide-line border-t border-line" aria-label="RivenDevs's domains">
+            <ul className="mt-8 divide-y divide-line border-t border-line" aria-label="Riven's domains">
               {rivendevsDomains.map((d) => (
                 <li key={d.name} className="flex items-center justify-between gap-3 py-2.5 text-[14px]">
                   <span className="text-ink-2">{d.name}</span>
@@ -166,7 +166,7 @@ export function Ventures() {
 
           <article id="venture-clareo" aria-labelledby="clareo-card" data-reveal="tile" style={{ ["--i" as string]: 1 }} className="tile tile-hover flex flex-col p-7 md:p-9 lg:col-span-7">
             <div className="flex items-center justify-between gap-3">
-              <span className="micro">Product · by RivenDevs</span>
+              <span className="micro">Product · by Riven</span>
               <StatusChip status={clareo.status} />
             </div>
             <h3 id="clareo-card" className="mt-8 font-serif text-[56px] font-normal leading-none tracking-[-0.02em]">

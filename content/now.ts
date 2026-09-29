@@ -17,7 +17,7 @@ export const now = {
     },
     {
       label: "Running",
-      title: "RivenDevs",
+      title: "Riven",
       body: "The company site, client websites and AI work, registration and the domain.",
     },
     {

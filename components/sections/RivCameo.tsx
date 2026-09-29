@@ -7,7 +7,7 @@ import { site } from "@/content/profile";
 import { Corners } from "@/components/ui/InstrumentPanel";
 
 /**
- * Riv, RivenDevs's robot, as a small cameo beside the contact form. three.js and the
+ * Riv, Riven's robot, as a small cameo beside the contact form. three.js and the
  * model load lazily (dynamic import) only when the section nears the viewport, render only
  * while visible, and Riv waves each time `waves` increases (a message was sent).
  */

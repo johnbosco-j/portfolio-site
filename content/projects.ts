@@ -233,14 +233,14 @@ export const projects: Project[] = [
   },
   {
     slug: "rivendevs-website",
-    name: "RivenDevs website",
+    name: "Riven website",
     kind: "Company site",
     status: "Shipped",
     role: "Designer & developer",
     summary:
       "The site you’ll find at rivendevs.in: a 3D gyroscope hero that follows your mouse or your phone’s tilt, parallax depth, and Riv, an interactive three.js mascot.",
     highlights: [
-      "Designed the RivenDevs system — orbit rings, ember light, glass capsule nav.",
+      "Designed the Riven system — orbit rings, ember light, glass capsule nav.",
       "Built gyroscope and shake input so phones get the same depth as laptops.",
       "Lazy-loaded the three.js mascot so the landing page stays fast.",
     ],

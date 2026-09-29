@@ -2,8 +2,8 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 /**
- * The RivenDevs robot — "RobotExpressive" by Tomás Laulhé (Quaternius), CC0, with facial
- * morph targets by Don McCurdy (three.js examples). Recoloured to the RivenDevs palette.
+ * The Riven robot — "RobotExpressive" by Tomás Laulhé (Quaternius), CC0, with facial
+ * morph targets by Don McCurdy (three.js examples). Recoloured to the Riven palette.
  *
  * Loaded lazily (dynamic import) only when the About section nears the viewport, so
  * three.js never touches the landing page's initial JavaScript.
@@ -26,7 +26,7 @@ export type RobotHandle = {
 
 const MODEL_URL = "/models/robot-expressive.glb";
 
-// Palette (design.md tokens): RivenDevs-orange shell, graphite joints, glossy black visor.
+// Palette (design.md tokens): Riven-orange shell, graphite joints, glossy black visor.
 const COLORS: Record<string, string> = { Main: "#E5383B", Grey: "#2C2C31", Black: "#0A0A0B" };
 
 export async function createRobot(

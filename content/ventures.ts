@@ -19,14 +19,14 @@ export type Venture = {
 export const ventures: Venture[] = [
   {
     id: "rivendevs",
-    name: "RivenDevs",
+    name: "Riven",
     tagline: "Clear technology for the real world.",
     body: "A multi-domain technology company I founded in 2026. We take one hard problem at a time and ship it properly, and we build websites and AI systems for people who need them, at a minimal cost.",
     role: "Founder & Owner",
     since: "2026",
     status: "Building",
     href: LINKS.rivendevs,
-    cta: "Visit RivenDevs",
+    cta: "Visit Riven",
   },
   {
     id: "clareo",
@@ -49,7 +49,7 @@ export const ventures: Venture[] = [
   },
 ];
 
-/** RivenDevs's planned domains (copy mirrors rivendevs.in) — faint, dashed planets in the Ventures orbit. */
+/** Riven's planned domains (copy mirrors rivendevs.in) — faint, dashed planets in the Ventures orbit. */
 export type PlannedDomain = { name: string; short: string; status: "In research" | "Coming"; body: string };
 
 export const plannedDomains: PlannedDomain[] = [
@@ -59,7 +59,7 @@ export const plannedDomains: PlannedDomain[] = [
   { name: "Institutional Platforms", short: "Institutions", status: "Coming", body: "ERP, workflow and data systems for colleges and organisations that have outgrown spreadsheets." },
 ];
 
-/** All six RivenDevs domains with honest status (mirrors rivendevs.in). */
+/** All six Riven domains with honest status (mirrors rivendevs.in). */
 export const rivendevsDomains: { name: string; status: "Shipping" | "In research" | "Coming" }[] = [
   { name: "AI & Machine Perception", status: "Shipping" },
   { name: "Health & Human Wellbeing", status: "Shipping" },

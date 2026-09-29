@@ -6,7 +6,7 @@ export type RoadmapColumn = { id: string; title: string; accent?: boolean; items
 export const roadmap: RoadmapColumn[] = [
   {
     id: "rivendevs",
-    title: "RivenDevs",
+    title: "Riven",
     items: [
       { text: "Secure the domain (rivendevs.in) and company email", status: "In progress" },
       { text: "Register the company", status: "In progress" },

@@ -46,7 +46,7 @@ const jsonLd = {
   jobTitle: profile.jobTitle,
   description: site.description,
   address: { "@type": "PostalAddress", addressLocality: profile.city, addressCountry: "IN" },
-  worksFor: { "@type": "Organization", name: "RivenDevs", url: LINKS.rivendevs },
+  worksFor: { "@type": "Organization", name: "Riven", url: LINKS.rivendevs },
   // A current student (3rd year) — affiliation, not alumniOf.
   affiliation: { "@type": "CollegeOrUniversity", name: profile.education.institution, address: { "@type": "PostalAddress", addressLocality: "Chennai", addressCountry: "IN" } },
   knowsAbout: profile.knowsAbout,
