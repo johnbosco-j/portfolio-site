@@ -187,6 +187,17 @@ export const site = {
     intro: "Every tile is something that runs. Status, role and stack on each — case studies for the big ones.",
   },
 
+  /** The dedicated /projects index — the full list, beyond the home page's highlights. */
+  projects: {
+    word: "Projects",
+    heading: { before: "Everything I've", accent: "shipped", after: "." },
+    intro:
+      "The full list, newest work first. Every one of these runs: each carries its status, my role and the stack it was built on, and the big three have a case study.",
+    back: "Back to the portfolio",
+    seeAll: "See every project",
+    tableHead: { project: "Project", role: "Role", stack: "Stack", status: "Status" },
+  },
+
   journey: {
     label: "Journey",
     word: "Career",
@@ -246,6 +257,7 @@ export const site = {
     tagline: "Built by Johnbosco J Elanjikal · Chennai",
     links: [
       { label: "Work", href: "/#work" },
+      { label: "Projects", href: "/projects" },
       { label: "Ventures", href: "/#ventures" },
       { label: "Résumé", href: "resume" },
       { label: "Riven", href: "rivendevs" },

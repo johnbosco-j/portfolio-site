@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { ParallaxLayer } from "@/components/parallax/ParallaxLayer";
 import { SectionHeader } from "@/components/ui/AccentHeading";
 import { Button } from "@/components/ui/Button";
@@ -118,7 +119,17 @@ export function Work() {
   return (
     <section id="work" aria-labelledby="work-title" className="fade-divider section-y relative">
       <div className="container-x">
-        <SectionHeader heading={s.heading} intro={s.intro} id="work-title" word={s.word} />
+        <SectionHeader heading={s.heading} intro={s.intro} id="work-title" word={s.word}>
+          <Link
+            href="/projects"
+            className="group inline-flex min-h-11 w-fit items-center gap-2 border-2 border-line-strong px-4 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-ember hover:text-ember"
+            data-reveal
+            style={{ ["--i" as string]: 2 }}
+          >
+            {site.projects.seeAll}
+            <ArrowRight size={14} strokeWidth={2} aria-hidden="true" className="transition-transform duration-1 group-hover:translate-x-0.5" />
+          </Link>
+        </SectionHeader>
         <div className="mt-14 grid gap-4 md:grid-cols-12 md:gap-6">
           {projects.map((p, i) => (
             <ProjectTile key={p.slug} p={p} index={i} />
