@@ -98,7 +98,7 @@ export function NavBar() {
               key={item.href}
               href={homeHref(item.href, onHome)}
               aria-current={isActive ? "true" : undefined}
-              className={`py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.12em] ${i < 3 ? "border-r-2 border-line-strong" : ""} ${
+              className={`flex min-h-11 items-center justify-center text-center font-mono text-[10px] uppercase tracking-[0.12em] ${i < 3 ? "border-r-2 border-line-strong" : ""} ${
                 isActive ? "bg-ember/10 text-ember" : "text-muted active:bg-panel"
               }`}
             >

@@ -148,7 +148,7 @@
   .rule-y { @apply border-y-2 border-line-strong; }
   .rule-b { @apply border-b-2 border-line-strong; }
   /* Grid cells in the ruled header / stat strips. */
-  .cell { @apply flex items-center gap-2 border-l-2 border-line-strong px-4 py-3; }
+  .cell { @apply flex min-h-11 items-center gap-2 border-l-2 border-line-strong px-4 py-3; }
 
   .fade-divider { position: relative; }
   .fade-divider::before {
