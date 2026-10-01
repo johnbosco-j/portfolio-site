@@ -88,7 +88,7 @@ export function StatusBar({ push }: { push: { name: string; url: string; pushedA
             000%
           </span>
         </p>
-        <div className="flex flex-1 items-center justify-end">
+        <div className="flex flex-1 items-stretch justify-end">
           {push && (
             <a
               href={push.url}

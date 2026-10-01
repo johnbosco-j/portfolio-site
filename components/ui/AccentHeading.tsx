@@ -36,7 +36,7 @@ export function SectionHeader({
       {word && (
         <span
           aria-hidden="true"
-          className="display outline-word pointer-events-none absolute -top-[0.42em] left-0 select-none whitespace-nowrap text-[clamp(56px,13vw,150px)]"
+          className="display outline-word pointer-events-none absolute -top-[0.62em] left-0 select-none whitespace-nowrap text-[clamp(52px,12vw,150px)] opacity-60"
         >
           {word}
         </span>

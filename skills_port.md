@@ -129,6 +129,24 @@ export type Project = {
 - `next/image` with sizes and meaningful `alt`; decorative art is `aria-hidden`.
 - Copy: first person, short sentences, specific verbs ("built", "led", "shipped"), numbers with sources. No "passionate", "ninja", "rockstar", or self-rated skill percentages.
 
+### Iga Night (theme)
+
+- Colour tokens are unchanged in name; see "Theme: Iga Night" at the end of `design_port.md`
+  for the values. `--ember` is torii red (identity), `--signal` is lantern gold (live data).
+- **The theme is visual only.** Never let it into the copy: no "ninja", "stealth", "shadow"
+  or similar wordplay anywhere in `content/`. The writing stays plain and so does the résumé.
+- Characters live in `lib/scene/cast.ts` and are built from three.js primitives. They are
+  original work — never download, bundle, trace or otherwise introduce third-party character
+  artwork, however it is framed.
+- A 3D stage is always mounted through `<Stage>`, never `<CastScene>` directly: Stage is what
+  gates the WebGL context on proximity to the viewport and releases it afterwards.
+- Scenery SVGs that use `preserveAspectRatio="… slice"` crop inward from the edges. Keep the
+  subjects near the middle of the viewBox, or pin them as their own element — anything parked
+  at an edge disappears, or fills the frame alone, at phone width.
+- Anything that animates in must be visible in the markup first. Entrances are CSS gated on
+  `html.js`, which an inline script sets before first paint; an entrance written as opacity 0
+  in server HTML leaves the first screen blank until hydration.
+
 ## Quality checklist (before every merge)
 
 1. `npm run lint && npm run typecheck && npm run build` — clean.

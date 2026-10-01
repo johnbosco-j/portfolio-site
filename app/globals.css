@@ -24,7 +24,6 @@
   --signal: 255 200 87;
   --signal-soft: 42 34 16;
   --danger: 255 122 138;
-  --orbit: 255 92 102;
   --glow-strength: 1;
   --scrim: 7 10 31;
   /* scene only */
@@ -187,27 +186,10 @@
 /* ── Rotations ───────────────────────────────────────────────── */
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes spin-rev { to { transform: rotate(-360deg); } }
-.spin-9 { animation: spin 9s linear infinite; }
 .spin-12 { animation: spin 12s linear infinite; }
-.spin-16 { animation: spin-rev 16s linear infinite; }
-.spin-20 { animation: spin 20s linear infinite; }
 .spin-40 { animation: spin 40s linear infinite; }
 .spin-60 { animation: spin 60s linear infinite; }
 .spin-90 { animation: spin-rev 90s linear infinite; }
-.spin-120 { animation: spin 120s linear infinite; }
-
-/* Ventures orbit: each ring turns; its planet label turns back so it stays upright */
-.orbit-turn { animation: spin var(--period, 80s) linear infinite; animation-delay: var(--delay, 0s); }
-.orbit-counter { animation: spin-rev var(--period, 80s) linear infinite; animation-delay: var(--delay, 0s); }
-.orbit-system:hover .orbit-turn,
-.orbit-system:hover .orbit-counter,
-.orbit-system:focus-within .orbit-turn,
-.orbit-system:focus-within .orbit-counter { animation-play-state: paused; }
-
-/* Atom nucleus: a slow breath */
-@keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
-.nucleus-breathe { animation: breathe 4.5s var(--ease-in-out) infinite; transform-origin: 0 0; }
-
 
 /* ── Iga Night scenery ─────────────────────────────────────────── */
 /* The moon's halo breathes; clouds drift across it; lanterns flicker warmly. */
@@ -371,7 +353,7 @@
     transition-duration: 150ms !important;
   }
   .moon-breathe, .cloud-drift, .lantern-flicker, .petal,
-  .spin-9, .spin-12, .spin-16, .spin-20, .nucleus-breathe, .spin-40, .spin-60, .spin-90, .spin-120, .orbit-turn, .orbit-counter,
+  .spin-12, .spin-40, .spin-60, .spin-90,
   .ambient-orb, .marquee-track, .trace-scroll, .pulse-dot, .ping, .caret, .cue-dot, .accent-flow {
     animation: none !important;
   }

@@ -176,7 +176,7 @@ export const site = {
     label: "Ventures",
     word: "Ventures",
     heading: { before: "What I’m", accent: "building", after: "." } satisfies Heading,
-    intro: "One company, one live product, and a clear list of what comes next. Tap a planet to read about it.",
+    intro: "One company, one live product, and a clear list of what comes next. Tap a lantern to read about it.",
     sourceNote: "Clareo engine test suite / DETECTION_ENGINE.md",
   },
 

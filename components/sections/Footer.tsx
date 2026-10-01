@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mark } from "@/components/brand/Mark";
+import { RooftopBand } from "@/components/scene/RooftopBand";
 import { ExternalMark } from "@/components/ui/Button";
 import { site } from "@/content/profile";
 import { resolveHref } from "@/lib/links";
@@ -8,8 +9,10 @@ import { hasResume } from "@/lib/resume";
 export function Footer() {
   const f = site.footer;
   return (
-    <footer className="fade-divider relative overflow-hidden bg-bg-2/60 pb-8 pt-20">
-      <div className="container-x">
+    <footer className="fade-divider relative overflow-hidden bg-bg-2/60 pb-8">
+      {/* Kuro sees the page out along the same rooftops he stands on in the hero. */}
+      <RooftopBand who="kuro" side="right" hold="run" onTap="leap" className="border-t-0" />
+      <div className="container-x pt-20">
         <div className="flex flex-col justify-between gap-10 md:flex-row md:items-start">
           <div>
             <Link href="/#top" className="inline-flex min-h-11 items-center gap-3 rounded-full" aria-label="Johnbosco — back to top">

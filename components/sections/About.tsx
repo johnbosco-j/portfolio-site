@@ -19,7 +19,7 @@ export function About() {
     <section id="about" aria-labelledby="about-title" className="section-y relative border-t-2 border-line-strong">
       <div className="container-x grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
         {/* Player card */}
-        <article className="brut relative overflow-hidden lg:col-span-5" data-reveal="tile">
+        <article className="brut relative mx-auto w-full max-w-[560px] overflow-hidden lg:col-span-5 lg:max-w-none" data-reveal="tile">
           <p aria-hidden="true" className="absolute left-0 top-0 z-10 bg-ember-fill px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white">
             {c.note}
           </p>

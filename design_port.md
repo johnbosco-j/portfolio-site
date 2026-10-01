@@ -201,3 +201,78 @@ Token names are unchanged so components keep working:
 | `--signal` (coral) | `#FF6B6B` · soft `#2C1416` | Live status, measurements, code |
 
 The two-accent rule still applies, now as **red (identity) vs coral (live data)**.
+
+---
+
+## Theme: Iga Night
+
+**Supersedes §2 (Colour), §5 "Signature moments", and the gray + red palette update above.**
+Everything else in this document still stands — the two-accent rule, the motion tokens, the
+component kit, and in particular the §9 budget, which the 3D work below is written against.
+
+The site is set at night in a mountain village: indigo sky, a low moon, tiled rooftops,
+paper lanterns, a torii gate. The theme lives in the visuals. Copy stays plain — no "ninja",
+no "stealth", no wordplay on the setting. Someone who never notices the reference should
+read an ordinary, serious portfolio.
+
+### Tokens
+
+Token names are unchanged from the previous palette, so every component carried over
+untouched. Only the values moved. All fourteen text-on-background pairs were checked and
+pass WCAG AA; the tightest is white on the red fill at 4.97:1.
+
+| Token | Value | Use |
+|---|---|---|
+| `--bg` / `--bg-2` | `#070A1F` / `#0B1030` | Page, footer band |
+| `--panel` / `--panel-2` | `#10163A` / `#161E4A` | Tiles, inputs |
+| `--line` / `--line-strong` | `#232B5C` / `#34407A` | Hairlines, poster rules |
+| `--ink` / `--ink-2` | `#F4EFE4` / `#D9D3C4` | Text — warm washi white, not pure |
+| `--muted` / `--faint` | `#9CA2C2` / `#7A80A6` | Secondary text, micro-labels |
+| `--ember` (torii red) | `#FF5C66` · fill `#D62839` with white text · hot `#E63946` | Identity: CTAs, accent words, seals |
+| `--signal` (lantern gold) | `#FFC857` · soft `#2A2210` | Live data: status dots, measurements, code |
+| `--danger` | `#FF7A8A` | Errors |
+
+The two-accent rule now reads **torii red (identity) vs lantern gold (live data)**.
+
+Scene-only tokens, never used for UI text: `--scene-ai` `#2F6BFF`, `--scene-ai-deep`
+`#1E3FA8`, `--scene-moon` `#FFE7A8`, `--scene-sakura` `#FF9EB5`, `--washi` `#F4E7CC`,
+`--sumi` `#1A1530`.
+
+Texture: the dot grid is replaced by **seigaiha** — overlapping waves, inline SVG, 3–4%
+opacity. The personal mark is a hanko seal inside a brush ensō ring.
+
+### Signature moments
+
+1. **The poster world.** Three SVG layers behind the hero — sky, far ridge, near rooftops —
+   drawn flat with two shade steps and 2px ink strokes. Server-rendered, so it is
+   simultaneously the first paint, the no-JS view and the reduced-motion fallback.
+2. **The troupe.** Five original characters built procedurally from primitives: Kuro the
+   lead, Beni the rival, Kiku the youngest, Gen the elder, Shiro the dog. One parametric
+   rig, one cel recipe. They appear in the hero and on rooftop bands between sections.
+3. **Rooftop bands.** Full-bleed strips of the same rooftops where the page already wanted
+   a divider, each with one of the troupe standing on it.
+4. **Sakura on the wind**, one InstancedMesh and therefore one draw call, leaning with the
+   pointer or the phone's tilt.
+5. **The shuriken.** Tap the hero, press the keyboard button or shake the phone and Kuro
+   throws one across the moon.
+
+### Rules the scene is held to
+
+Additive, always: the page must read perfectly with no WebGL at all, so every stage is free
+to give up. Never server-rendered. Loaded only once the browser is idle, or once the stage
+is within one screen of the viewport — and unmounted again when it is well past, which
+releases the WebGL context rather than letting the browser drop the oldest on the floor.
+Pixel ratio capped at 1.5 on phones and 2 elsewhere, antialiasing off below 768px, no shadow
+maps (a painted sprite stands in for contact shadow). Paused off-screen and on hidden tabs,
+dropped to 30fps three seconds after the last input, and abandoned entirely if the first 30
+frames average worse than 24ms. Everything disposed on unmount.
+
+Reduced motion does not mean nothing: a stage renders a single still frame and never starts
+a loop, so the character is there to look at without anything moving.
+
+### Characters and rights
+
+Every character on this site is original and drawn in code. Nothing third-party is
+downloaded, bundled, self-hosted or traced, so there is no artwork in this repository that
+anyone can object to. If the troupe is ever extended, it is extended the same way — in
+`lib/scene/cast.ts`, from primitives.

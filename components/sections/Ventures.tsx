@@ -9,31 +9,54 @@ import { Stat } from "@/components/ui/Stat";
 import { site } from "@/content/profile";
 import { rivendevsDomains, plannedDomains, ventures } from "@/content/ventures";
 
-type Body = { id: string; name: string; status: string; body: string; kind: "sun" | "live" | "planned" };
+type Body = { id: string; name: string; status: string; body: string; kind: "home" | "live" | "planned" };
 
 const rivendevs = ventures.find((v) => v.id === "rivendevs")!;
 const clareo = ventures.find((v) => v.id === "clareo")!;
 
 const bodies: Body[] = [
-  { id: "rivendevs", name: rivendevs.name, status: rivendevs.status, body: rivendevs.tagline, kind: "sun" },
+  { id: "rivendevs", name: rivendevs.name, status: rivendevs.status, body: rivendevs.tagline, kind: "home" },
   { id: "clareo", name: clareo.name, status: clareo.status, body: clareo.body, kind: "live" },
   ...plannedDomains.map((d) => ({ id: d.short, name: d.name, status: d.status, body: d.body, kind: "planned" as const })),
 ];
 
-// Orbit radius (% of the system's width), period (s) and starting angle (deg).
-const ORBITS = [
-  { r: 20, period: 60, angle: 300 },
-  { r: 28.5, period: 90, angle: 40 },
-  { r: 35.5, period: 120, angle: 160 },
-  { r: 42, period: 150, angle: 250 },
-  { r: 48, period: 190, angle: 100 },
+/**
+ * Where each lantern hangs: x as a percentage across the cord, and how far down its own
+ * cord it drops. Deliberately uneven — a festival string is hung by hand, and a row of
+ * evenly spaced lanterns at one height reads as a chart.
+ */
+const HANGS = [
+  { x: 8, drop: 10, size: 72 },
+  { x: 26, drop: 58, size: 54 },
+  { x: 43, drop: 20, size: 42 },
+  { x: 59, drop: 72, size: 42 },
+  { x: 75, drop: 34, size: 42 },
+  { x: 90, drop: 62, size: 42 },
 ];
+
+/** A paper lantern: cap, ribbed body, base and a tassel. Lit ones carry the gold. */
+function Lantern({ size, lit, dim, selected }: { size: number; lit: boolean; dim: boolean; selected: boolean }) {
+  const body = lit ? "rgb(255 200 87)" : "rgb(22 30 74)";
+  const edge = lit ? "rgb(214 40 57)" : selected ? "rgb(255 92 102)" : "rgb(52 64 122)";
+  return (
+    <svg width={size} height={size * 1.42} viewBox="0 0 30 42" aria-hidden="true" className="overflow-visible">
+      {lit && <ellipse cx="15" cy="19" rx="26" ry="24" fill="rgb(255 200 87)" opacity="0.16" />}
+      <rect x="10" y="3" width="10" height="3.4" rx="1.2" fill="rgb(52 64 122)" />
+      <rect x="3" y="6" width="24" height="27" rx="10" fill={body} stroke={edge} strokeWidth={selected ? 2.2 : 1.4} strokeDasharray={dim ? "3 3" : undefined} />
+      <g stroke={lit ? "rgb(26 18 6)" : "rgb(52 64 122)"} strokeOpacity={lit ? 0.3 : 0.8} strokeWidth="1.1">
+        <line x1="4.5" y1="14" x2="25.5" y2="14" />
+        <line x1="4.5" y1="22" x2="25.5" y2="22" />
+      </g>
+      <rect x="10" y="32.6" width="10" height="3.4" rx="1.2" fill="rgb(52 64 122)" />
+      <line x1="15" y1="36" x2="15" y2="41" stroke="rgb(214 40 57)" strokeWidth="1.6" />
+    </svg>
+  );
+}
 
 export function Ventures() {
   const s = site.ventures;
   const [selected, setSelected] = useState("clareo");
   const current = bodies.find((b) => b.id === selected) ?? bodies[1];
-  const planets = bodies.slice(1);
 
   return (
     <section id="ventures" aria-labelledby="ventures-title" className="fade-divider section-y relative overflow-hidden">
@@ -41,61 +64,56 @@ export function Ventures() {
         <SectionHeader heading={s.heading} intro={s.intro} id="ventures-title" word={s.word} />
 
         <div className="mt-14 grid items-center gap-10 lg:grid-cols-12">
-          {/* Orbit diagram */}
+          {/* A string of lanterns, one per venture. Replaces the orbit diagram this
+              section used to carry: concentric rings around a glowing centre read as a
+              solar system — or worse, as an atom — and neither belongs here. */}
           <div className="lg:col-span-7" data-reveal>
-            <div className="orbit-system relative mx-auto aspect-square w-full max-w-[640px]">
-              {/* Sun: Riven */}
-              <div aria-hidden="true" className="absolute left-1/2 top-1/2 size-[46%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(255_92_102/0.28),rgb(255_92_102/0.06)_55%,transparent)]" />
-              <button
-                type="button"
-                onClick={() => setSelected("rivendevs")}
-                aria-pressed={selected === "rivendevs"}
-                className="absolute left-1/2 top-1/2 z-10 grid size-[22%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-ember/50 bg-bg/80 shadow-[0_0_60px_-10px_rgb(255_92_102/0.6)] backdrop-blur transition-transform duration-2 hover:scale-105"
+            <div className="relative mx-auto h-[250px] w-full max-w-[640px] sm:h-[300px]">
+              {/* the cord, sagging between two posts */}
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                className="absolute inset-x-0 top-0 h-[34%] w-full"
               >
-                <span className="font-serif text-[clamp(18px,3vw,30px)] leading-none">{rivendevs.name}</span>
-                <span aria-hidden="true" className="spin-40 absolute inset-[-6%] rounded-full border border-dashed border-ember/40" />
-              </button>
+                <path
+                  d="M0 14 Q 50 46 100 14"
+                  fill="none"
+                  stroke="rgb(52 64 122)"
+                  strokeWidth="2"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
 
-              {planets.map((p, i) => {
-                const o = ORBITS[i];
-                const live = p.kind === "live";
-                const isSel = selected === p.id;
+              {bodies.map((b, i) => {
+                const h = HANGS[i] ?? HANGS[HANGS.length - 1];
+                const lit = b.kind !== "planned";
+                const isSel = selected === b.id;
+                // follow the cord's sag so each lantern hangs from the rope, not from air
+                const t = h.x / 100;
+                const cordY = 14 + (46 - 14) * 2 * (2 * t * (1 - t));
                 return (
-                  <div
-                    key={p.id}
-                    className="pointer-events-none absolute left-1/2 top-1/2"
-                    style={{ width: `${o.r * 2}%`, height: `${o.r * 2}%`, transform: `translate(-50%, -50%) rotate(${o.angle}deg)` }}
+                  <button
+                    key={b.id}
+                    type="button"
+                    onClick={() => setSelected(b.id)}
+                    aria-pressed={isSel}
+                    aria-label={`${b.name} — ${b.status}`}
+                    className="group absolute flex -translate-x-1/2 flex-col items-center gap-1 px-2 pb-2"
+                    style={{ left: `${h.x}%`, top: `calc(${cordY * 0.34}% + ${h.drop}px)` }}
                   >
-                    <div
-                      className={`orbit-turn absolute inset-0 rounded-full border ${live ? "border-signal/40" : "border-dashed border-line-strong"}`}
-                      style={{ ["--period" as string]: `${o.period}s` }}
+                    <span aria-hidden="true" className="block h-5 w-px bg-line-strong sm:h-7" />
+                    <span className={`block transition-transform duration-2 group-hover:-translate-y-0.5 ${lit ? "lantern-flicker" : ""}`}>
+                      <Lantern size={h.size} lit={lit} dim={b.kind === "planned"} selected={isSel} />
+                    </span>
+                    <span
+                      className={`mt-1 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.08em] sm:inline sm:text-[11px] ${
+                        isSel ? "text-ink" : lit ? "text-signal" : "hidden text-faint group-hover:text-ink-2"
+                      }`}
                     >
-                      <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2" style={{ transform: `translate(-50%, -50%) rotate(${-o.angle}deg)` }}>
-                        <div className="orbit-counter" style={{ ["--period" as string]: `${o.period}s` }}>
-                          <button
-                            type="button"
-                            onClick={() => setSelected(p.id)}
-                            aria-pressed={isSel}
-                            aria-label={`${p.name} — ${p.status}`}
-                            className="pointer-events-auto group flex min-h-11 items-center gap-2 rounded-full px-1.5"
-                          >
-                            <span className="relative grid place-items-center">
-                              {live && <span aria-hidden="true" className="ping absolute size-3.5 rounded-full bg-signal" />}
-                              <span
-                                aria-hidden="true"
-                                className={`relative block rounded-full transition-transform duration-2 group-hover:scale-125 ${
-                                  live ? "size-3.5 bg-signal shadow-[0_0_16px_rgb(255_200_87/0.7)]" : "size-3 border border-dashed border-muted bg-bg"
-                                } ${isSel ? "scale-125 ring-2 ring-ember/60 ring-offset-2 ring-offset-bg" : ""}`}
-                              />
-                            </span>
-                            <span className={`whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.08em] sm:text-[11px] ${live ? "text-signal" : "hidden text-faint group-hover:text-ink-2 sm:inline"} ${isSel ? "!inline !text-ink" : ""}`}>
-                              {live ? p.name : plannedDomains[i - 1].short}
-                            </span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                      {b.kind === "planned" ? b.id : b.name}
+                    </span>
+                  </button>
                 );
               })}
             </div>
@@ -103,9 +121,9 @@ export function Ventures() {
 
           {/* Selected body */}
           <div className="lg:col-span-5">
-            <InstrumentPanel title="Orbit · selected" status={current.status} live={current.kind !== "planned"} bodyClassName="p-6 md:p-8">
+            <InstrumentPanel title="Lantern · selected" status={current.status} live={current.kind !== "planned"} bodyClassName="p-6 md:p-8">
               <div key={current.id} className="bubble-in" aria-live="polite">
-                <p className="micro">{current.kind === "sun" ? "The company" : current.kind === "live" ? "Live product" : "Planned domain"}</p>
+                <p className="micro">{current.kind === "home" ? "The company" : current.kind === "live" ? "Live product" : "Planned domain"}</p>
                 <h3 className="mt-3 font-serif text-[40px] font-normal italic leading-none tracking-[-0.01em]">{current.name}</h3>
                 <div className="mt-4">
                   <StatusChip status={current.status as "Shipping"} />
@@ -113,7 +131,7 @@ export function Ventures() {
                 <p className="mt-5 text-muted">{current.body}</p>
                 {current.kind === "planned" && <p className="mt-5 font-mono text-[12px] uppercase tracking-[0.06em] text-faint">A plan, not a product — see the roadmap.</p>}
               </div>
-              <ul className="mt-8 flex flex-wrap gap-2 border-t border-line pt-6" aria-label="Choose a body in the orbit">
+              <ul className="mt-8 flex flex-wrap gap-2 border-t border-line pt-6" aria-label="Choose a lantern">
                 {bodies.map((b) => (
                   <li key={b.id}>
                     <button
@@ -166,7 +184,6 @@ export function Ventures() {
                 {rivendevs.cta}
               </Button>
             </div>
-            <span aria-hidden="true" className="spin-120 pointer-events-none absolute -bottom-40 -right-40 size-80 rounded-full border border-dashed border-ember/25" />
           </article>
 
           <article id="venture-clareo" aria-labelledby="clareo-card" data-reveal="tile" style={{ ["--i" as string]: 1 }} className="tile tile-hover flex flex-col p-7 md:p-9 lg:col-span-7">
