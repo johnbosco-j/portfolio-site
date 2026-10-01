@@ -99,20 +99,16 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
         <Stage
           prime
           cast={[
-            { name: "kuro", x: 0.62, onTap: "leap" },
-            {
-              name: "shiro",
-              x: -1.05,
-              z: 0.45,
-              turn: 0.5,
-              hold: "sit",
-              onTap: "leap",
-            },
+            { name: "kuro", x: 0.6, onTap: "leap" },
+            // Shiro is modelled nose-along-+x, so -1.1rad puts him in three-quarter view
+            { name: "shiro", x: -0.78, z: 0.3, turn: -1.1, scale: 0.9, hold: "sit", onTap: "leap" },
           ]}
           shuriken
           action="Throw a shuriken"
-          camera={{ y: 1.25, z: 6.4, look: 0.95 }}
-          className="pointer-events-auto absolute bottom-[2%] right-0 -z-[5] h-[min(330px,38%)] w-[min(560px,94vw)] md:right-[3%]"
+          camera={{ y: 1.2, z: 5.8, look: 0.9 }}
+          // Kept to the lower-right corner: the stage used to span most of the hero, which
+          // put a bright cream dog directly behind the buttons.
+          className="pointer-events-auto absolute bottom-0 right-0 -z-[5] h-[min(300px,36%)] w-[min(440px,66vw)] md:right-[4%]"
         />
 
         <motion.div style={{ y: sinkY, opacity: sinkOpacity }}>
