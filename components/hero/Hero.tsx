@@ -99,16 +99,16 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
         <Stage
           prime
           cast={[
-            { name: "kuro", x: 0.6, onTap: "leap" },
+            { name: "kuro", x: -0.62, onTap: "leap" },
             // Shiro is modelled nose-along-+x, so -1.1rad puts him in three-quarter view
-            { name: "shiro", x: -0.78, z: 0.3, turn: -1.1, scale: 0.9, hold: "sit", onTap: "leap" },
+            { name: "shiro", x: 0.92, z: 0.3, turn: -1.1, scale: 0.9, hold: "sit", onTap: "leap" },
           ]}
           shuriken
           action="Throw a shuriken"
           camera={{ y: 1.2, z: 5.8, look: 0.9 }}
           // Kept to the lower-right corner: the stage used to span most of the hero, which
           // put a bright cream dog directly behind the buttons.
-          className="pointer-events-auto absolute bottom-0 right-0 -z-[5] h-[min(300px,36%)] w-[min(440px,66vw)] md:right-[4%]"
+          className="pointer-events-auto absolute bottom-0 right-0 -z-[5] h-[min(230px,28%)] w-[min(420px,62vw)] md:right-[4%]"
         />
 
         <motion.div style={{ y: sinkY, opacity: sinkOpacity }}>
@@ -168,9 +168,15 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
                 </p>
                 <div {...rise(6)} className="hero-line mt-8 flex flex-wrap items-center gap-3">
                   <Button href={hero.primary.href}>{hero.primary.label}</Button>
-                  <Button href={hasResume ? LINKS.resume : undefined} variant="secondary" download comingSoonLabel={hero.resume.soon}>
-                    {hero.resume.label}
-                  </Button>
+                  {/* Only shown once a résumé actually exists. A dashed "coming soon" control
+                      sitting beside the primary CTA is the first thing a recruiter's eye lands
+                      on and the first thing that reads unfinished; drop the file in and the
+                      button returns here and in the ruled strip below on its own. */}
+                  {hasResume && (
+                    <Button href={LINKS.resume} variant="secondary" download>
+                      {hero.resume.label}
+                    </Button>
+                  )}
                   <TextLink href={LINKS.rivendevs} external className="text-[15px]">
                     {hero.rivendevs}
                   </TextLink>

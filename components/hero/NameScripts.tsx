@@ -17,7 +17,11 @@ export function NameScripts({ className = "" }: { className?: string }) {
         {[0, 1].map((half) =>
           row.map((n, i) => (
             <li key={`${half}-${i}`} lang={n.code} className="flex items-center gap-6 px-3 md:gap-8 md:px-4">
-              <span className={`script-strip whitespace-nowrap text-[17px] leading-[1.9] md:text-[19px] ${i === 0 ? "text-ember" : "text-ink-2"}`}>
+              <span
+                className={`script-strip whitespace-nowrap text-[17px] leading-[1.9] [text-shadow:0_1px_5px_rgb(var(--bg)),0_0_14px_rgb(var(--bg)/0.85)] md:text-[19px] ${
+                  i === 0 ? "text-ember" : "text-ink-2"
+                }`}
+              >
                 {n.text}
               </span>
               <span aria-hidden="true" className="size-1.5 flex-none rotate-45 bg-ember/70" />
