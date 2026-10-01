@@ -1,12 +1,14 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useSpring, useTransform, type Variants } from "framer-motion";
+import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 import { AccentText } from "@/components/ui/AccentHeading";
 import { Button, TextLink } from "@/components/ui/Button";
 import { ParallaxLayer } from "@/components/parallax/ParallaxLayer";
 import { Ribbon } from "@/components/ui/Ribbon";
 import { FarRidge, NearRooftops, NightSky } from "@/components/poster/Village";
+import { theme } from "@/content/theme";
 import { FitText } from "./FitText";
 import { NameScripts } from "./NameScripts";
 import { LINKS, profile, site } from "@/content/profile";
@@ -21,6 +23,9 @@ import { gyroNeedsPermission, motionGranted, requestGyro, startTilt, tiltX, tilt
  * the whole block sinks and dims as the next section rises over it, and the type leans
  * slightly toward the cursor or the phone's tilt. All of it stops under reduced motion.
  */
+
+/** three.js never renders on the server, and never ships until the page is idle. */
+const NightScene = dynamic(() => import("@/components/scene/NightScene"), { ssr: false });
 
 const rise: Variants = {
   hidden: { opacity: 0, y: 22 },
@@ -57,6 +62,18 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
   const nameY = useTransform(sy, (v) => v * -9);
   const bodyX = useTransform(sx, (v) => v * -7);
 
+  // The scene loads only after first paint, so it can never hold up the LCP text.
+  const [sceneReady, setSceneReady] = useState(false);
+  useEffect(() => {
+    if (!theme.scene || reduce) return;
+    const w = window as Window & {
+      requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    const id = w.requestIdleCallback ? w.requestIdleCallback(() => setSceneReady(true), { timeout: 2500 }) : window.setTimeout(() => setSceneReady(true), 1400);
+    return () => (w.cancelIdleCallback ? w.cancelIdleCallback(id) : clearTimeout(id));
+  }, [reduce]);
+
   const anim = reduce ? {} : { initial: "hidden" as const, animate: "shown" as const, variants: rise };
 
   return (
@@ -75,6 +92,13 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
         {/* keeps the headline readable where the moon is brightest */}
         <span className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_45%,rgb(var(--bg)/0.86),rgb(var(--bg)/0.3)_60%,transparent)]" />
       </div>
+
+      {/* The mascot stands on the rooftops: above the poster, behind the text */}
+      {sceneReady && (
+        <div className="pointer-events-auto absolute bottom-[4%] right-[2%] -z-[5] h-[42%] w-[min(440px,56vw)] md:right-[6%] md:h-[48%]">
+          <NightScene className="size-full" />
+        </div>
+      )}
 
       <motion.div style={{ y: sinkY, opacity: sinkOpacity }}>
         <div className="container-x pb-10 pt-8 md:pt-10">
