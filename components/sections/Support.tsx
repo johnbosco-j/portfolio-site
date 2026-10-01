@@ -14,7 +14,7 @@ export function Support() {
   const live = methods.length > 0;
   return (
     <section id="support" aria-labelledby="support-title" className="fade-divider section-y relative overflow-hidden">
-      <div aria-hidden="true" className="pointer-events-none absolute -right-40 top-10 -z-10 size-[520px] rounded-full bg-[radial-gradient(closest-side,rgb(229_56_59/0.12),transparent)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute -right-40 top-10 -z-10 size-[520px] rounded-full bg-[radial-gradient(closest-side,rgb(255_92_102/0.12),transparent)]" />
       <div className="container-x grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <SectionHeader heading={s.heading} intro={s.intro} id="support-title" word={s.word} />

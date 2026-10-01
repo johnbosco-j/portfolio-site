@@ -48,12 +48,12 @@ export function Journey() {
           <motion.span
             aria-hidden="true"
             style={{ scaleY: drawn }}
-            className="absolute bottom-0 left-[7px] top-2 w-px origin-top bg-signal shadow-[0_0_12px_rgb(255_107_107/0.6)] md:left-[139px]"
+            className="absolute bottom-0 left-[7px] top-2 w-px origin-top bg-signal shadow-[0_0_12px_rgb(255_200_87/0.6)] md:left-[139px]"
           />
           <motion.span
             aria-hidden="true"
             style={{ y: headY }}
-            className="absolute left-[4px] top-2 -mt-1 size-[7px] rounded-full bg-signal shadow-[0_0_14px_3px_rgb(255_107_107/0.55)] md:left-[136px]"
+            className="absolute left-[4px] top-2 -mt-1 size-[7px] rounded-full bg-signal shadow-[0_0_14px_3px_rgb(255_200_87/0.55)] md:left-[136px]"
           />
 
           {journey.map((m, i) => {
@@ -77,7 +77,7 @@ export function Journey() {
                     m.milestone ? "bg-ember/20" : plan ? "border border-dashed border-muted bg-bg" : "border border-line-strong bg-bg"
                   }`}
                 >
-                  {m.milestone && <span className="size-[7px] rounded-full bg-ember shadow-[0_0_10px_rgb(229_56_59/0.8)]" />}
+                  {m.milestone && <span className="size-[7px] rounded-full bg-ember shadow-[0_0_10px_rgb(255_92_102/0.8)]" />}
                 </span>
                 <div className="mt-2 md:mt-0 md:pl-8">
                   <h3 className="font-normal">

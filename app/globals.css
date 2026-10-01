@@ -2,30 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Tokens ─────────────────────────────────────────────────────
-   One theme only: graphite grays + red (palette update, see design_port.md).
-   Colours are RGB channels so Tailwind can apply opacity.
-   --ember  = the red accent (CTAs, accent words, orbit, milestones)
-   --signal = a lighter coral red for live status, measurements and code */
+/* ── Tokens: "Iga Night" ────────────────────────────────────────
+   One theme only: a moonlit night. Token names are unchanged so every
+   component keeps working; only the values move.
+   --ember  = torii red, the identity accent (CTAs, accent words, seals)
+   --signal = lantern gold, the live accent (status, measurements, code)
+   --scene-* are for illustration and 3D only, never UI text. */
 :root {
-  --bg: 11 11 12;
-  --bg-2: 16 16 18;
-  --panel: 22 22 24;
-  --panel-2: 29 29 32;
-  --line: 42 42 46;
-  --line-strong: 58 58 63;
-  --ink: 242 242 243;
-  --ink-2: 207 207 211;
-  --muted: 154 154 161;
-  --faint: 112 112 120;
-  --ember: 229 56 59;
-  --ember-hot: 242 85 90;
-  --signal: 255 107 107;
-  --signal-soft: 44 20 22;
-  --danger: 255 107 107;
-  --orbit: 229 56 59;
+  --bg: 7 10 31;
+  --bg-2: 11 16 48;
+  --panel: 16 22 58;
+  --panel-2: 22 30 74;
+  --line: 35 43 92;
+  --line-strong: 52 64 122;
+  --ink: 244 239 228;
+  --ink-2: 217 211 196;
+  --muted: 156 162 194;
+  --faint: 122 128 166;
+  --ember: 255 92 102;
+  --ember-hot: 230 57 70;
+  --signal: 255 200 87;
+  --signal-soft: 42 34 16;
+  --danger: 255 122 138;
+  --orbit: 255 92 102;
   --glow-strength: 1;
-  --scrim: 11 11 12;
+  --scrim: 7 10 31;
+  /* scene only */
+  --scene-ai: 47 107 255;
+  --scene-ai-deep: 30 63 168;
+  --scene-moon: 255 231 168;
+  --scene-sakura: 255 158 181;
+  --washi: 244 231 204;
+  --sumi: 26 21 48;
   color-scheme: dark;
 }
 
@@ -63,13 +71,13 @@
   }
   h1, h2, h3 { @apply font-semibold; letter-spacing: -0.02em; text-wrap: balance; }
   p { text-wrap: pretty; }
-  ::selection { background: rgb(229 56 59 / 0.35); color: rgb(var(--ink)); }
+  ::selection { background: rgb(255 92 102 / 0.35); color: rgb(var(--ink)); }
 
   /* Focus: 1px red + outer glow (design_port.md §9) */
   :focus-visible {
     outline: 1px solid rgb(var(--ember));
     outline-offset: 2px;
-    box-shadow: 0 0 0 4px rgb(229 56 59 / 0.18);
+    box-shadow: 0 0 0 4px rgb(255 92 102 / 0.18);
     border-radius: 8px;
   }
   }
@@ -82,7 +90,7 @@
   .accent {
     @apply font-accent font-extrabold not-italic;
     letter-spacing: -0.03em;
-    background-image: linear-gradient(100deg, #E5383B 0%, #F2555A 22%, rgb(var(--ink-2)) 42%, #E5383B 62%, #9A9AA1 82%, #E5383B 100%);
+    background-image: linear-gradient(100deg, #E63946 0%, #FF5C66 22%, rgb(var(--ink-2)) 42%, #E63946 62%, #9A9AA1 82%, #E63946 100%);
     background-size: 220% 100%;
     background-position: 0% 50%;
     -webkit-background-clip: text;
@@ -100,7 +108,7 @@
   .tile-sm { @apply rounded-panel; }
   .tile-hover:hover {
     @apply -translate-y-1 border-ember;
-    box-shadow: 8px 8px 0 0 #D92D32;
+    box-shadow: 8px 8px 0 0 #D62839;
   }
 
   /* Cursor spotlight: an ember light that follows the pointer inside tiles */
@@ -114,14 +122,16 @@
     pointer-events: none;
     opacity: 0;
     transition: opacity var(--dur-2) var(--ease-out);
-    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(229 56 59 / 0.09), transparent 45%);
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(255 92 102 / 0.09), transparent 45%);
   }
   .tile:hover::before, .spotlight:hover::before { opacity: 1; }
 
   /* Instrument panel dot grid (Riven × Clareo HUD) */
+  /* Seigaiha: overlapping waves, drawn as an inline SVG pattern at 3-4%. */
   .dot-grid {
-    background-image: radial-gradient(rgb(var(--ink) / 0.07) 1px, transparent 1px);
-    background-size: 22px 22px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24'%3E%3Cg fill='none' stroke='%23F4EFE4' stroke-opacity='0.5' stroke-width='1'%3E%3Cpath d='M0 24a12 12 0 0 1 24 0 12 12 0 0 1 24 0'/%3E%3Cpath d='M0 24a8 8 0 0 1 16 0M16 24a8 8 0 0 1 16 0M32 24a8 8 0 0 1 16 0'/%3E%3Cpath d='M0 24a4 4 0 0 1 8 0M16 24a4 4 0 0 1 8 0M32 24a4 4 0 0 1 8 0'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 48px 24px;
+    opacity: 0.85;
   }
 
   /* ── Poster / neo-brutalist kit ─────────────────────────────── */
@@ -143,7 +153,7 @@
   }
   /* A hard-edged panel: thick border + offset shadow. */
   .brut { @apply border-2 border-line-strong bg-panel; box-shadow: 5px 5px 0 0 rgb(var(--line)); }
-  .brut-red { @apply border-2 border-ember; box-shadow: 5px 5px 0 0 #D92D32; }
+  .brut-red { @apply border-2 border-ember; box-shadow: 5px 5px 0 0 #D62839; }
   /* Full-bleed rule lines that frame the page like a printed poster. */
   .rule-y { @apply border-y-2 border-line-strong; }
   .rule-b { @apply border-b-2 border-line-strong; }
@@ -214,7 +224,7 @@
 /* ── Accent word: red → coral → ink flowing gradient ─────────── */
 @keyframes accent-flow { to { background-position: 200% 50%; } }
 .accent-flow {
-  background-image: linear-gradient(100deg, rgb(var(--ink)) 0%, rgb(var(--ink)) 18%, #F2555A 36%, #FF8787 48%, #E5383B 60%, rgb(var(--ink)) 80%, rgb(var(--ink)) 100%);
+  background-image: linear-gradient(100deg, rgb(var(--ink)) 0%, rgb(var(--ink)) 18%, #FF5C66 36%, #FFC857 48%, #E63946 60%, rgb(var(--ink)) 80%, rgb(var(--ink)) 100%);
   background-size: 200% 100%;
   background-position: 0% 50%;
   -webkit-background-clip: text;
@@ -242,7 +252,7 @@
 .ambient-orb--a {
   left: -20vmax;
   top: 10vh;
-  background: radial-gradient(closest-side, rgb(229 56 59 / 0.07), transparent);
+  background: radial-gradient(closest-side, rgb(255 92 102 / 0.07), transparent);
   animation: orb-a 48s var(--ease-in-out) infinite alternate;
 }
 .ambient-orb--b {
@@ -312,7 +322,7 @@
 .watermark {
   color: transparent;
   -webkit-text-stroke: 1px rgb(var(--ink) / 0.1);
-  background-image: linear-gradient(to bottom, rgb(229 56 59 / 0.2), transparent 85%);
+  background-image: linear-gradient(to bottom, rgb(255 92 102 / 0.2), transparent 85%);
   -webkit-background-clip: text;
   background-clip: text;
 }

@@ -170,7 +170,7 @@ function ChessVisual() {
 function RivenVisual() {
   return (
     <div className="relative flex h-full items-center justify-center overflow-hidden rounded-t-panel border border-b-0 border-line bg-bg">
-      <div className="absolute inset-0 bg-[radial-gradient(closest-side,rgb(229_56_59/0.2),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(closest-side,rgb(255_92_102/0.2),transparent)]" />
       {[90, 70, 50].map((s, i) => (
         <span
           key={s}

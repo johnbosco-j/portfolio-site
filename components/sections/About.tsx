@@ -45,7 +45,7 @@ export function About() {
             <span
               aria-hidden="true"
               className="display outline-word pointer-events-none absolute -bottom-2 left-3 select-none text-[86px] sm:text-[104px]"
-              style={{ WebkitTextStroke: "2px #D92D32" }}
+              style={{ WebkitTextStroke: "2px #D62839" }}
             >
               {c.number}
             </span>

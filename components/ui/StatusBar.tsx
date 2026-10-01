@@ -104,7 +104,7 @@ export function StatusBar({ push }: { push: { name: string; url: string; pushedA
           </p>
           <a
             href="#contact"
-            className="flex items-center gap-2 border-l-2 border-ember bg-ember-fill px-4 text-white transition-colors hover:bg-[#E5383B]"
+            className="flex items-center gap-2 border-l-2 border-ember bg-ember-fill px-4 text-white transition-colors hover:bg-[#E63946]"
           >
             {site.navCta.label}
           </a>

@@ -19,7 +19,7 @@ export function Contact() {
   ];
   return (
     <section id="contact" aria-labelledby="contact-title" className="fade-divider section-y relative overflow-hidden">
-      <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/3 -z-10 size-[70vmax] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(229_56_59/0.12),transparent)] opacity-[var(--glow-strength)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/3 -z-10 size-[70vmax] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(255_92_102/0.12),transparent)] opacity-[var(--glow-strength)]" />
       <div className="container-x">
         <SectionHeader heading={c.heading} intro={c.intro} id="contact-title" word={c.word} />
         <div className="mt-14 grid gap-6 lg:grid-cols-12">

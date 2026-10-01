@@ -45,12 +45,12 @@ export function Ventures() {
           <div className="lg:col-span-7" data-reveal>
             <div className="orbit-system relative mx-auto aspect-square w-full max-w-[640px]">
               {/* Sun: Riven */}
-              <div aria-hidden="true" className="absolute left-1/2 top-1/2 size-[46%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(229_56_59/0.28),rgb(229_56_59/0.06)_55%,transparent)]" />
+              <div aria-hidden="true" className="absolute left-1/2 top-1/2 size-[46%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(255_92_102/0.28),rgb(255_92_102/0.06)_55%,transparent)]" />
               <button
                 type="button"
                 onClick={() => setSelected("rivendevs")}
                 aria-pressed={selected === "rivendevs"}
-                className="absolute left-1/2 top-1/2 z-10 grid size-[22%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-ember/50 bg-bg/80 shadow-[0_0_60px_-10px_rgb(229_56_59/0.6)] backdrop-blur transition-transform duration-2 hover:scale-105"
+                className="absolute left-1/2 top-1/2 z-10 grid size-[22%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-ember/50 bg-bg/80 shadow-[0_0_60px_-10px_rgb(255_92_102/0.6)] backdrop-blur transition-transform duration-2 hover:scale-105"
               >
                 <span className="font-serif text-[clamp(18px,3vw,30px)] leading-none">{rivendevs.name}</span>
                 <span aria-hidden="true" className="spin-40 absolute inset-[-6%] rounded-full border border-dashed border-ember/40" />
@@ -84,7 +84,7 @@ export function Ventures() {
                               <span
                                 aria-hidden="true"
                                 className={`relative block rounded-full transition-transform duration-2 group-hover:scale-125 ${
-                                  live ? "size-3.5 bg-signal shadow-[0_0_16px_rgb(255_107_107/0.7)]" : "size-3 border border-dashed border-muted bg-bg"
+                                  live ? "size-3.5 bg-signal shadow-[0_0_16px_rgb(255_200_87/0.7)]" : "size-3 border border-dashed border-muted bg-bg"
                                 } ${isSel ? "scale-125 ring-2 ring-ember/60 ring-offset-2 ring-offset-bg" : ""}`}
                               />
                             </span>

@@ -7,10 +7,10 @@ const base =
 
 const variants: Record<Variant, string> = {
   // Ember fill — one per viewport (design_port.md §2.3)
-  primary: "border-ember bg-ember-fill text-white shadow-brut hover:bg-[#E5383B]",
+  primary: "border-ember bg-ember-fill text-white shadow-brut hover:bg-[#E63946]",
   secondary: "border-line-strong bg-panel text-ink shadow-brut hover:border-ember hover:text-ember",
   // Lime fill — only for "View live" on shipped products
-  signal: "bg-signal-fill text-signal-ink hover:shadow-[0_8px_32px_-10px_rgb(255_107_107/0.5)]",
+  signal: "bg-signal-fill text-signal-ink hover:shadow-[0_8px_32px_-10px_rgb(255_200_87/0.5)]",
   ghost: "border-transparent px-2 text-muted hover:text-ink",
 };
 

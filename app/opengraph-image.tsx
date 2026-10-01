@@ -31,14 +31,14 @@ export default async function OgImage() {
     (
       <div style={{ width: "100%", height: "100%", display: "flex", background: "#0B0B0C", position: "relative", overflow: "hidden" }}>
         {/* red poster bar */}
-        <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 190, background: "#D92D32", display: "flex" }} />
+        <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 190, background: "#D62839", display: "flex" }} />
         <div style={{ position: "absolute", left: 0, right: 0, top: 96, height: 3, background: "#3A3A3F", display: "flex" }} />
         <div style={{ position: "absolute", left: 0, right: 0, bottom: 118, height: 3, background: "#3A3A3F", display: "flex" }} />
         <div style={{ position: "absolute", left: 76, top: 0, bottom: 0, display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <div style={{ fontSize: 22, color: "#9A9AA1", letterSpacing: 3, textTransform: "uppercase", display: "flex" }}>Founder · Riven · 3rd-year CSE · Chennai</div>
           <div style={{ marginTop: 28, fontSize: 116, color: "#F2F2F3", lineHeight: 0.95, letterSpacing: -4, display: "flex", ...(sans ? { fontFamily: "Instrument Sans" } : {}) }}>{profile.firstName}</div>
           <div style={{ fontSize: 104, color: "#CFCFD3", lineHeight: 1.05, display: "flex", ...(serif ? { fontFamily: "Instrument Serif", fontStyle: "italic" } : {}) }}>{profile.lastName}</div>
-          <div style={{ marginTop: 32, fontSize: 28, color: "#E5383B", display: "flex", ...(sans ? { fontFamily: "Instrument Sans" } : {}) }}>Founder of Riven · Full-stack developer</div>
+          <div style={{ marginTop: 32, fontSize: 28, color: "#E63946", display: "flex", ...(sans ? { fontFamily: "Instrument Sans" } : {}) }}>Founder of Riven · Full-stack developer</div>
         </div>
       </div>
     ),

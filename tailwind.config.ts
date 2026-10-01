@@ -16,9 +16,13 @@ const config: Config = {
         muted: v("muted"),
         faint: v("faint"),
         // Ember = the red accent. `ember` for text/lines, `ember-fill` (deeper red, white text ≥ 4.5:1) for fills.
-        ember: { DEFAULT: v("ember"), hot: v("ember-hot"), fill: "#D92D32", deep: "#B42318" },
+        ember: { DEFAULT: v("ember"), hot: v("ember-hot"), fill: "#D62839", deep: "#B21E2E" },
         // Signal: live data in a lighter coral red. `signal` for text/lines, `signal-fill` for fills with `signal-ink` text.
-        signal: { DEFAULT: v("signal"), fill: "#FF6B6B", ink: "#1A0B0C", soft: v("signal-soft") },
+        signal: { DEFAULT: v("signal"), fill: "#FFC857", ink: "#1A1206", soft: v("signal-soft") },
+        // Illustration and 3D only — never UI text (design_port.md "Iga Night").
+        scene: { ai: v("scene-ai"), deep: v("scene-ai-deep"), moon: v("scene-moon"), sakura: v("scene-sakura") },
+        washi: v("washi"),
+        sumi: v("sumi"),
         info: "#A193FF",
         teal: "#5CE1E6",
         danger: v("danger"),

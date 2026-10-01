@@ -72,7 +72,7 @@ export function NavBar() {
           )}
           <a
             href={homeHref(site.navCta.href, onHome)}
-            className="hidden items-center border-l-2 border-line-strong bg-ember-fill px-5 font-mono text-[11px] uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#E5383B] md:flex"
+            className="hidden items-center border-l-2 border-line-strong bg-ember-fill px-5 font-mono text-[11px] uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#E63946] md:flex"
           >
             {site.navCta.label}
           </a>

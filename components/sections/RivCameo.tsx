@@ -91,7 +91,7 @@ export function RivCameo({ waves }: { waves: number }) {
   return (
     <div ref={stage} className="spotlight relative overflow-hidden rounded-bento border border-line bg-panel/60 shadow-hairline">
       <div aria-hidden="true" className="dot-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_50%_60%,black_20%,transparent_75%)]" />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-[radial-gradient(ellipse_at_50%_100%,rgb(229_56_59/0.16),transparent_65%)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-[radial-gradient(ellipse_at_50%_100%,rgb(255_92_102/0.16),transparent_65%)]" />
       <Corners />
       <div className="relative z-10 flex items-center justify-between gap-3 px-5 pt-4 font-mono text-micro uppercase">
         <span className="text-ink-2">
