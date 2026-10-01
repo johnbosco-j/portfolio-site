@@ -208,6 +208,37 @@
 @keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
 .nucleus-breathe { animation: breathe 4.5s var(--ease-in-out) infinite; transform-origin: 0 0; }
 
+
+/* ── Iga Night scenery ─────────────────────────────────────────── */
+/* The moon's halo breathes; clouds drift across it; lanterns flicker warmly. */
+@keyframes moon-breathe { 0%, 100% { transform: scale(1); opacity: .85; } 50% { transform: scale(1.07); opacity: 1; } }
+.moon-breathe { animation: moon-breathe 9s var(--ease-in-out) infinite; }
+
+@keyframes cloud-drift { from { transform: translateX(-120px); } to { transform: translateX(1560px); } }
+.cloud-drift { animation: cloud-drift 90s linear infinite; }
+.cloud-drift--slow { animation-duration: 140s; animation-direction: reverse; }
+
+@keyframes lantern-flicker { 0%, 100% { opacity: 1; } 42% { opacity: .82; } 58% { opacity: .94; } 71% { opacity: .78; } }
+.lantern-flicker { animation: lantern-flicker 4.5s var(--ease-in-out) infinite; }
+
+/* Petals: a light CSS fallback outside the hero scene (<= 12 elements). */
+@keyframes petal-fall {
+  0% { transform: translate3d(0, -8vh, 0) rotate(0deg); opacity: 0; }
+  10% { opacity: .9; }
+  100% { transform: translate3d(var(--drift, 40px), 108vh, 0) rotate(420deg); opacity: 0; }
+}
+.petal {
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 7px;
+  border-radius: 10px 2px 10px 2px;
+  background: rgb(var(--scene-sakura));
+  opacity: 0;
+  animation: petal-fall var(--dur, 14s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+
 /* ── Reveal on scroll (IntersectionObserver adds .is-in) ──────────
    Content is only hidden once the observer is running (html.reveal-on) and motion is allowed. */
 @media (prefers-reduced-motion: no-preference) {
@@ -339,6 +370,7 @@
     animation-iteration-count: 1 !important;
     transition-duration: 150ms !important;
   }
+  .moon-breathe, .cloud-drift, .lantern-flicker, .petal,
   .spin-9, .spin-12, .spin-16, .spin-20, .nucleus-breathe, .spin-40, .spin-60, .spin-90, .spin-120, .orbit-turn, .orbit-counter,
   .ambient-orb, .marquee-track, .trace-scroll, .pulse-dot, .ping, .caret, .cue-dot, .accent-flow {
     animation: none !important;

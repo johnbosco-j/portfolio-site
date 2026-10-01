@@ -4,7 +4,9 @@ import { motion, useReducedMotion, useScroll, useSpring, useTransform, type Vari
 import { useEffect, useRef, useState } from "react";
 import { AccentText } from "@/components/ui/AccentHeading";
 import { Button, TextLink } from "@/components/ui/Button";
+import { ParallaxLayer } from "@/components/parallax/ParallaxLayer";
 import { Ribbon } from "@/components/ui/Ribbon";
+import { FarRidge, NearRooftops, NightSky } from "@/components/poster/Village";
 import { FitText } from "./FitText";
 import { NameScripts } from "./NameScripts";
 import { LINKS, profile, site } from "@/content/profile";
@@ -59,6 +61,21 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
 
   return (
     <section id="top" ref={ref} aria-labelledby="hero-name" className="relative isolate overflow-hidden pt-[104px] md:pt-[124px]">
+      {/* The Iga Night poster: static SVG, so this is also the no-JS and reduced-motion view */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <ParallaxLayer speed={0.15} distance={420} className="absolute inset-x-0 top-0 h-[78%]">
+          <NightSky />
+        </ParallaxLayer>
+        <ParallaxLayer speed={0.35} distance={380} className="absolute inset-x-0 bottom-[22%] h-[42%]">
+          <FarRidge />
+        </ParallaxLayer>
+        <ParallaxLayer speed={1.2} distance={260} desktopOnly className="absolute inset-x-0 bottom-0 h-[34%]">
+          <NearRooftops />
+        </ParallaxLayer>
+        {/* keeps the headline readable where the moon is brightest */}
+        <span className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_45%,rgb(var(--bg)/0.86),rgb(var(--bg)/0.3)_60%,transparent)]" />
+      </div>
+
       <motion.div style={{ y: sinkY, opacity: sinkOpacity }}>
         <div className="container-x pb-10 pt-8 md:pt-10">
           {/* His name across writing systems, scrollable sideways */}
