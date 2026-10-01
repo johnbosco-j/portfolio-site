@@ -26,54 +26,58 @@ const STARS = Array.from({ length: 46 }, (_, i) => {
   };
 });
 
-/** L0 — the night sky: gradient, stars, the moon and its halo, slow clouds. */
+/** L0 — the night sky: gradient, stars, drifting clouds, and the moon.
+ *
+ * The moon is its own element rather than a circle inside the wide star SVG. A `slice`
+ * SVG scales to cover, so on a narrow phone a 1440-wide viewBox crops away most of its
+ * width and whatever sat near the right edge drifts into the middle of the screen. Pinning
+ * the moon with CSS instead keeps it in the top-right corner at every width, which is the
+ * one thing about this layer that has to stay put.
+ */
 export function NightSky({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 1440 600" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" className={`size-full ${className}`}>
-      <defs>
-        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="rgb(11 16 48)" />
-          <stop offset="0.55" stopColor="rgb(9 13 38)" />
-          <stop offset="1" stopColor="rgb(7 10 31)" />
-        </linearGradient>
-        <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0" stopColor="rgb(255 231 168)" stopOpacity="0.3" />
-          <stop offset="0.45" stopColor="rgb(255 217 138)" stopOpacity="0.12" />
-          <stop offset="1" stopColor="rgb(255 217 138)" stopOpacity="0" />
-        </radialGradient>
-      </defs>
+    <div aria-hidden="true" className={`size-full bg-[linear-gradient(to_bottom,rgb(11_16_48),rgb(9_13_38)_55%,rgb(7_10_31))] ${className}`}>
+      <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 size-full">
+        {STARS.map((s, i) => (
+          <circle key={i} cx={s.x} cy={s.y} r={s.r} fill="rgb(244 239 228)" opacity={s.dim ? 0.35 : 0.7} />
+        ))}
+        {/* clouds crossing the sky, the far one slower and against the drift */}
+        <g className="cloud-drift" fill="rgb(30 63 168)" opacity="0.5">
+          <path d="M980 196c22-10 52-8 68 4 10-16 44-20 62-8 14-9 40-6 48 7 10-3 24 1 26 9H966c0-6 6-11 14-12Z" />
+        </g>
+        <g className="cloud-drift cloud-drift--slow" fill="rgb(22 30 74)" opacity="0.6">
+          <path d="M1180 108c18-8 42-6 55 3 8-13 35-16 50-6 11-7 32-5 38 6 8-2 19 1 21 7h-179c0-5 6-9 15-10Z" />
+        </g>
+      </svg>
 
-      <rect width="1440" height="600" fill="url(#sky)" />
-
-      {STARS.map((s, i) => (
-        <circle key={i} cx={s.x} cy={s.y} r={s.r} fill="rgb(244 239 228)" opacity={s.dim ? 0.35 : 0.7} />
-      ))}
-
-      {/* the moon, with a halo that breathes */}
-      <g className="moon-breathe" style={{ transformOrigin: "1150px 160px" }}>
-        <circle cx="1150" cy="160" r="190" fill="url(#halo)" />
-      </g>
-      <circle cx="1150" cy="160" r="66" fill="rgb(255 231 168)" />
-      {/* craters: two shade steps, no gradients */}
-      <circle cx="1128" cy="140" r="13" fill="rgb(238 212 150)" opacity="0.55" />
-      <circle cx="1168" cy="178" r="9" fill="rgb(238 212 150)" opacity="0.45" />
-      <circle cx="1158" cy="128" r="6" fill="rgb(238 212 150)" opacity="0.4" />
-
-      {/* clouds drifting across the moon */}
-      <g className="cloud-drift" fill="rgb(30 63 168)" opacity="0.5">
-        <path d="M980 196c22-10 52-8 68 4 10-16 44-20 62-8 14-9 40-6 48 7 10-3 24 1 26 9H966c0-6 6-11 14-12Z" />
-      </g>
-      <g className="cloud-drift cloud-drift--slow" fill="rgb(22 30 74)" opacity="0.6">
-        <path d="M1180 108c18-8 42-6 55 3 8-13 35-16 50-6 11-7 32-5 38 6 8-2 19 1 21 7h-179c0-5 6-9 15-10Z" />
-      </g>
-    </svg>
+      {/* the moon, pinned to the top-right, with a halo that breathes */}
+      <div className="absolute right-[6%] top-[6%] aspect-square w-[min(220px,34vw)]">
+        <svg viewBox="0 0 200 200" className="size-full overflow-visible">
+          <defs>
+            <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stopColor="rgb(255 231 168)" stopOpacity="0.3" />
+              <stop offset="0.45" stopColor="rgb(255 217 138)" stopOpacity="0.12" />
+              <stop offset="1" stopColor="rgb(255 217 138)" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+          <g className="moon-breathe" style={{ transformOrigin: "100px 100px" }}>
+            <circle cx="100" cy="100" r="98" fill="url(#halo)" />
+          </g>
+          <circle cx="100" cy="100" r="62" fill="rgb(255 231 168)" />
+          {/* craters: two shade steps, no gradients */}
+          <circle cx="79" cy="81" r="12" fill="rgb(238 212 150)" opacity="0.55" />
+          <circle cx="117" cy="117" r="8.5" fill="rgb(238 212 150)" opacity="0.45" />
+          <circle cx="108" cy="69" r="5.5" fill="rgb(238 212 150)" opacity="0.4" />
+        </svg>
+      </div>
+    </div>
   );
 }
 
 /** L1 — the far horizon: Iga mountains, a pagoda silhouette, mist. */
 export function FarRidge({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 1440 320" preserveAspectRatio="xMaxYMax slice" aria-hidden="true" className={`size-full ${className}`}>
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice" aria-hidden="true" className={`size-full ${className}`}>
       {/* back range — the deeper indigo */}
       <path
         d="M0 320V214l96-52 74 40 86-66 92 58 70-36 104 70 88-54 96 62 78-44 110 72 84-50 92 58 78-38 92 56v130Z"
@@ -87,7 +91,7 @@ export function FarRidge({ className = "" }: { className?: string }) {
       />
 
       {/* pagoda on the right ridge: three roofs, a mast and a lit window */}
-      <g transform="translate(1058 128)" fill="rgb(16 22 58)">
+      <g transform="translate(922 128)" fill="rgb(16 22 58)">
         <rect x="26" y="-22" width="3" height="22" />
         <path d="M-6 0h66l-10 11H4Z" />
         <path d="M-16 12h86l-12 13H-4Z" />
@@ -97,7 +101,7 @@ export function FarRidge({ className = "" }: { className?: string }) {
         <path d="M-4 87h62l-9 11H5Z" />
         <rect x="16" y="98" width="22" height="26" />
       </g>
-      <rect x="1082" y="150" width="7" height="9" fill="rgb(255 200 87)" opacity="0.8" />
+      <rect x="946" y="150" width="7" height="9" fill="rgb(255 200 87)" opacity="0.8" />
 
       {/* mist bands */}
       <rect y="238" width="1440" height="26" fill="rgb(156 162 194)" opacity="0.06" />
@@ -140,31 +144,37 @@ function Lantern({ x, y, s = 1, delay = 0 }: { x: number; y: number; s?: number;
   );
 }
 
-/** L3 — the near foreground: rooftops, a torii gate and hanging lanterns. */
+/** L3 — the near foreground: rooftops, a torii gate and hanging lanterns.
+ *
+ * Centre-anchored and drawn with its subjects grouped near the middle of the viewBox. A
+ * `slice` layer crops from the edges inward, so anything parked at x=150 is simply gone by
+ * the time the viewport is phone-width — which is how the torii used to end up filling the
+ * whole band on its own, unrecognisable.
+ */
 export function NearRooftops({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 1440 260" preserveAspectRatio="xMinYMax slice" aria-hidden="true" className={`size-full ${className}`}>
-      {/* torii, left of frame */}
-      <g transform="translate(150 54)">
-        <rect x="-4" y="40" width="15" height="166" fill="rgb(214 40 57)" />
-        <rect x="131" y="40" width="15" height="166" fill="rgb(214 40 57)" />
+    <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true" className={`size-full ${className}`}>
+      {/* rooftops across the bottom */}
+      <Roof x={-40} y={190} w={330} h={110} />
+      <Roof x={250} y={226} w={300} h={74} shade />
+      <Roof x={520} y={172} w={360} h={128} />
+      <Roof x={840} y={218} w={300} h={82} shade />
+      <Roof x={1110} y={186} w={370} h={114} />
+
+      {/* the torii, standing just left of centre where every viewport can see it */}
+      <g transform="translate(540 40)">
+        <rect x="-4" y="40" width="15" height="180" fill="rgb(214 40 57)" />
+        <rect x="131" y="40" width="15" height="180" fill="rgb(214 40 57)" />
         <rect x="-16" y="30" width="174" height="12" rx="2" fill="rgb(214 40 57)" />
         <path d="M-30 14h202l-10 16H-20Z" fill="rgb(214 40 57)" />
         <rect x="26" y="62" width="92" height="9" rx="2" fill="rgb(214 40 57)" />
       </g>
 
-      {/* rooftops across the bottom */}
-      <Roof x={-40} y={150} w={330} h={110} />
-      <Roof x={250} y={186} w={300} h={74} shade />
-      <Roof x={520} y={132} w={360} h={128} />
-      <Roof x={840} y={178} w={300} h={82} shade />
-      <Roof x={1110} y={146} w={370} h={114} />
-
       {/* lanterns hung along the eaves */}
-      <Lantern x={360} y={206} s={0.9} />
-      <Lantern x={690} y={158} delay={700} />
-      <Lantern x={980} y={198} s={0.85} delay={1400} />
-      <Lantern x={1260} y={168} s={0.95} delay={2100} />
+      <Lantern x={300} y={246} s={0.9} />
+      <Lantern x={700} y={198} delay={700} />
+      <Lantern x={980} y={238} s={0.85} delay={1400} />
+      <Lantern x={1260} y={208} s={0.95} delay={2100} />
     </svg>
   );
 }

@@ -135,7 +135,7 @@ export function NavBar() {
 
       {/* Mobile: full-screen numbered menu */}
       {open && (
-        <div id="mobile-menu" className="menu-sheet fixed inset-0 top-[90px] -z-10 flex flex-col overflow-y-auto border-t-2 border-line-strong bg-bg px-5 pb-8 pt-6 md:hidden">
+        <div id="mobile-menu" className="menu-sheet fixed inset-0 top-[104px] -z-10 flex flex-col overflow-y-auto border-t-2 border-line-strong bg-bg px-5 pb-8 pt-6 md:hidden">
           <ul className="flex flex-col">
             {site.nav.map((item, i) => (
               <li key={item.href} className="menu-item border-b-2 border-line-strong" style={{ ["--i" as string]: i }}>

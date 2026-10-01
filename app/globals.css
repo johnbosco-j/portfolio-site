@@ -377,3 +377,20 @@
   }
   .accent-flow { background-position: 60% 50%; }
 }
+
+/* ── Hero entrance ───────────────────────────────────────────────
+   Driven entirely by CSS, and gated on html.js, which an inline script in <head> sets
+   before the first paint. Two things follow from that: there is no flash of hidden
+   content, and if script never runs the markup is simply visible. An entrance animated
+   from the markup itself (opacity 0 in the server HTML) leaves the first screen blank
+   until hydration lands, which is a bad trade for half a second of polish. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-reveal].hero-line {
+    animation: hero-rise 620ms var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 70ms);
+  }
+}
+@keyframes hero-rise {
+  from { opacity: 0; transform: translate3d(0, 22px, 0); }
+  to { opacity: 1; transform: none; }
+}
