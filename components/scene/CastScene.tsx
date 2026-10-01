@@ -60,6 +60,9 @@ export function CastScene({
   const mount = useRef<HTMLDivElement>(null);
   const fire = useRef<() => void>(() => {});
   const [failed, setFailed] = useState(false);
+  // Under reduced motion the stage draws one frame and never loops, so there is nothing
+  // for the action button to trigger and it should not be in the tab order at all.
+  const [still, setStill] = useState(false);
 
   // `cast` is a literal at every call site; serialising it keeps the effect from re-running
   // on every parent render without asking callers to memoise.
@@ -73,6 +76,7 @@ export function CastScene({
     const members: CastMember[] = JSON.parse(castKey);
     const camOpt: NonNullable<CastSceneProps["camera"]> = JSON.parse(camKey) ?? {};
     const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (still) requestAnimationFrame(() => setStill(true));
     const phone = window.innerWidth < 768;
 
     let renderer: THREE.WebGLRenderer;
@@ -380,13 +384,15 @@ export function CastScene({
     <div className={`relative ${className}`}>
       <div ref={mount} aria-hidden="true" className="size-full" />
       {/* Keyboard equivalent of tapping the stage, visible only when focused. */}
-      <button
-        type="button"
-        onClick={() => fire.current()}
-        className="sr-only focus:not-sr-only focus:absolute focus:bottom-4 focus:left-1/2 focus:z-10 focus:-translate-x-1/2 focus:rounded-sm focus:border-2 focus:border-ember focus:bg-panel focus:px-4 focus:py-2 focus:font-mono focus:text-[12px] focus:uppercase focus:tracking-[0.12em] focus:text-ink"
-      >
-        {action}
-      </button>
+      {!still && (
+        <button
+          type="button"
+          onClick={() => fire.current()}
+          className="sr-only focus:not-sr-only focus:absolute focus:bottom-4 focus:left-1/2 focus:z-10 focus:-translate-x-1/2 focus:rounded-sm focus:border-2 focus:border-ember focus:bg-panel focus:px-4 focus:py-2 focus:font-mono focus:text-[12px] focus:uppercase focus:tracking-[0.12em] focus:text-ink"
+        >
+          {action}
+        </button>
+      )}
     </div>
   );
 }
