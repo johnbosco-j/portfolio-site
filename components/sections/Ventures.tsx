@@ -26,12 +26,12 @@ const bodies: Body[] = [
  * evenly spaced lanterns at one height reads as a chart.
  */
 const HANGS = [
-  { x: 8, drop: 10, w: "w-[46px] sm:w-[70px]" },
-  { x: 26, drop: 58, w: "w-[34px] sm:w-[52px]" },
-  { x: 43, drop: 20, w: "w-[28px] sm:w-[42px]" },
-  { x: 59, drop: 72, w: "w-[28px] sm:w-[42px]" },
-  { x: 75, drop: 34, w: "w-[28px] sm:w-[42px]" },
-  { x: 90, drop: 62, w: "w-[28px] sm:w-[42px]" },
+  { x: 7, drop: 10, w: "w-[40px] sm:w-[70px]" },
+  { x: 29, drop: 58, w: "w-[30px] sm:w-[52px]" },
+  { x: 45, drop: 20, w: "w-[26px] sm:w-[42px]" },
+  { x: 60, drop: 72, w: "w-[26px] sm:w-[42px]" },
+  { x: 76, drop: 34, w: "w-[26px] sm:w-[42px]" },
+  { x: 91, drop: 62, w: "w-[26px] sm:w-[42px]" },
 ];
 
 /** A paper lantern: cap, ribbed body, base and a tassel. Lit ones carry the gold. */
@@ -99,16 +99,19 @@ export function Ventures() {
                     onClick={() => setSelected(b.id)}
                     aria-pressed={isSel}
                     aria-label={`${b.name} — ${b.status}`}
-                    className="group absolute flex -translate-x-1/2 flex-col items-center gap-1 px-2 pb-2"
+                    className="group absolute flex -translate-x-1/2 flex-col items-center px-1 pb-1"
                     style={{ left: `${h.x}%`, top: `calc(${cordY * 0.34}% + ${h.drop}px)` }}
                   >
                     <span aria-hidden="true" className="block h-5 w-px bg-line-strong sm:h-7" />
                     <span className={`block transition-transform duration-2 group-hover:-translate-y-0.5 ${lit ? "lantern-flicker" : ""}`}>
                       <Lantern className={h.w} lit={lit} dim={b.kind === "planned"} selected={isSel} />
                     </span>
+                    {/* Absolutely placed so a long name cannot widen the button. Left in the
+                        flow, "Institutions" stretched its hit area into "Education"'s, and
+                        the two were overlapping by about 20px on a 1024px screen. */}
                     <span
-                      className={`mt-1 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.08em] sm:inline sm:text-[11px] ${
-                        isSel ? "text-ink" : lit ? "text-signal" : "hidden text-faint group-hover:text-ink-2"
+                      className={`pointer-events-none absolute left-1/2 top-full mt-1 -translate-x-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.08em] sm:text-[11px] ${
+                        isSel ? "text-ink" : lit ? "text-signal" : "hidden text-faint group-hover:block group-focus-visible:block"
                       }`}
                     >
                       {b.kind === "planned" ? b.id : b.name}

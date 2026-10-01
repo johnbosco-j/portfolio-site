@@ -65,8 +65,10 @@
     overflow-x: clip;
     text-rendering: optimizeLegibility;
   }
-  @media (min-width: 768px) {
-    body { padding-bottom: 40px; } /* room for the fixed status bar */
+  /* Room for the fixed status bar — but only where there is height to spare. On a
+     landscape phone the header and the bar together were taking 37% of the screen. */
+  @media (min-width: 768px) and (min-height: 560px) {
+    body { padding-bottom: 40px; }
   }
   h1, h2, h3 { @apply font-semibold; letter-spacing: -0.02em; text-wrap: balance; }
   p { text-wrap: pretty; }
@@ -378,4 +380,12 @@
 @keyframes hero-rise {
   from { opacity: 0; transform: translate3d(0, 22px, 0); }
   to { opacity: 1; transform: none; }
+}
+
+/* Landscape phones and other short viewports: the header plus the status bar were taking
+   37% of a 390px-tall screen. The doubled class is deliberate — the bar carries Tailwind's
+   `md:block`, which has the same specificity as a single class, and relying on source
+   order against generated utilities is a coin flip. */
+@media (max-height: 559px) {
+  .status-bar.status-bar { display: none; }
 }

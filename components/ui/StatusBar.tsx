@@ -73,7 +73,7 @@ export function StatusBar({ push }: { push: { name: string; url: string; pushedA
   return (
     <aside
       aria-label="Page status"
-      className="fixed inset-x-0 bottom-0 z-40 hidden border-t-2 md:block border-line-strong bg-bg/95 font-mono text-[10px] uppercase tracking-[0.14em] text-muted backdrop-blur md:text-[11px]"
+      className="status-bar fixed inset-x-0 bottom-0 z-40 hidden border-t-2 md:block border-line-strong bg-bg/95 font-mono text-[10px] uppercase tracking-[0.14em] text-muted backdrop-blur md:text-[11px]"
     >
       {/* progress hairline sits on the top rule */}
       <span ref={barRef} aria-hidden="true" className="absolute inset-x-0 -top-[2px] h-[2px] origin-left scale-x-0 bg-ember-fill" />
