@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { Archivo, DM_Mono, Geist, Instrument_Sans, Instrument_Serif, Noto_Nastaliq_Urdu, Noto_Sans_JP, Noto_Sans_Malayalam, Syne } from "next/font/google";
 import { NavBar } from "@/components/nav/NavBar";
 import { AmbientBackground } from "@/components/parallax/AmbientBackground";
@@ -68,10 +67,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         >
           Skip to content
         </a>
-        {/* Marks the document before the first paint, so entrance animations may start
-            from nothing. Without script the class is never set and every element stays
-            plainly visible — the page must never need JS to show its own content. */}
-        <Script id="js-flag" strategy="beforeInteractive">{'document.documentElement.classList.add("js")'}</Script>
         <AmbientBackground />
         <SpotlightTracker />
         <RevealObserver />
