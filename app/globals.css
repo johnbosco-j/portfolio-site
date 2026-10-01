@@ -18,7 +18,7 @@
   --ink: 244 239 228;
   --ink-2: 217 211 196;
   --muted: 156 162 194;
-  --faint: 122 128 166;
+  --faint: 134 140 178; /* lightened: 122 128 166 only reached 4.14:1 on --panel-2 */
   --ember: 255 92 102;
   --ember-hot: 230 57 70;
   --signal: 255 200 87;
@@ -130,7 +130,10 @@
   .dot-grid {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24'%3E%3Cg fill='none' stroke='%23F4EFE4' stroke-opacity='0.5' stroke-width='1'%3E%3Cpath d='M0 24a12 12 0 0 1 24 0 12 12 0 0 1 24 0'/%3E%3Cpath d='M0 24a8 8 0 0 1 16 0M16 24a8 8 0 0 1 16 0M32 24a8 8 0 0 1 16 0'/%3E%3Cpath d='M0 24a4 4 0 0 1 8 0M16 24a4 4 0 0 1 8 0M32 24a4 4 0 0 1 8 0'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 48px 24px;
-    opacity: 0.85;
+    /* design_port.md asks for 3-4%. At 0.85 the waves were competing with the contact
+       form's own labels: stroke-opacity 0.5 x this lands at ~6% on a bare panel and ~3.6%
+       where a usage dims it further. */
+    opacity: 0.12;
   }
 
   /* ── Poster / neo-brutalist kit ─────────────────────────────── */

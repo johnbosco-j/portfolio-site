@@ -44,6 +44,9 @@ export type CastSceneProps = {
   /** Whether a tap (or the keyboard button) throws a shuriken from the first thrower. */
   shuriken?: boolean;
   camera?: { y?: number; z?: number; fov?: number; look?: number };
+  /** Increment to make the troupe play `cuePose` once — e.g. after a form is sent. */
+  cue?: number;
+  cuePose?: Pose;
   className?: string;
   /** Label for the keyboard-only action button. */
   action?: string;
@@ -54,11 +57,14 @@ export function CastScene({
   petals = true,
   shuriken = false,
   camera: cam,
+  cue,
+  cuePose = "wave",
   className = "",
   action = "Play the scene",
 }: CastSceneProps) {
   const mount = useRef<HTMLDivElement>(null);
   const fire = useRef<() => void>(() => {});
+  const play = useRef<(p: Pose) => void>(() => {});
   const [failed, setFailed] = useState(false);
   // Under reduced motion the stage draws one frame and never loops, so there is nothing
   // for the action button to trigger and it should not be in the tab order at all.
@@ -270,6 +276,10 @@ export function CastScene({
       thrower.handle.setPose("throw");
     };
     fire.current = shuriken ? throwStar : () => actors.forEach((a) => a.onTap && a.handle.setPose(a.onTap));
+    play.current = (p: Pose) => {
+      lastInput = performance.now();
+      for (const a of actors) a.handle.setPose(p);
+    };
 
     const frame = () => {
       const dt = Math.min(0.05, clock.getDelta());
@@ -377,6 +387,12 @@ export function CastScene({
       renderer.domElement.remove();
     };
   }, [castKey, camKey, petals, shuriken]);
+
+  // A cue fired before the stage mounts is simply dropped — the stage only exists when
+  // it is near the viewport, which is also the only time anyone could see the reaction.
+  useEffect(() => {
+    if (cue) play.current(cuePose);
+  }, [cue, cuePose]);
 
   if (failed) return null;
 

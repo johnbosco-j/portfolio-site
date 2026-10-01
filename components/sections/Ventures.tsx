@@ -26,20 +26,20 @@ const bodies: Body[] = [
  * evenly spaced lanterns at one height reads as a chart.
  */
 const HANGS = [
-  { x: 8, drop: 10, size: 72 },
-  { x: 26, drop: 58, size: 54 },
-  { x: 43, drop: 20, size: 42 },
-  { x: 59, drop: 72, size: 42 },
-  { x: 75, drop: 34, size: 42 },
-  { x: 90, drop: 62, size: 42 },
+  { x: 8, drop: 10, w: "w-[46px] sm:w-[70px]" },
+  { x: 26, drop: 58, w: "w-[34px] sm:w-[52px]" },
+  { x: 43, drop: 20, w: "w-[28px] sm:w-[42px]" },
+  { x: 59, drop: 72, w: "w-[28px] sm:w-[42px]" },
+  { x: 75, drop: 34, w: "w-[28px] sm:w-[42px]" },
+  { x: 90, drop: 62, w: "w-[28px] sm:w-[42px]" },
 ];
 
 /** A paper lantern: cap, ribbed body, base and a tassel. Lit ones carry the gold. */
-function Lantern({ size, lit, dim, selected }: { size: number; lit: boolean; dim: boolean; selected: boolean }) {
+function Lantern({ className, lit, dim, selected }: { className: string; lit: boolean; dim: boolean; selected: boolean }) {
   const body = lit ? "rgb(255 200 87)" : "rgb(22 30 74)";
   const edge = lit ? "rgb(214 40 57)" : selected ? "rgb(255 92 102)" : "rgb(52 64 122)";
   return (
-    <svg width={size} height={size * 1.42} viewBox="0 0 30 42" aria-hidden="true" className="overflow-visible">
+    <svg viewBox="0 0 30 42" aria-hidden="true" className={`h-auto overflow-visible ${className}`}>
       {lit && <ellipse cx="15" cy="19" rx="26" ry="24" fill="rgb(255 200 87)" opacity="0.16" />}
       <rect x="10" y="3" width="10" height="3.4" rx="1.2" fill="rgb(52 64 122)" />
       <rect x="3" y="6" width="24" height="27" rx="10" fill={body} stroke={edge} strokeWidth={selected ? 2.2 : 1.4} strokeDasharray={dim ? "3 3" : undefined} />
@@ -104,7 +104,7 @@ export function Ventures() {
                   >
                     <span aria-hidden="true" className="block h-5 w-px bg-line-strong sm:h-7" />
                     <span className={`block transition-transform duration-2 group-hover:-translate-y-0.5 ${lit ? "lantern-flicker" : ""}`}>
-                      <Lantern size={h.size} lit={lit} dim={b.kind === "planned"} selected={isSel} />
+                      <Lantern className={h.w} lit={lit} dim={b.kind === "planned"} selected={isSel} />
                     </span>
                     <span
                       className={`mt-1 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.08em] sm:inline sm:text-[11px] ${

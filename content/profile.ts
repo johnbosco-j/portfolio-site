@@ -245,12 +245,12 @@ export const site = {
     secondary: "See the résumé",
   },
 
-  riv: {
-    name: "Riv",
-    role: "The Riven robot",
-    idle: "Say hi and I’ll wave.",
-    sent: "Message received — waving it through!",
-    status: { idle: "Standing by", waving: "Waving", loading: "Waking up", offline: "Offline" },
+  cameo: {
+    name: "Gen",
+    role: "Keeper of the gate",
+    idle: "Send word and he’ll bow you through.",
+    sent: "Message received — he’s bowing you through.",
+    status: { idle: "At the gate", greeting: "Bowing", loading: "Arriving", offline: "Away" },
   },
 
   footer: {

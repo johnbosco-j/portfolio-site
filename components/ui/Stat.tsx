@@ -22,7 +22,7 @@ export function Stat({
         {value}
       </span>
       <span className="text-[14px] leading-snug text-ink-2">{label}</span>
-      {source && <span className="font-mono text-[11px] uppercase tracking-[0.06em] text-faint">Source · {source}</span>}
+      {source && <span className="break-words font-mono text-[11px] uppercase tracking-[0.06em] text-faint">Source · {source}</span>}
     </div>
   );
 }

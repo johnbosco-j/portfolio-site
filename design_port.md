@@ -227,7 +227,7 @@ pass WCAG AA; the tightest is white on the red fill at 4.97:1.
 | `--panel` / `--panel-2` | `#10163A` / `#161E4A` | Tiles, inputs |
 | `--line` / `--line-strong` | `#232B5C` / `#34407A` | Hairlines, poster rules |
 | `--ink` / `--ink-2` | `#F4EFE4` / `#D9D3C4` | Text — warm washi white, not pure |
-| `--muted` / `--faint` | `#9CA2C2` / `#7A80A6` | Secondary text, micro-labels |
+| `--muted` / `--faint` | `#9CA2C2` / `#868CB2` | Secondary text, micro-labels |
 | `--ember` (torii red) | `#FF5C66` · fill `#D62839` with white text · hot `#E63946` | Identity: CTAs, accent words, seals |
 | `--signal` (lantern gold) | `#FFC857` · soft `#2A2210` | Live data: status dots, measurements, code |
 | `--danger` | `#FF7A8A` | Errors |

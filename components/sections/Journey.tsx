@@ -68,7 +68,7 @@ export function Journey() {
               <li key={m.title} data-reveal style={{ ["--i" as string]: 0 }} className={`relative grid pb-12 pl-8 last:pb-0 md:grid-cols-[120px_1fr] md:gap-10 md:pl-0 ${plan ? "opacity-60" : ""}`}>
                 <p className="pt-1.5 font-mono text-[12px] uppercase tracking-[0.08em] text-faint md:text-right">
                   {m.date ?? m.phase}
-                  {m.date && <span className="block text-[11px] text-faint/70">{m.phase}</span>}
+                  {m.date && <span className="block text-[11px] text-faint">{m.phase}</span>}
                 </p>
                 {/* dot */}
                 <span

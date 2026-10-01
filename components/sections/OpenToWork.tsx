@@ -10,8 +10,8 @@ export function OpenToWork({ hasResume }: { hasResume: boolean }) {
         <p id="open-title" className="display relative text-[clamp(56px,12vw,140px)] text-white">
           {o.title}
         </p>
-        <p className="relative mt-2 font-mono text-[12px] uppercase tracking-[0.18em] text-white/90 md:text-[13px]">{o.subtitle}</p>
-        <p className="relative mx-auto mt-4 max-w-[46ch] text-[16px] text-white/85">{o.body}</p>
+        <p className="relative mt-2 font-mono text-[12px] uppercase tracking-[0.18em] text-white md:text-[13px]">{o.subtitle}</p>
+        <p className="relative mx-auto mt-4 max-w-[46ch] text-[16px] text-white">{o.body}</p>
         <div className="relative mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
             href="#contact"

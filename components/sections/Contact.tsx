@@ -7,7 +7,7 @@ import { ExternalMark } from "@/components/ui/Button";
 import { InstrumentPanel } from "@/components/ui/InstrumentPanel";
 import { LINKS, site } from "@/content/profile";
 import { ContactForm } from "./ContactForm";
-import { RivCameo } from "./RivCameo";
+import { ContactCameo } from "./ContactCameo";
 
 export function Contact() {
   const c = site.contact;
@@ -30,7 +30,7 @@ export function Contact() {
           </div>
           <div className="flex flex-col gap-6 lg:col-span-5">
             <div data-reveal="tile" style={{ ["--i" as string]: 1 }}>
-              <RivCameo waves={waves} />
+              <ContactCameo sends={waves} />
             </div>
             <div data-reveal="tile" style={{ ["--i" as string]: 2 }} className="tile p-6">
               <p className="micro">{c.emailLabel}</p>
