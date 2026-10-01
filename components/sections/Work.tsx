@@ -32,7 +32,6 @@ function ProjectTile({ p, index }: { p: Project; index: number }) {
     >
       {/* Preview (L3 foreground: parallaxes up to 32px) */}
       <div className={`relative overflow-hidden px-5 pt-5 ${big ? "h-[260px] md:h-[300px]" : "h-[210px]"} ${wide ? "lg:order-2 lg:col-span-5 lg:h-auto lg:min-h-[320px] lg:pb-0" : ""}`}>
-        <div aria-hidden="true" className="dot-grid absolute inset-0 opacity-60 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
         <ParallaxLayer speed={1.2} distance={160} desktopOnly className="relative h-[calc(100%+32px)]" aria-hidden>
           {p.cover ? (
             <Image src={p.cover.src} alt={p.cover.alt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="rounded-t-panel border border-b-0 border-line object-cover object-top" />
@@ -103,8 +102,9 @@ function ProjectTile({ p, index }: { p: Project; index: number }) {
               In Ventures
             </a>
           )}
-          {!p.links?.live && !p.links?.caseStudy && (
-            <Button variant="secondary" comingSoonLabel={p.links?.repo ? undefined : "Repo · link coming"} href={p.links?.repo} external>
+          {/* A link that exists, or nothing — a dashed "link coming" control reads unfinished. */}
+          {!p.links?.live && !p.links?.caseStudy && p.links?.repo && (
+            <Button variant="secondary" href={p.links.repo} external>
               Code
             </Button>
           )}

@@ -74,7 +74,11 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
       {/* The poster frame. The scenery is anchored to the bottom of *this*, not of the whole
           section — the ruled strip and the ribbons below are page furniture, and rooftops
           sliding in behind them read as a mistake rather than as depth. */}
-      <div className="relative isolate overflow-hidden pt-[104px] md:pt-[124px]">
+      {/* --band is the ground strip along the bottom of the poster: rooftops, the torii,
+          the lanterns and the troupe all live inside it, and the copy reserves exactly that
+          much space above it. They used to share the same area, which on a desktop put the
+          torii straight behind the headline and the dog on top of the signature. */}
+      <div className="relative isolate overflow-hidden pt-[104px] md:pt-[124px]" style={{ ["--band" as string]: "clamp(200px, 21vw, 380px)" }}>
         {/* The Iga Night poster: static SVG, so this is also the no-JS and reduced-motion view.
 
             The sky does not parallax. A layer that moves has to be bigger than the hole it
@@ -84,10 +88,10 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
             which are anchored to the bottom and can only ever uncover more sky. */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
           <NightSky className="absolute inset-0" />
-          <ParallaxLayer speed={0.35} distance={200} className="absolute inset-x-0 bottom-[14%] h-[clamp(170px,26vw,330px)]">
+          <ParallaxLayer speed={0.35} distance={160} className="absolute inset-x-0 bottom-[calc(var(--band)*0.45)] h-[clamp(140px,19vw,270px)]">
             <FarRidge />
           </ParallaxLayer>
-          <ParallaxLayer speed={1.2} distance={200} desktopOnly className="absolute inset-x-0 bottom-0 h-[clamp(150px,22vw,290px)]">
+          <ParallaxLayer speed={1.2} distance={120} desktopOnly className="absolute inset-x-0 bottom-0 h-[var(--band)]">
             <NearRooftops />
           </ParallaxLayer>
           {/* keeps the headline readable where the moon is brightest */}
@@ -105,14 +109,13 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
           ]}
           shuriken
           action="Throw a shuriken"
-          camera={{ y: 1.2, z: 5.8, look: 0.9 }}
-          // Kept to the lower-right corner: the stage used to span most of the hero, which
-          // put a bright cream dog directly behind the buttons.
-          className="pointer-events-auto absolute bottom-0 right-0 -z-[5] h-[min(230px,28%)] w-[min(420px,62vw)] md:right-[4%]"
+          camera={{ y: 1.15, z: 5.2, look: 0.8 }}
+          // Inside the ground band, on the right — clear of every line of copy.
+          className="pointer-events-auto absolute bottom-0 right-0 -z-[5] h-[var(--band)] w-[min(540px,74vw)] md:right-[5%]"
         />
 
         <motion.div style={{ y: sinkY, opacity: sinkOpacity }}>
-          <div className="container-x pb-10 pt-8 md:pt-10">
+          <div className="container-x pb-[calc(var(--band)+12px)] pt-8 md:pt-10">
             {/* His name across writing systems, scrollable sideways */}
             <div {...rise(0)} className="hero-line pb-6">
               <NameScripts />

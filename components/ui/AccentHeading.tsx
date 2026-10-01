@@ -36,7 +36,12 @@ export function SectionHeader({
       {word && (
         <span
           aria-hidden="true"
-          className="display outline-word pointer-events-none absolute -top-[0.62em] left-0 select-none whitespace-nowrap text-[clamp(52px,12vw,150px)] opacity-60"
+          className="display outline-word pointer-events-none absolute -top-[0.62em] left-0 select-none whitespace-nowrap opacity-60"
+          // Sized to the word as well as the viewport. One fixed size suited "Now" and ran
+          // "Achievements" straight off the right edge of the page. In this extended italic
+          // a letter is about 0.86em wide, so the cap keeps the longest word inside the
+          // content column.
+          style={{ fontSize: `min(150px, 12vw, calc((min(100vw, 1240px) - 48px) / ${(word.length * 0.86).toFixed(2)}))` }}
         >
           {word}
         </span>

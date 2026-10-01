@@ -73,13 +73,6 @@ export function About() {
           </dl>
 
           <div className="border-b-2 border-line-strong px-4 py-4">
-            <p className="micro flex items-center gap-2">
-              <span aria-hidden="true" className="h-[2px] w-6 bg-ember" /> Bio
-            </p>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink-2">{about.paragraphs[1]}</p>
-          </div>
-
-          <div className="border-b-2 border-line-strong px-4 py-4">
             <p className="micro">Tools I reach for</p>
             <ul className="mt-3 flex flex-wrap gap-1.5">
               {about.tools.map((t) => (

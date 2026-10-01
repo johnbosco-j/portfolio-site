@@ -43,10 +43,10 @@ export function NightSky({ className = "" }: { className?: string }) {
         ))}
         {/* clouds crossing the sky, the far one slower and against the drift */}
         <g className="cloud-drift" fill="rgb(30 63 168)" opacity="0.5">
-          <path d="M980 196c22-10 52-8 68 4 10-16 44-20 62-8 14-9 40-6 48 7 10-3 24 1 26 9H966c0-6 6-11 14-12Z" />
+          <g transform="translate(0 -118)"><path d="M980 196c22-10 52-8 68 4 10-16 44-20 62-8 14-9 40-6 48 7 10-3 24 1 26 9H966c0-6 6-11 14-12Z" /></g>
         </g>
         <g className="cloud-drift cloud-drift--slow" fill="rgb(22 30 74)" opacity="0.6">
-          <path d="M1180 108c18-8 42-6 55 3 8-13 35-16 50-6 11-7 32-5 38 6 8-2 19 1 21 7h-179c0-5 6-9 15-10Z" />
+          <g transform="translate(0 -62)"><path d="M1180 108c18-8 42-6 55 3 8-13 35-16 50-6 11-7 32-5 38 6 8-2 19 1 21 7h-179c0-5 6-9 15-10Z" /></g>
         </g>
       </svg>
 
@@ -161,10 +161,11 @@ export function NearRooftops({ className = "" }: { className?: string }) {
       <Roof x={840} y={218} w={300} h={82} shade />
       <Roof x={1110} y={186} w={370} h={114} />
 
-      {/* the torii, standing just left of centre where every viewport can see it */}
-      <g transform="translate(540 40)">
-        <rect x="-4" y="40" width="15" height="180" fill="rgb(214 40 57)" />
-        <rect x="131" y="40" width="15" height="180" fill="rgb(214 40 57)" />
+      {/* the torii, just left of centre where every viewport can see it, and low enough
+          in the viewBox that a short band crops sky above it rather than its top beam */}
+      <g transform="translate(540 78)">
+        <rect x="-4" y="40" width="15" height="182" fill="rgb(214 40 57)" />
+        <rect x="131" y="40" width="15" height="182" fill="rgb(214 40 57)" />
         <rect x="-16" y="30" width="174" height="12" rx="2" fill="rgb(214 40 57)" />
         <path d="M-30 14h202l-10 16H-20Z" fill="rgb(214 40 57)" />
         <rect x="26" y="62" width="92" height="9" rx="2" fill="rgb(214 40 57)" />

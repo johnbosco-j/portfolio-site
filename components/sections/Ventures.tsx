@@ -100,9 +100,9 @@ export function Ventures() {
                     aria-pressed={isSel}
                     aria-label={`${b.name} — ${b.status}`}
                     className="group absolute flex -translate-x-1/2 flex-col items-center px-1 pb-1"
-                    style={{ left: `${h.x}%`, top: `calc(${cordY * 0.34}% + ${h.drop}px)` }}
+                    style={{ left: `${h.x}%`, top: `${cordY * 0.34}%` }}
                   >
-                    <span aria-hidden="true" className="block h-5 w-px bg-line-strong sm:h-7" />
+                    <span aria-hidden="true" className="block w-px bg-line-strong" style={{ height: `${18 + h.drop}px` }} />
                     <span className={`block transition-transform duration-2 group-hover:-translate-y-0.5 ${lit ? "lantern-flicker" : ""}`}>
                       <Lantern className={h.w} lit={lit} dim={b.kind === "planned"} selected={isSel} />
                     </span>

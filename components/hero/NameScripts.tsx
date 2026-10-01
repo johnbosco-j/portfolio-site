@@ -10,7 +10,7 @@ export function NameScripts({ className = "" }: { className?: string }) {
   const row = profile.nameIn;
   return (
     <div
-      className={`marquee relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_5%,black_95%,transparent)] ${className}`}
+      className={`marquee relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_5%,black_95%,transparent)] lg:[mask-image:linear-gradient(90deg,transparent,black_5%,black_70%,transparent_84%)] ${className}`}
     >
       <p className="sr-only">{`${profile.name} — his name written in ${row.length} languages.`}</p>
       <ul aria-hidden="true" className="marquee-track marquee-track--slow flex w-max items-center py-1">

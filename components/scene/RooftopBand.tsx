@@ -29,16 +29,16 @@ export function RooftopBand({
 }) {
   const dog = who === "shiro";
   return (
-    <div aria-hidden="true" className={`relative h-[190px] overflow-hidden border-y-2 border-line-strong bg-bg-2/70 md:h-[250px] ${className}`}>
+    <div aria-hidden="true" className={`relative h-[clamp(190px,21vw,400px)] overflow-hidden border-y-2 border-line-strong bg-bg-2/70 ${className}`}>
       {/* a wash of moonlight behind the ridge line */}
       <span className="absolute inset-0 bg-[radial-gradient(ellipse_at_72%_120%,rgb(255_231_168/0.09),transparent_62%)]" />
-      <NearRooftops className="absolute inset-x-0 bottom-0 h-[78%]" />
+      <NearRooftops className="absolute inset-x-0 bottom-0 h-full" />
       <Stage
         cast={[{ name: who, x: 0, z: 0, hold, onTap }]}
         petals={false}
         camera={{ y: dog ? 0.75 : 1.15, z: dog ? 4.2 : 5.4, look: dog ? 0.5 : 0.9 }}
         action="Play the scene"
-        className={`pointer-events-auto absolute bottom-[14%] h-[82%] w-[min(300px,46vw)] ${side === "right" ? "right-[6%]" : "left-[6%]"}`}
+        className={`pointer-events-auto absolute bottom-[8%] h-[88%] w-[min(340px,46vw)] ${side === "right" ? "right-[6%]" : "left-[6%]"}`}
       />
     </div>
   );
