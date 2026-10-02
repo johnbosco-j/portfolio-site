@@ -39,7 +39,7 @@ export default function ProjectsPage() {
           <h1 className="display relative text-[clamp(34px,5.4vw,66px)]">
             <AccentText heading={s.heading} />
           </h1>
-          <p className="relative mt-5 max-w-[52ch] font-modern text-[17px] font-light leading-[1.6] text-muted md:text-[19px]">{s.intro}</p>
+          <p className="relative mt-5 max-w-[52ch] text-[17px] leading-[1.6] text-muted md:text-[19px]">{s.intro}</p>
         </header>
       </div>
 

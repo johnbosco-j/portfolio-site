@@ -22,7 +22,9 @@ export default function Home() {
       <Hero hasResume={hasResume()} />
       <About />
       <Now />
-      {/* The troupe reappears between sections, each on the same rooftops as the hero. */}
+      {/* Two bands between sections, plus the footer's. Every character still appears —
+          Shiro sits beside Kuro in the hero and Gen keeps the gate at Contact — but five
+          full-width scenes down one page was decoration crowding out the work. */}
       <RooftopBand who="kiku" side="left" landmark="festival" />
       <Ventures />
       <Work />
@@ -35,10 +37,8 @@ export default function Home() {
       <Moments />
       <Stack />
       <Recognition />
-      <RooftopBand who="shiro" side="left" hold="run" onTap="leap" landmark="toro" flip />
       <Roadmap />
       <Support />
-      <RooftopBand who="gen" side="right" onTap="bow" landmark="torii" />
       <Contact />
     </>
   );

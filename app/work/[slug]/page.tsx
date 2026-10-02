@@ -81,7 +81,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
               <StatusChip status={p.status} note={p.statusNote} />
             </div>
             <h1 className="mt-6 font-serif text-[clamp(64px,10vw,128px)] font-normal italic leading-[0.9] tracking-[-0.02em]">{p.name}</h1>
-            <p className="mt-6 max-w-[40ch] font-modern text-[20px] font-light leading-[1.5] text-ink/80 md:text-[22px]">{p.summary}</p>
+            <p className="mt-6 max-w-[40ch] text-[20px] leading-[1.5] text-ink/80 md:text-[22px]">{p.summary}</p>
             <div className="mt-8 flex flex-wrap gap-2">
               <Chip tone="role" dot={false}>
                 {p.role}

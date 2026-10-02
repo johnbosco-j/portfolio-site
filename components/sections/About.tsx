@@ -94,7 +94,7 @@ export function About() {
         {/* Story + live GitHub */}
         <div className="flex flex-col gap-10 lg:col-span-7">
           <SectionHeader heading={about.heading} id="about-title" word="About" />
-          <div className="flex flex-col gap-5 font-modern text-[18px] font-light leading-[1.6] text-ink/85 md:text-[20px]">
+          <div className="flex flex-col gap-5 text-[18px] leading-[1.6] text-ink/85 md:text-[20px]">
             {about.paragraphs.map((p, i) => (
               <p key={i} data-reveal style={{ ["--i" as string]: i }}>
                 {p}

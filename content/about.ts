@@ -48,12 +48,6 @@ export const moments: Moment[] = [
     tag: "Award",
   },
   {
-    src: "/moments/ctrl-alt-hack-team.jpg",
-    alt: "The winners lined up on stage at Ctrl Alt Hack 2.0",
-    caption: "On stage with the other winners",
-    tag: "Award",
-  },
-  {
     src: "/moments/ctrl-alt-hack-hall.jpg",
     alt: "The audience in the hall during the Ctrl Alt Hack 2.0 ceremony",
     caption: "The hall, before the results",

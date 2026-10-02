@@ -52,7 +52,7 @@
     color: rgb(var(--ink));
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
-    scroll-padding-top: 120px;
+    scroll-padding-top: 120px; /* the two-row header below lg */
     transition: background-color var(--dur-2) var(--ease-out);
   }
   @media (prefers-reduced-motion: reduce) {
@@ -64,11 +64,6 @@
     background: rgb(var(--bg));
     overflow-x: clip;
     text-rendering: optimizeLegibility;
-  }
-  /* Room for the fixed status bar — but only where there is height to spare. On a
-     landscape phone the header and the bar together were taking 37% of the screen. */
-  @media (min-width: 768px) and (min-height: 560px) {
-    body { padding-bottom: 40px; }
   }
   h1, h2, h3 { @apply font-semibold; letter-spacing: -0.02em; text-wrap: balance; }
   p { text-wrap: pretty; }
@@ -383,10 +378,7 @@
   to { opacity: 1; transform: none; }
 }
 
-/* Landscape phones and other short viewports: the header plus the status bar were taking
-   37% of a 390px-tall screen. The doubled class is deliberate — the bar carries Tailwind's
-   `md:block`, which has the same specificity as a single class, and relying on source
-   order against generated utilities is a coin flip. */
-@media (max-height: 559px) {
-  .status-bar.status-bar { display: none; }
+/* Desktop has a single 66px header row, so anchors need less clearance. */
+@media (min-width: 1024px) {
+  html { scroll-padding-top: 86px; }
 }

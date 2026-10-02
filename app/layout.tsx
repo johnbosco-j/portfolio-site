@@ -1,18 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, DM_Mono, Geist, Instrument_Sans, Instrument_Serif, Noto_Nastaliq_Urdu, Noto_Sans_JP, Noto_Sans_Malayalam, Syne } from "next/font/google";
+import { Archivo, DM_Mono, Instrument_Sans, Instrument_Serif, Noto_Nastaliq_Urdu, Noto_Sans_JP, Noto_Sans_Malayalam, Syne } from "next/font/google";
 import { NavBar } from "@/components/nav/NavBar";
 import { AmbientBackground } from "@/components/parallax/AmbientBackground";
 import { RevealObserver } from "@/components/ui/RevealObserver";
-import { StatusBar } from "@/components/ui/StatusBar";
 import { SpotlightTracker } from "@/components/ui/SpotlightTracker";
 import { Footer } from "@/components/sections/Footer";
 import { LINKS, SITE_URL, profile, site } from "@/content/profile";
-import { getLatestPush } from "@/lib/github";
 import "./globals.css";
 
 const sans = Instrument_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-sans", display: "swap" });
 const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-serif", display: "swap" });
-const modern = Geist({ subsets: ["latin"], weight: ["300", "400"], variable: "--font-modern", display: "swap" });
 const mono = DM_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono", display: "swap" });
 // Poster display: heavy, slightly extended, italic — the big name and section titles.
 const display = Archivo({ subsets: ["latin"], weight: "variable", style: ["normal", "italic"], axes: ["wdth"], variable: "--font-display", display: "swap" });
@@ -56,10 +53,9 @@ const jsonLd = {
 };
 
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const push = await getLatestPush();
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-IN" suppressHydrationWarning className={`${sans.variable} ${serif.variable} ${mono.variable} ${modern.variable} ${display.variable} ${accent.variable} ${malayalam.variable} ${urdu.variable} ${japanese.variable}`}>
+    <html lang="en-IN" suppressHydrationWarning className={`${sans.variable} ${serif.variable} ${mono.variable} ${display.variable} ${accent.variable} ${malayalam.variable} ${urdu.variable} ${japanese.variable}`}>
       <body>
         <a
           href="#main"
@@ -77,7 +73,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           </main>
           <Footer />
         </div>
-        <StatusBar push={push} />
         <div className="grain" aria-hidden="true" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </body>

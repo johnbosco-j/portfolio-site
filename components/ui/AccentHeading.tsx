@@ -50,7 +50,7 @@ export function SectionHeader({
         <AccentText heading={heading} />
       </h2>
       {intro && (
-        <p className="max-w-xl font-modern text-[18px] font-light leading-[1.55] text-muted md:text-[19px]" data-reveal style={{ ["--i" as string]: 1 }}>
+        <p className="max-w-xl text-[18px] leading-[1.55] text-muted md:text-[19px]" data-reveal style={{ ["--i" as string]: 1 }}>
           {intro}
         </p>
       )}

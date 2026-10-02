@@ -24,10 +24,3 @@ export async function getGitHub(): Promise<{ repos: Repo[]; total: number } | nu
     return null;
   }
 }
-
-/** The most recent public push (repo name + date), for the status bar. */
-export async function getLatestPush(): Promise<{ name: string; url: string; pushedAt: string } | null> {
-  const data = await getGitHub();
-  const latest = data?.repos[0];
-  return latest ? { name: latest.name, url: latest.html_url, pushedAt: latest.pushed_at } : null;
-}

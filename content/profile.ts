@@ -153,7 +153,6 @@ export const site = {
     primary: { label: "See my work", href: "#work" },
     resume: { label: "Download résumé", soon: "Résumé — coming soon" },
     rivendevs: "Visit Riven",
-    motionPrompt: "Tap · move it with your phone",
     scrollCue: "Scroll for work",
     /** The two tilted ribbon bands under the poster. */
     ribbons: {

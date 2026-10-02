@@ -1,8 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
-import { useEffect, useState } from "react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { AccentText } from "@/components/ui/AccentHeading";
 import { Button, TextLink } from "@/components/ui/Button";
 import { ParallaxLayer } from "@/components/parallax/ParallaxLayer";
@@ -13,7 +12,7 @@ import { FitText } from "./FitText";
 import { NameScripts } from "./NameScripts";
 import { LINKS, profile, site } from "@/content/profile";
 import { useMediaQuery, useMotionScale } from "@/lib/hooks";
-import { gyroNeedsPermission, motionGranted, requestGyro, startTilt, tiltX, tiltY } from "@/lib/tilt";
+import { startTilt, tiltX, tiltY } from "@/lib/tilt";
 
 /**
  * Hero — a type poster: the name set huge in heavy italic display type, the headline and
@@ -54,13 +53,6 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
 
   useEffect(() => startTilt(), []);
 
-  // iOS asks before sharing motion; offer a tap (touch devices only).
-  const [askMotion, setAskMotion] = useState(false);
-  useEffect(() => {
-    const touch = !window.matchMedia("(pointer: fine)").matches;
-    const id = requestAnimationFrame(() => setAskMotion(touch && !!scale && gyroNeedsPermission() && !motionGranted()));
-    return () => cancelAnimationFrame(id);
-  }, [scale]);
 
   // The type leans a little against the cursor / tilt — depth without moving anything off screen.
   const sx = useSpring(tiltX, { stiffness: 90, damping: 18 });
@@ -78,7 +70,7 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
           the lanterns and the troupe all live inside it, and the copy reserves exactly that
           much space above it. They used to share the same area, which on a desktop put the
           torii straight behind the headline and the dog on top of the signature. */}
-      <div className="relative isolate overflow-hidden pt-[104px] md:pt-[124px]" style={{ ["--band" as string]: "clamp(200px, 21vw, 380px)" }}>
+      <div className="relative isolate overflow-hidden pt-[104px] lg:pt-[66px]" style={{ ["--band" as string]: "clamp(200px, 21vw, 380px)" }}>
         {/* The Iga Night poster: static SVG, so this is also the no-JS and reduced-motion view.
 
             The sky does not parallax. A layer that moves has to be bigger than the hole it
@@ -165,7 +157,7 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
               <div className="lg:col-span-6 lg:pt-2">
                 <p
                   {...rise(5)}
-                  className="hero-line max-w-[48ch] font-modern text-[17px] font-light leading-[1.6] tracking-[-0.01em] text-ink/80 md:text-[19px]"
+                  className="hero-line max-w-[48ch] text-[17px] leading-[1.6] tracking-[-0.01em] text-ink/80 md:text-[19px]"
                 >
                   {hero.intro}
                 </p>
@@ -184,18 +176,6 @@ export function Hero({ hasResume }: { hasResume: boolean }) {
                     {hero.rivendevs}
                   </TextLink>
                 </div>
-                {askMotion && (
-                  <button
-                    type="button"
-                    onClick={async () => {
-                      if (await requestGyro()) setAskMotion(false);
-                    }}
-                    className="mt-6 inline-flex h-11 items-center gap-2 border-2 border-line-strong px-4 font-mono text-micro uppercase text-muted"
-                  >
-                    <span aria-hidden="true" className="size-1.5 rounded-full bg-ember" />
-                    {hero.motionPrompt}
-                  </button>
-                )}
               </div>
             </motion.div>
 
