@@ -3,6 +3,7 @@ import { Mark } from "@/components/brand/Mark";
 import { RooftopBand } from "@/components/scene/RooftopBand";
 import { ExternalMark } from "@/components/ui/Button";
 import { site } from "@/content/profile";
+import { supportOpen } from "@/content/support";
 import { resolveHref } from "@/lib/links";
 import { hasResume } from "@/lib/resume";
 
@@ -11,7 +12,7 @@ export function Footer() {
   return (
     <footer className="fade-divider relative overflow-hidden bg-bg-2/60 pb-8">
       {/* Kuro sees the page out along the same rooftops he stands on in the hero. */}
-      <RooftopBand who="kuro" side="right" hold="run" onTap="leap" className="border-t-0" />
+      <RooftopBand who="kuro" side="right" hold="run" onTap="leap" landmark="none" className="border-t-0" />
       <div className="container-x pt-20">
         <div className="flex flex-col justify-between gap-10 md:flex-row md:items-start">
           <div>
@@ -25,7 +26,7 @@ export function Footer() {
             <ul className="grid grid-cols-2 gap-x-10 gap-y-1 sm:grid-cols-3">
               {f.links.map((l) => {
                 const { href, external } = resolveHref(l.href);
-                if (!href || (l.href === "resume" && !hasResume())) return null;
+                if (!href || (l.href === "resume" && !hasResume()) || (l.href === "/#support" && !supportOpen)) return null;
                 return (
                   <li key={l.label}>
                     <a

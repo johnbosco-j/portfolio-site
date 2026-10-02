@@ -39,3 +39,11 @@ export const support = {
   ] satisfies SupportMethod[],
   soon: "Support links open soon.",
 };
+
+/**
+ * Whether the section is shown at all. Off until at least one payment method has a real
+ * link: a donation box with three price tiers and nothing to press reads as unfinished,
+ * which is worse on a portfolio than having no donation box. Set NEXT_PUBLIC_UPI_ID (or any
+ * of the other env vars above) and the section, its footer link and the tiers all appear.
+ */
+export const supportOpen = support.methods.some((m) => Boolean(m.href));

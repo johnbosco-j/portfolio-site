@@ -141,8 +141,8 @@ export function Ventures() {
                       type="button"
                       onClick={() => setSelected(b.id)}
                       aria-pressed={selected === b.id}
-                      className={`min-h-11 rounded-full border px-3 font-mono text-[11px] uppercase tracking-[0.06em] transition-colors duration-1 ${
-                        selected === b.id ? "border-ember/60 text-ink" : "border-line text-faint hover:text-ink-2"
+                      className={`min-h-11 border-2 px-3 font-mono text-[11px] uppercase tracking-[0.06em] transition-colors duration-1 ${
+                        selected === b.id ? "border-ember bg-ember/10 text-ink" : "border-line-strong text-faint hover:border-ember/60 hover:text-ink-2"
                       }`}
                     >
                       {b.kind === "planned" ? b.id : b.name}

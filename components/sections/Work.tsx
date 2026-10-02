@@ -86,9 +86,9 @@ function ProjectTile({ p, index }: { p: Project; index: number }) {
 
         <div className="mt-auto flex flex-wrap items-center gap-2 pt-7">
           {p.links?.caseStudy && (
-            <a href={`/work/${p.slug}`} className="group/cs inline-flex h-11 items-center gap-2 rounded-full border border-line-strong px-5 text-[15px] font-medium transition-colors duration-1 hover:border-ember">
+            <a href={`/work/${p.slug}`} className="group/cs inline-flex h-11 items-center gap-2 border-2 border-line-strong bg-panel px-5 font-mono text-[12px] uppercase tracking-[0.12em] text-ink shadow-brut transition-[border-color,color,transform,box-shadow] duration-1 hover:border-ember hover:text-ember active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
               Case study
-              <ArrowRight size={16} strokeWidth={1.5} aria-hidden="true" className="transition-transform duration-1 group-hover/cs:translate-x-0.5" />
+              <ArrowRight size={14} strokeWidth={2} aria-hidden="true" className="transition-transform duration-1 group-hover/cs:translate-x-0.5" />
               <span className="sr-only">: {p.name}</span>
             </a>
           )}

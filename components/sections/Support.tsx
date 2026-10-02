@@ -3,7 +3,7 @@ import { Coffee, Heart } from "lucide-react";
 import { SectionHeader } from "@/components/ui/AccentHeading";
 import { ExternalMark } from "@/components/ui/Button";
 import { InstrumentPanel } from "@/components/ui/InstrumentPanel";
-import { support } from "@/content/support";
+import { support, supportOpen } from "@/content/support";
 import { publicFileExists } from "@/lib/assets";
 
 /** "Buy me a chai": UPI tiers (deep links open the payment app on phones) + other platforms. */
@@ -12,6 +12,7 @@ export function Support() {
   const methods = s.methods.filter((m) => m.href);
   const hasQr = publicFileExists(s.qr.src);
   const live = methods.length > 0;
+  if (!supportOpen) return null;
   return (
     <section id="support" aria-labelledby="support-title" className="fade-divider section-y relative overflow-hidden">
       <div aria-hidden="true" className="pointer-events-none absolute -right-40 top-10 -z-10 size-[520px] rounded-full bg-[radial-gradient(closest-side,rgb(255_92_102/0.12),transparent)]" />

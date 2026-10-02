@@ -23,7 +23,7 @@ export default function NotFound() {
         </div>
       </section>
       {/* Kiku, up on the rooftops, looking for it too. */}
-      <RooftopBand who="kiku" side="right" className="mt-16" />
+      <RooftopBand who="kiku" side="right" landmark="none" className="mt-16" />
     </>
   );
 }

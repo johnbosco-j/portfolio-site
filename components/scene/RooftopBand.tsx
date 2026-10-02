@@ -1,4 +1,4 @@
-import { NearRooftops } from "@/components/poster/Village";
+import { NearRooftops, type Landmark } from "@/components/poster/Village";
 import { Stage } from "@/components/scene/Stage";
 import type { CharacterName, Pose } from "@/lib/scene/cast";
 
@@ -19,12 +19,17 @@ export function RooftopBand({
   side = "right",
   hold,
   onTap = "leap",
+  landmark = "torii",
+  flip = false,
   className = "",
 }: {
   who: CharacterName;
   side?: "left" | "right";
   hold?: Pose;
   onTap?: Pose;
+  /** What the street is built around, so no two bands on the page look alike. */
+  landmark?: Landmark;
+  flip?: boolean;
   className?: string;
 }) {
   const dog = who === "shiro";
@@ -32,7 +37,7 @@ export function RooftopBand({
     <div aria-hidden="true" className={`relative h-[clamp(190px,21vw,400px)] overflow-hidden border-y-2 border-line-strong bg-bg-2/70 ${className}`}>
       {/* a wash of moonlight behind the ridge line */}
       <span className="absolute inset-0 bg-[radial-gradient(ellipse_at_72%_120%,rgb(255_231_168/0.09),transparent_62%)]" />
-      <NearRooftops className="absolute inset-x-0 bottom-0 h-full" />
+      <NearRooftops landmark={landmark} flip={flip} className="absolute inset-x-0 bottom-0 h-full" />
       <Stage
         cast={[{ name: who, x: 0, z: 0, hold, onTap }]}
         petals={false}

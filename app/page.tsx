@@ -23,22 +23,22 @@ export default function Home() {
       <About />
       <Now />
       {/* The troupe reappears between sections, each on the same rooftops as the hero. */}
-      <RooftopBand who="kiku" side="left" />
+      <RooftopBand who="kiku" side="left" landmark="festival" />
       <Ventures />
       <Work />
       <div className="border-y-2 border-line-strong py-8" aria-label="Shipped work">
         <Marquee items={site.ticker} />
       </div>
-      <RooftopBand who="beni" side="right" />
+      <RooftopBand who="beni" side="right" landmark="pagoda" />
       <OpenToWork hasResume={hasResume()} />
       <Journey />
       <Moments />
       <Stack />
       <Recognition />
-      <RooftopBand who="shiro" side="left" hold="run" onTap="leap" />
+      <RooftopBand who="shiro" side="left" hold="run" onTap="leap" landmark="toro" flip />
       <Roadmap />
       <Support />
-      <RooftopBand who="gen" side="right" onTap="bow" />
+      <RooftopBand who="gen" side="right" onTap="bow" landmark="torii" />
       <Contact />
     </>
   );

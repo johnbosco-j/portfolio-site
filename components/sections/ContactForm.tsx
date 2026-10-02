@@ -75,7 +75,7 @@ export function ContactForm({ topics, success, onSent }: { topics: readonly stri
           {topics.map((t, i) => (
             <label key={t} className="relative">
               <input type="radio" name="topic" value={t} required defaultChecked={i === 0} className="peer sr-only" />
-              <span className="inline-flex min-h-11 cursor-pointer items-center rounded-full border border-line bg-panel-2 px-4 text-[14px] text-muted transition-colors duration-1 hover:border-line-strong hover:text-ink peer-checked:border-ember peer-checked:text-ink peer-focus-visible:shadow-[0_0_0_4px_rgb(255_92_102/0.18)] peer-focus-visible:outline peer-focus-visible:outline-1 peer-focus-visible:outline-ember">
+              <span className="inline-flex min-h-11 cursor-pointer items-center border-2 border-line-strong bg-panel-2 px-4 font-mono text-[12px] uppercase tracking-[0.08em] text-muted transition-colors duration-1 hover:border-line-strong hover:text-ink peer-checked:border-ember peer-checked:bg-ember/10 peer-checked:text-ink peer-focus-visible:shadow-[0_0_0_4px_rgb(255_92_102/0.18)] peer-focus-visible:outline peer-focus-visible:outline-1 peer-focus-visible:outline-ember">
                 {t}
               </span>
             </label>
@@ -99,7 +99,7 @@ export function ContactForm({ topics, success, onSent }: { topics: readonly stri
         <button
           type="submit"
           disabled={state.status === "sending"}
-          className="inline-flex h-11 items-center gap-2 rounded-full bg-ember-fill px-6 text-[15px] font-medium text-white transition-colors duration-1 hover:bg-[#E63946] active:bg-ember-deep disabled:opacity-70"
+          className="inline-flex h-11 items-center gap-2 border-2 border-ember bg-ember-fill px-6 font-mono text-[12px] uppercase tracking-[0.12em] text-white shadow-brut transition-[background-color,transform,box-shadow] duration-1 hover:bg-[#E63946] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none disabled:opacity-70"
         >
           {state.status === "sending" && <LoaderCircle size={16} className="animate-spin" aria-hidden="true" />}
           {state.status === "sending" ? "Sending…" : "Send message"}

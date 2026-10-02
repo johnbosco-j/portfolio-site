@@ -127,13 +127,13 @@ function Roof({ x, y, w, h, shade = false }: { x: number; y: number; w: number; 
 }
 
 /** A paper lantern: body, ribs, cap and a warm flicker. */
-function Lantern({ x, y, s = 1, delay = 0 }: { x: number; y: number; s?: number; delay?: number }) {
+function Lantern({ x, y, s = 1, delay = 0, red = false }: { x: number; y: number; s?: number; delay?: number; red?: boolean }) {
   return (
     <g transform={`translate(${x} ${y}) scale(${s})`}>
       <line x1="0" y1="-26" x2="0" y2="-10" stroke="rgb(35 43 92)" strokeWidth="2" />
       <g className="lantern-flicker" style={{ animationDelay: `${delay}ms` }}>
-        <ellipse cx="0" cy="0" rx="30" ry="30" fill="rgb(255 200 87)" opacity="0.1" />
-        <rect x="-11" y="-10" width="22" height="26" rx="9" fill="rgb(255 200 87)" />
+        <ellipse cx="0" cy="0" rx="30" ry="30" fill={red ? "rgb(255 92 102)" : "rgb(255 200 87)"} opacity="0.1" />
+        <rect x="-11" y="-10" width="22" height="26" rx="9" fill={red ? "rgb(255 92 102)" : "rgb(255 200 87)"} />
         <rect x="-11" y="-10" width="22" height="26" rx="9" fill="none" stroke="rgb(26 18 6)" strokeOpacity="0.35" strokeWidth="1" />
         <line x1="-10" y1="-2" x2="10" y2="-2" stroke="rgb(26 18 6)" strokeOpacity="0.3" strokeWidth="1.2" />
         <line x1="-10" y1="6" x2="10" y2="6" stroke="rgb(26 18 6)" strokeOpacity="0.3" strokeWidth="1.2" />
@@ -144,38 +144,132 @@ function Lantern({ x, y, s = 1, delay = 0 }: { x: number; y: number; s?: number;
   );
 }
 
-/** L3 — the near foreground: rooftops, a torii gate and hanging lanterns.
+/** The landmark a band is built around. Every band used to carry the same torii, so five
+ *  of them down the page read as one picture pasted five times. */
+export type Landmark = "torii" | "pagoda" | "festival" | "toro" | "none";
+
+const RED = "rgb(214 40 57)";
+const NIGHT_FILL = "rgb(16 22 58)";
+const EDGE = "rgb(52 64 122)";
+const GOLD = "rgb(255 200 87)";
+
+/** The torii: low enough in the viewBox that a short band crops sky above it, not its beam. */
+function Torii() {
+  return (
+    <g transform="translate(540 78)">
+      <rect x="-4" y="40" width="15" height="182" fill={RED} />
+      <rect x="131" y="40" width="15" height="182" fill={RED} />
+      <rect x="-16" y="30" width="174" height="12" rx="2" fill={RED} />
+      <path d="M-30 14h202l-10 16H-20Z" fill={RED} />
+      <rect x="26" y="62" width="92" height="9" rx="2" fill={RED} />
+    </g>
+  );
+}
+
+/** A three-tier pagoda standing in front of the roofline, eaves picked out in torii red. */
+function Pagoda() {
+  const tier = (y: number, half: number, bodyHalf: number, bodyH: number) => (
+    <g key={y}>
+      <path d={`M${-half} ${y + 14}Q0 ${y - 4} ${half} ${y + 14}L${half + 14} ${y + 26}H${-half - 14}Z`} fill={NIGHT_FILL} stroke={RED} strokeWidth="2.5" strokeLinejoin="round" />
+      <rect x={-bodyHalf} y={y + 26} width={bodyHalf * 2} height={bodyH} fill={NIGHT_FILL} stroke={EDGE} strokeWidth="2" />
+      <rect x={-6} y={y + 26 + bodyH * 0.3} width="12" height={Math.min(16, bodyH * 0.4)} fill={GOLD} opacity="0.85" />
+    </g>
+  );
+  return (
+    <g transform="translate(640 0)">
+      <rect x="-2" y="44" width="4" height="30" fill={RED} />
+      <circle cx="0" cy="44" r="4" fill={RED} />
+      {tier(66, 44, 26, 30)}
+      {tier(122, 62, 36, 34)}
+      {tier(182, 82, 48, 96)}
+    </g>
+  );
+}
+
+/** A festival string: one sagging cord between two rooftops, hung with lanterns. */
+function Festival() {
+  const xs = [430, 520, 610, 700, 790, 880, 970];
+  // the same curve the cord follows, so each lantern hangs from it
+  const cordY = (x: number) => {
+    const t = (x - 360) / (1040 - 360);
+    return 150 + 70 * 4 * t * (1 - t);
+  };
+  return (
+    <g>
+      <rect x="352" y="140" width="8" height="160" fill={EDGE} />
+      <rect x="1040" y="140" width="8" height="160" fill={EDGE} />
+      <path d="M360 150Q700 290 1040 150" fill="none" stroke={EDGE} strokeWidth="2" />
+      {xs.map((x, i) => (
+        <g key={x}>
+          <line x1={x} y1={cordY(x)} x2={x} y2={cordY(x) + 12} stroke={EDGE} strokeWidth="1.5" />
+          <Lantern x={x} y={cordY(x) + 38} s={0.72} delay={i * 350} red={i % 3 === 1} />
+        </g>
+      ))}
+    </g>
+  );
+}
+
+/** A pair of stone lanterns (tōrō), lit, flanking an empty path. */
+function Toro() {
+  const one = (x: number, key: string) => (
+    <g key={key} transform={`translate(${x} 150)`}>
+      <circle cx="0" cy="-22" r="5" fill={EDGE} />
+      <path d="M-30 -4L30 -4L16 -20L-16 -20Z" fill={NIGHT_FILL} stroke={EDGE} strokeWidth="2" />
+      <rect x="-16" y="-4" width="32" height="30" fill={NIGHT_FILL} stroke={EDGE} strokeWidth="2" />
+      <g className="lantern-flicker">
+        <ellipse cx="0" cy="11" rx="34" ry="30" fill={GOLD} opacity="0.12" />
+        <rect x="-9" y="3" width="18" height="16" fill={GOLD} />
+      </g>
+      <rect x="-22" y="26" width="44" height="7" fill={NIGHT_FILL} stroke={EDGE} strokeWidth="2" />
+      <rect x="-7" y="33" width="14" height="62" fill={NIGHT_FILL} stroke={EDGE} strokeWidth="2" />
+      <rect x="-26" y="95" width="52" height="10" fill={NIGHT_FILL} stroke={EDGE} strokeWidth="2" />
+      <rect x="-32" y="105" width="64" height="46" fill={NIGHT_FILL} stroke={EDGE} strokeWidth="2" />
+    </g>
+  );
+  return (
+    <g>
+      {one(560, "l")}
+      {one(800, "r")}
+    </g>
+  );
+}
+
+/** L3 — the near foreground: rooftops, a landmark, and lanterns along the eaves.
  *
  * Centre-anchored and drawn with its subjects grouped near the middle of the viewBox. A
  * `slice` layer crops from the edges inward, so anything parked at x=150 is simply gone by
  * the time the viewport is phone-width — which is how the torii used to end up filling the
  * whole band on its own, unrecognisable.
+ *
+ * `flip` mirrors the whole street, so a band can put its landmark on the other side of the
+ * page from the character standing in it.
  */
-export function NearRooftops({ className = "" }: { className?: string }) {
+export function NearRooftops({ className = "", landmark = "torii", flip = false }: { className?: string; landmark?: Landmark; flip?: boolean }) {
   return (
     <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true" className={`size-full ${className}`}>
-      {/* rooftops across the bottom */}
-      <Roof x={-40} y={190} w={330} h={110} />
-      <Roof x={250} y={226} w={300} h={74} shade />
-      <Roof x={520} y={172} w={360} h={128} />
-      <Roof x={840} y={218} w={300} h={82} shade />
-      <Roof x={1110} y={186} w={370} h={114} />
+      <g transform={flip ? "translate(1440 0) scale(-1 1)" : undefined}>
+        {/* rooftops across the bottom */}
+        <Roof x={-40} y={190} w={330} h={110} />
+        <Roof x={250} y={226} w={300} h={74} shade />
+        <Roof x={520} y={172} w={360} h={128} />
+        <Roof x={840} y={218} w={300} h={82} shade />
+        <Roof x={1110} y={186} w={370} h={114} />
 
-      {/* the torii, just left of centre where every viewport can see it, and low enough
-          in the viewBox that a short band crops sky above it rather than its top beam */}
-      <g transform="translate(540 78)">
-        <rect x="-4" y="40" width="15" height="182" fill="rgb(214 40 57)" />
-        <rect x="131" y="40" width="15" height="182" fill="rgb(214 40 57)" />
-        <rect x="-16" y="30" width="174" height="12" rx="2" fill="rgb(214 40 57)" />
-        <path d="M-30 14h202l-10 16H-20Z" fill="rgb(214 40 57)" />
-        <rect x="26" y="62" width="92" height="9" rx="2" fill="rgb(214 40 57)" />
+        {landmark === "torii" && <Torii />}
+        {landmark === "pagoda" && <Pagoda />}
+        {landmark === "festival" && <Festival />}
+        {landmark === "toro" && <Toro />}
+
+        {/* lanterns hung along the eaves — the festival string brings its own */}
+        {landmark !== "festival" && (
+          <>
+            <Lantern x={300} y={246} s={0.9} />
+            <Lantern x={landmark === "pagoda" ? 760 : 700} y={198} delay={700} />
+            <Lantern x={980} y={238} s={0.85} delay={1400} />
+            <Lantern x={1260} y={208} s={0.95} delay={2100} />
+          </>
+        )}
       </g>
-
-      {/* lanterns hung along the eaves */}
-      <Lantern x={300} y={246} s={0.9} />
-      <Lantern x={700} y={198} delay={700} />
-      <Lantern x={980} y={238} s={0.85} delay={1400} />
-      <Lantern x={1260} y={208} s={0.95} delay={2100} />
     </svg>
   );
 }
