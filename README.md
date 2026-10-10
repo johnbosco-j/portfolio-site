@@ -1,7 +1,9 @@
 # Johnbosco J Elanjikal — portfolio
 
+**Live → [johnbosco-portfolio-gules.vercel.app](https://johnbosco-portfolio-gules.vercel.app)**
+
 Personal site of Johnbosco J Elanjikal: third-year CSE student at LICET, full-stack developer, and founder of Riven.
-Next.js 16 (App Router) · TypeScript strict · Tailwind CSS 3 · Framer Motion · three.js (only for the lazy Riv cameo).
+Next.js 16 (App Router) · TypeScript strict · Tailwind CSS 3 · Framer Motion · three.js (the lazily loaded character scenes).
 
 ## Run it
 
@@ -19,17 +21,23 @@ Copy `.env.example` to `.env.local`.
 
 | Variable | Default / effect |
 |---|---|
-| `NEXT_PUBLIC_SITE_URL` | `https://johnbosco.rivendevs.in` — metadata, sitemap, JSON-LD |
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL for metadata, sitemap and JSON-LD. Unset on Vercel, it follows the project's production domain; elsewhere it falls back to `https://johnbosco.rivendevs.in` |
 | `NEXT_PUBLIC_RIVENDEVS_URL` | `https://rivendevs.in` |
 | `NEXT_PUBLIC_CLAREO_URL` | `https://clareo.rivendevs.in` |
 | `NEXT_PUBLIC_LINKEDIN_URL` | LinkedIn links stay hidden until set |
 | `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` | Contact form email delivery; without them messages are only logged |
-| `NEXT_PUBLIC_UPI_ID` | Turns on the ₹50 / ₹150 / ₹500 UPI buttons in **Support** |
+| `NEXT_PUBLIC_UPI_ID` | Turns on the **Support** section with its ₹50 / ₹150 / ₹500 UPI buttons (the section and its footer link stay hidden until some payment link is set) |
 | `NEXT_PUBLIC_RAZORPAY_URL`, `NEXT_PUBLIC_BMC_URL`, `NEXT_PUBLIC_KOFI_URL`, `NEXT_PUBLIC_GITHUB_SPONSORS_URL` | Each support platform appears once its link is set |
 
 ## Deploy (Vercel)
 
-Import the folder in Vercel, add the env vars, deploy. Pages are static; the GitHub feed refreshes daily (ISR); `/api/contact` and `/resume` are server routes.
+Live on Vercel as the `johnbosco-portfolio` project. `vercel.json` pins the Next.js preset — without it a CLI-created project builds nothing and serves `NOT_FOUND`. `.vercelignore` keeps the third-party reference zip out of uploads.
+
+```bash
+vercel deploy --prod
+```
+
+Set `RESEND_API_KEY` and `CONTACT_TO_EMAIL` in the project's environment variables, or the contact form only logs messages. Pages are static; the GitHub feed refreshes daily (ISR); `/api/contact` and `/resume` are server routes.
 
 ## Updating content (never edit components for copy)
 
