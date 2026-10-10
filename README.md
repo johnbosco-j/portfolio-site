@@ -77,4 +77,4 @@ Single graphite-gray + red theme (see the palette update at the end of `design_p
 
 ## Privacy
 
-The phone number and personal Gmail never appear anywhere, including the résumé PDF. Contact goes through the form or `hello@rivendevs.in`.
+The phone number never appears anywhere, including the résumé PDF. The public contact address is `mailtojjohnbosco@gmail.com` (set in `content/profile.ts` → `LINKS.email`), alongside the contact form.

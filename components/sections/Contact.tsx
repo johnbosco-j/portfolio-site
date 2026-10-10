@@ -34,9 +34,12 @@ export function Contact() {
             </div>
             <div data-reveal="tile" style={{ ["--i" as string]: 2 }} className="tile p-6">
               <p className="micro">{c.emailLabel}</p>
-              <a href={`mailto:${LINKS.email}`} className="mt-3 inline-flex min-h-11 items-center gap-3 font-serif text-[28px] italic text-ink transition-colors hover:text-ember">
-                <Mail size={20} strokeWidth={1.5} aria-hidden="true" className="text-ember" />
-                {LINKS.email}
+              <a
+                href={`mailto:${LINKS.email}`}
+                className="mt-3 flex min-h-11 min-w-0 items-center gap-3 font-serif text-[clamp(19px,5.6vw,28px)] italic text-ink transition-colors hover:text-ember lg:text-[clamp(19px,1.9vw,28px)]"
+              >
+                <Mail size={20} strokeWidth={1.5} aria-hidden="true" className="flex-none text-ember" />
+                <span className="min-w-0 [overflow-wrap:anywhere]">{LINKS.email}</span>
               </a>
               <ul className="mt-4 divide-y divide-line border-t border-line">
                 {links.map((l) => (

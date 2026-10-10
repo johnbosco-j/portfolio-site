@@ -148,7 +148,7 @@ Copy under the heading: "Plans, not promises. When something ships, it moves up 
 ### 10. Contact — "Let's build something *clear*"
 
 - Form: name, email, reason (Internship / Client project / Collaboration / Hackathon team / Just saying hi), message. Honeypot, rate limit, inline success.
-- Also: GitHub ↗, LinkedIn ↗ (when set), Riven ↗, and the company email `hello@rivendevs.in`.
+- Also: GitHub ↗, LinkedIn ↗ (when set), Riven ↗, and the contact email `mailtojjohnbosco@gmail.com`.
 - Optional cameo: **Riv** (Riven's robot mascot, lazy three.js) waves when the message is sent.
 - **Never** show the phone number or the personal Gmail address.
 

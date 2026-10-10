@@ -19,7 +19,7 @@ export const LINKS = {
   /** Hidden everywhere while unset. */
   linkedin: env(process.env.NEXT_PUBLIC_LINKEDIN_URL),
   /** Company inbox. Never the personal Gmail, never a phone number. */
-  email: "hello@rivendevs.in",
+  email: "mailtojjohnbosco@gmail.com",
   /** Public résumé (no phone number). Served by app/resume/route.ts from /public/resume. */
   resume: "/resume",
   resumeFile: "resume/Johnbosco-J-Elanjikal-Resume.pdf",

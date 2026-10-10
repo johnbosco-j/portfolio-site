@@ -107,8 +107,8 @@ export type Project = {
 
 ## Personal data
 
-- Show: name, role, college, city (Chennai), GitHub, LinkedIn (if provided), Riven links, a contact form, and a **company** email (`hello@rivendevs.in`) or a dedicated portfolio inbox.
-- **Never** publish the phone number or the personal Gmail address. The downloadable resume is a separate **public** PDF without the phone number.
+- Show: name, role, college, city (Chennai), GitHub, LinkedIn (if provided), Riven links, a contact form, and the contact email `mailtojjohnbosco@gmail.com` (`LINKS.email` in `content/profile.ts` — the owner chose this over the company address in October 2026).
+- **Never** publish the phone number. The downloadable resume is a separate **public** PDF without the phone number.
 - No exact home address (only "Chennai, India").
 
 ## How to add things

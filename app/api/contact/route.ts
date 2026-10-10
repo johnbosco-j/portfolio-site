@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { site } from "@/content/profile";
+import { LINKS, site } from "@/content/profile";
 
 // Simple in-memory rate limit: 5 submissions per IP per 10 minutes.
 // Per-instance on serverless; swap for Upstash/Vercel KV if abuse appears.
@@ -68,7 +68,7 @@ export async function POST(req: Request) {
 
   if (!res.ok) {
     console.error("[contact] Resend error", res.status, await res.text().catch(() => ""));
-    return done({ error: "I couldn't send that just now. Please email hello@rivendevs.in instead." }, 502);
+    return done({ error: `I couldn't send that just now. Please email ${LINKS.email} instead.` }, 502);
   }
   return done({ ok: true });
 }
