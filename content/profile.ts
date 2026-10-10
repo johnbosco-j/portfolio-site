@@ -2,7 +2,13 @@
 
 const env = (value: string | undefined) => (value && value.trim().length > 0 ? value.trim() : undefined);
 
-export const SITE_URL = env(process.env.NEXT_PUBLIC_SITE_URL) ?? "https://johnbosco.rivendevs.in";
+// On Vercel, fall back to the project's production domain — the custom domain once one is
+// attached, the *.vercel.app one until then — so canonical URLs, the sitemap and link previews
+// point at a site that actually answers. johnbosco.rivendevs.in is only the last resort.
+// Server-only: every reader of SITE_URL (metadata, sitemap, robots) runs on the server.
+const vercelProductionUrl = env(process.env.VERCEL_PROJECT_PRODUCTION_URL);
+export const SITE_URL =
+  env(process.env.NEXT_PUBLIC_SITE_URL) ?? (vercelProductionUrl ? `https://${vercelProductionUrl}` : undefined) ?? "https://johnbosco.rivendevs.in";
 export const RIVENDEVS_URL = env(process.env.NEXT_PUBLIC_RIVENDEVS_URL) ?? "https://rivendevs.in";
 export const CLAREO_URL = env(process.env.NEXT_PUBLIC_CLAREO_URL) ?? "https://clareo.rivendevs.in";
 

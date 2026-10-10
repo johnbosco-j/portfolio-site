@@ -1,0 +1,7 @@
+# Third-party reference material — never upload, never publish.
+portfolio-main.zip
+# Local-only
+.env
+.env*.local
+.next
+node_modules
